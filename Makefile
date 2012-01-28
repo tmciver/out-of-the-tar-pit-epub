@@ -2,7 +2,7 @@ EPUB_FILES = mimetype content.opf index_split_000.html titlepage.xhtml cover.jpe
 EPUB_ARCHIVE = out-of-the-tar-pit.epub
 
 $(EPUB_ARCHIVE) : $(EPUB_FILES)
-	zip $@ $^
+	zip -X $@ $^
 
 clean:
 	rm $(EPUB_ARCHIVE)

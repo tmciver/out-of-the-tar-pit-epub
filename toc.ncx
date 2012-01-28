@@ -15,277 +15,73 @@
       <navLabel>
         <text>[NR69,</text>
       </navLabel>
-      <content src="index_split_000.html#66"/>
+      <content src="index_split_000.html#nr69"/>
     </navPoint>
     <navPoint id="924d5db8-a9e5-4103-ac81-6bb22d97c831" playOrder="1">
       <navLabel>
         <text>section 2</text>
       </navLabel>
-      <content src="index_split_000.html#2"/>
+      <content src="index_split_000.html#section2"/>
     </navPoint>
     <navPoint id="60e897f6-ab21-46ca-bb5e-9685b12f5dd2" playOrder="2">
       <navLabel>
         <text>section 3.</text>
       </navLabel>
-      <content src="index_split_000.html#4"/>
+      <content src="index_split_000.html#section3"/>
     </navPoint>
     <navPoint id="24ef03fc-2364-4d66-b041-f378820d6d69" playOrder="3">
       <navLabel>
         <text>section 4</text>
       </navLabel>
-      <content src="index_split_000.html#5"/>
+      <content src="index_split_000.html#section4"/>
     </navPoint>
     <navPoint id="c386d3d0-7fae-4279-9895-51226569ee90" playOrder="4">
       <navLabel>
         <text>section 5.</text>
       </navLabel>
-      <content src="index_split_000.html#12"/>
+      <content src="index_split_000.html#section5"/>
     </navPoint>
     <navPoint id="12a24255-5907-499c-a598-95a62e1fb965" playOrder="5">
       <navLabel>
         <text>section 6</text>
       </navLabel>
-      <content src="index_split_000.html#21"/>
+      <content src="index_split_000.html#section6"/>
     </navPoint>
     <navPoint id="17d2089f-d9a6-43c9-9534-9b3e05b6df5e" playOrder="6">
       <navLabel>
         <text>section 7</text>
       </navLabel>
-      <content src="index_split_000.html#23"/>
+      <content src="index_split_000.html#section7"/>
     </navPoint>
     <navPoint id="dc5c3f06-ff47-415b-9bb5-b85cdcacf947" playOrder="7">
       <navLabel>
         <text>section 8</text>
       </navLabel>
-      <content src="index_split_000.html#37"/>
+      <content src="index_split_000.html#section8"/>
     </navPoint>
     <navPoint id="333c9449-078c-4106-8188-5096f913a437" playOrder="8">
       <navLabel>
         <text>section 9.</text>
       </navLabel>
-      <content src="index_split_000.html#42"/>
+      <content src="index_split_000.html#section9"/>
     </navPoint>
     <navPoint id="ab96c58c-95b7-4131-9e19-7aa7e3ed4f11" playOrder="9">
       <navLabel>
         <text>section 10</text>
       </navLabel>
-      <content src="index_split_000.html#53"/>
+      <content src="index_split_000.html#section10"/>
     </navPoint>
     <navPoint id="b2a65bb2-9582-42e2-aa78-993d13c0529b" playOrder="10">
       <navLabel>
         <text>section 11</text>
       </navLabel>
-      <content src="index_split_000.html#63"/>
+      <content src="index_split_000.html#section11"/>
     </navPoint>
     <navPoint id="f45889bd-971f-4ff2-9fdf-9c82bc24f242" playOrder="11">
       <navLabel>
         <text>section 12.</text>
       </navLabel>
-      <content src="index_split_000.html#64"/>
-    </navPoint>
-    <navPoint id="51594298-095e-412e-984d-6e3ac3f90a10" playOrder="12">
-      <navLabel>
-        <text>[Dij97,</text>
-      </navLabel>
-      <content src="index_split_000.html#65"/>
-    </navPoint>
-    <navPoint id="db6357e2-2b97-486c-98a0-45aaed788674" playOrder="13">
-      <navLabel>
-        <text>1</text>
-      </navLabel>
-      <content src="index_split_000.html#6"/>
-    </navPoint>
-    <navPoint id="86f4962d-0f75-4a43-9f9a-bedca9cd1aa1" playOrder="14">
-      <navLabel>
-        <text>rogram2.</text>
-      </navLabel>
-      <content src="index_split_000.html#9"/>
-    </navPoint>
-    <navPoint id="e503decb-50b4-4487-bbbd-8421843dc786" playOrder="15">
-      <navLabel>
-        <text>ion3,</text>
-      </navLabel>
-      <content src="index_split_000.html#11"/>
-    </navPoint>
-    <navPoint id="2e45579c-102f-450c-b53c-e58caabc008e" playOrder="16">
-      <navLabel>
-        <text>section 9.2.4.</text>
-      </navLabel>
-      <content src="index_split_000.html#52"/>
-    </navPoint>
-    <navPoint id="d7212f0f-0324-4af1-b5c5-5b7be70d7792" playOrder="17">
-      <navLabel>
-        <text>lem4</text>
-      </navLabel>
-      <content src="index_split_000.html#13"/>
-    </navPoint>
-    <navPoint id="f362a984-3a44-4999-b5ae-8a84e47a35ff" playOrder="18">
-      <navLabel>
-        <text>5</text>
-      </navLabel>
-      <content src="index_split_000.html#19"/>
-    </navPoint>
-    <navPoint id="24c15e18-7dbf-4626-9dc1-f986b847ddd1" playOrder="19">
-      <navLabel>
-        <text>ucture.7</text>
-      </navLabel>
-      <content src="index_split_000.html#24"/>
-    </navPoint>
-    <navPoint id="3d7a1986-c431-487b-ba55-f25200034cf1" playOrder="20">
-      <navLabel>
-        <text>section 5.2.3)</text>
-      </navLabel>
-      <content src="index_split_000.html#16"/>
-    </navPoint>
-    <navPoint id="9e0bb72c-d2b1-4a14-ae1d-a3a49f91f5d7" playOrder="21">
-      <navLabel>
-        <text>Table 1.</text>
-      </navLabel>
-      <content src="index_split_000.html#26"/>
-    </navPoint>
-    <navPoint id="39799905-9f7e-47d4-8f8b-27501b077558" playOrder="22">
-      <navLabel>
-        <text>time8</text>
-      </navLabel>
-      <content src="index_split_000.html#27"/>
-    </navPoint>
-    <navPoint id="6f466150-8421-409f-b396-82c246ebd685" playOrder="23">
-      <navLabel>
-        <text>s.9</text>
-      </navLabel>
-      <content src="index_split_000.html#29"/>
-    </navPoint>
-    <navPoint id="02020c0f-0586-41d6-a834-fcf2211e57cc" playOrder="24">
-      <navLabel>
-        <text>section 7.2.3.</text>
-      </navLabel>
-      <content src="index_split_000.html#30"/>
-    </navPoint>
-    <navPoint id="b66ca26b-103e-4029-a647-0246d76b8a1a" playOrder="25">
-      <navLabel>
-        <text>section 7.1.1</text>
-      </navLabel>
-      <content src="index_split_000.html#25"/>
-    </navPoint>
-    <navPoint id="a75e428c-0b44-47e6-b46d-5fbb1b3acf81" playOrder="26">
-      <navLabel>
-        <text>section 7.2.1.</text>
-      </navLabel>
-      <content src="index_split_000.html#28"/>
-    </navPoint>
-    <navPoint id="24456d87-a620-4512-9cd8-421d092b1d7a" playOrder="27">
-      <navLabel>
-        <text>section 7.3.2</text>
-      </navLabel>
-      <content src="index_split_000.html#33"/>
-    </navPoint>
-    <navPoint id="7501b24b-9817-41c8-a3b2-866177569d02" playOrder="28">
-      <navLabel>
-        <text>4.2.</text>
-      </navLabel>
-      <content src="index_split_000.html#8"/>
-    </navPoint>
-    <navPoint id="0a3dc0b0-cb53-433a-93be-9eaee4795f53" playOrder="29">
-      <navLabel>
-        <text>s12.</text>
-      </navLabel>
-      <content src="index_split_000.html#31"/>
-    </navPoint>
-    <navPoint id="38840d0e-6aba-4205-aeb6-50ba6da65168" playOrder="30">
-      <navLabel>
-        <text>section 9.1.4).</text>
-      </navLabel>
-      <content src="index_split_000.html#46"/>
-    </navPoint>
-    <navPoint id="7011d111-760e-4fb1-8c38-90d916ae0039" playOrder="31">
-      <navLabel>
-        <text>m13).</text>
-      </navLabel>
-      <content src="index_split_000.html#34"/>
-    </navPoint>
-    <navPoint id="40439f69-84ad-47b6-97b2-fe4e8733c025" playOrder="32">
-      <navLabel>
-        <text>Figure 1</text>
-      </navLabel>
-      <content src="index_split_000.html#35"/>
-    </navPoint>
-    <navPoint id="6d7e83c0-cdc5-41a0-b335-7daa3e22422b" playOrder="33">
-      <navLabel>
-        <text>guage14.</text>
-      </navLabel>
-      <content src="index_split_000.html#36"/>
-    </navPoint>
-    <navPoint id="b1a51639-c957-4bbc-aec5-2acf4051b67d" playOrder="34">
-      <navLabel>
-        <text>section 8.2</text>
-      </navLabel>
-      <content src="index_split_000.html#40"/>
-    </navPoint>
-    <navPoint id="ad030b49-2fb7-48e5-b4d7-aeb984674e59" playOrder="35">
-      <navLabel>
-        <text>Figure 2).</text>
-      </navLabel>
-      <content src="index_split_000.html#43"/>
-    </navPoint>
-    <navPoint id="3f915ee0-1aa7-4766-8847-3c6ad411bb44" playOrder="36">
-      <navLabel>
-        <text>r19.</text>
-      </navLabel>
-      <content src="index_split_000.html#44"/>
-    </navPoint>
-    <navPoint id="0c1d1826-604f-4fb8-b20f-a4a10640b088" playOrder="37">
-      <navLabel>
-        <text>section 8.1.1</text>
-      </navLabel>
-      <content src="index_split_000.html#38"/>
-    </navPoint>
-    <navPoint id="905a0b57-dc9a-402f-837e-d93aa908ccaf" playOrder="38">
-      <navLabel>
-        <text>7.3.1.</text>
-      </navLabel>
-      <content src="index_split_000.html#32"/>
-    </navPoint>
-    <navPoint id="5f59fa1d-bb36-4ef6-8620-35ecd5af8e23" playOrder="39">
-      <navLabel>
-        <text>ations24.</text>
-      </navLabel>
-      <content src="index_split_000.html#47"/>
-    </navPoint>
-    <navPoint id="aaa23017-8df2-4aa8-aeaf-2b512c0795db" playOrder="40">
-      <navLabel>
-        <text>ge25,</text>
-      </navLabel>
-      <content src="index_split_000.html#49"/>
-    </navPoint>
-    <navPoint id="f17b6e41-373a-4676-8f39-31b59046391b" playOrder="41">
-      <navLabel>
-        <text>es26</text>
-      </navLabel>
-      <content src="index_split_000.html#50"/>
-    </navPoint>
-    <navPoint id="d61a5c91-8184-4d20-ba2e-0aa824972c16" playOrder="42">
-      <navLabel>
-        <text>section 4.3).</text>
-      </navLabel>
-      <content src="index_split_000.html#10"/>
-    </navPoint>
-    <navPoint id="d9d5b337-9f7a-4ee2-8a71-2135f21dbc04" playOrder="43">
-      <navLabel>
-        <text>(section 5.2.1)</text>
-      </navLabel>
-      <content src="index_split_000.html#15"/>
-    </navPoint>
-    <navPoint id="b74173ad-b43f-4709-b552-06768d12085d" playOrder="44">
-      <navLabel>
-        <text>section 10.3.3,</text>
-      </navLabel>
-      <content src="index_split_000.html#60"/>
-    </navPoint>
-    <navPoint id="2a00c1db-bc89-42b5-bf30-94df2c2756a9" playOrder="45">
-      <navLabel>
-        <text>section 9.1.3).</text>
-      </navLabel>
-      <content src="index_split_000.html#45"/>
+      <content src="index_split_000.html#section12"/>
     </navPoint>
   </navMap>
 </ncx>
