@@ -21,7 +21,7 @@
       <navLabel>
         <text>section 2</text>
       </navLabel>
-      <content src="index_split_000.html#section2"/>
+      <content src="section-2.html"/>
     </navPoint>
     <navPoint id="60e897f6-ab21-46ca-bb5e-9685b12f5dd2" playOrder="2">
       <navLabel>
@@ -79,7 +79,7 @@
     </navPoint>
     <navPoint id="f45889bd-971f-4ff2-9fdf-9c82bc24f242" playOrder="11">
       <navLabel>
-        <text>section 12.</text>
+        <text>section 12</text>
       </navLabel>
       <content src="index_split_000.html#section12"/>
     </navPoint>
