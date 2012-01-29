@@ -25,9 +25,9 @@
     </navPoint>
     <navPoint id="60e897f6-ab21-46ca-bb5e-9685b12f5dd2" playOrder="2">
       <navLabel>
-        <text>section 3.</text>
+        <text>section 3</text>
       </navLabel>
-      <content src="index_split_000.html#section3"/>
+      <content src="section-3.html"/>
     </navPoint>
     <navPoint id="24ef03fc-2364-4d66-b041-f378820d6d69" playOrder="3">
       <navLabel>
