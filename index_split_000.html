@@ -19,33 +19,6 @@
 <p class="calibre1">February 6, 2006</p>
 <p class="calibre1">Abstract</p>
 <p class="calibre1">Complexity is the single major difficulty in the successful development of large-scale software systems. Following Brooks we distinguish accidental from essential difficulty, but disagree with his premise that most complexity remaining in contemporary systems is essential. We identify common causes of complexity and discuss general approaches which can be taken to eliminate them where they are accidental in nature. To make things more concrete we then give an outline for a potential complexity-minimizing approach based on functional programming and Codd’s relational model of data. </p>
-<p class="calibre1" id="section2">2</p>
-<p class="calibre1">Complexity</p>
-<p class="calibre1">In his classic paper — “No Silver Bullet” Brooks<a href="index_split_000.html#dummy" class="calibre2">[Bro86] </a>identified four properties of software systems which make building software hard: Complexity, Conformity, Changeability and Invisibility. Of these we believe that Complexity is the only significant one — the others can either be classified as forms of complexity, or be seen as problematic solely because of the complexity in the system. </p>
-<p class="calibre1">Complexity is the root cause of the vast majority of problems with software today. Unreliability, late delivery, lack of security — often even poor performance in large-scale systems can all be seen as deriving ultimately from unmanageable complexity. The primary status of complexity as the major cause of these other problems comes simply from the fact that being able to understand a system is a prerequisite for avoiding all of them, and of course it is this which complexity destroys. </p>
-<p class="calibre1">The relevance of complexity is widely recognised. As Dijkstra said <a href="index_split_000.html#dummy" class="calibre2">[Dij97, </a></p>
-<p class="calibre1">EWD1243]:</p>
-<p class="calibre1">“...we have to keep it crisp, disentangled, and simple if we refuse to be crushed by the complexities of our own making...” 2</p>
-<p class="calibre1"/>
-<p class="calibre1">. . . and the Economist devoted a whole article to software complexity</p>
-<p class="calibre1"><a href="index_split_000.html#dummy" class="calibre2">[Eco04] </a>— noting that by some estimates software problems cost the Amer-ican economy $59 billion annually. </p>
-<p class="calibre1">Being able to think and reason about our systems (particularly the effects of changes to those systems) is of crucial importance. The dangers of complexity and the importance of simplicity in this regard have also been a popular topic in ACM Turing award lectures. In his 1990 lecture Corbato said <a href="index_split_000.html#dummy" class="calibre2">[Cor91]:</a></p>
-<p class="calibre1">“The general problem with ambitious systems is complexity.”, </p>
-<p class="calibre1">“...it is important to emphasize the value of simplicity and elegance, for complexity has a way of compounding difficulties” In 1977 Backus <a href="index_split_000.html#dummy" class="calibre2">[Bac78] </a>talked about the “complexities and weaknesses” of traditional languages and noted:</p>
-<p class="calibre1">“there is a desperate need for a powerful methodology to help us think about programs. ... conventional languages create unnecessary confusion in the way we think about programs” Finally, in his Turing award speech in 1980 Hoare <a href="index_split_000.html#dummy" class="calibre2">[Hoa81] </a>observed:</p>
-<p class="calibre1">“...there is one quality that cannot be purchased... — and that is reliability. The price of reliability is the pursuit of the utmost simplicity” </p>
-<p class="calibre1">and</p>
-<p class="calibre1">“I conclude that there are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult.” </p>
-<p class="calibre1">This is the unfortunate truth:</p>
-<p class="calibre1">Simplicity is Hard</p>
-<p class="calibre1">. . . but the purpose of this paper is to give some cause for optimism. </p>
-<p class="calibre1">One final point is that the type of complexity we are discussing in this paper is that which makes large systems hard to understand. </p>
-<p class="calibre1">It is this</p>
-<p class="calibre1">3</p>
-<p class="calibre1"/>
-<p class="calibre1">that causes us to expend huge resources in creating and maintaining such systems. This type of complexity has nothing to do with complexity theory</p>
-<p class="calibre1">— the branch of computer science which studies the resources consumed by a machine executing a program. The two are completely unrelated — it is a straightforward matter to write a small program in a few lines which is incredibly simple (in our sense) and yet is of the highest complexity class (in the complexity theory sense). From this point on we shall only discuss complexity of the first kind. </p>
-<p class="calibre1">We shall look at what we consider to be the major common causes of complexity (things which make understanding difficult) after first discussing exactly how we normally attempt to understand systems. </p>
 <p class="calibre1" id="section3">3</p>
 <p class="calibre1">Approaches to Understanding</p>
 <p class="calibre1">We argued above that the danger of complexity came from its impact on our attempts to understand a system. Because of this, it is helpful to consider the mechanisms that are commonly used to try to understand systems. We can then later consider the impact that potential causes of complexity have on these approaches. There are two widely-used approaches to understanding systems (or components of systems):</p>
