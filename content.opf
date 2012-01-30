@@ -17,6 +17,7 @@
     <dc:subject>RelationalModel</dc:subject>
   </metadata>
   <manifest>
+    <item href="toc.ncx" media-type="application/x-dtbncx+xml" id="ncx"/>
     <item href="titlepage.html" id="titlepage" media-type="application/xhtml+xml"/>
     <item href="abstract.html" id="abstract" media-type="application/xhtml+xml"/>
     <item href="section-1.html" id="id1" media-type="application/xhtml+xml"/>
@@ -24,8 +25,8 @@
     <item href="section-3.html" id="id3" media-type="application/xhtml+xml"/>
     <item href="index_split_000.html" id="id12" media-type="application/xhtml+xml"/>
     <item href="index_split_001.html" id="id11" media-type="application/xhtml+xml"/>
+    <item href="references.html" id="ref" media-type="application/xhtml+xml"/>
     <item href="stylesheet.css" id="css" media-type="text/css"/>
-    <item href="toc.ncx" media-type="application/x-dtbncx+xml" id="ncx"/>
   </manifest>
   <spine toc="ncx">
     <itemref idref="titlepage"/>
@@ -35,5 +36,6 @@
     <itemref idref="id3"/>
     <itemref idref="id12"/>
     <itemref idref="id11"/>
+    <itemref idref="ref"/>
   </spine>
 </package>
