@@ -15,7 +15,7 @@
       <navLabel>
         <text>[NR69,</text>
       </navLabel>
-      <content src="index_split_000.html#nr69"/>
+      <content src="references.html#NR69"/>
     </navPoint>
     <navPoint id="924d5db8-a9e5-4103-ac81-6bb22d97c831" playOrder="1">
       <navLabel>
@@ -33,7 +33,7 @@
       <navLabel>
         <text>section 4</text>
       </navLabel>
-      <content src="index_split_000.html#section4"/>
+      <content src="section-4.html"/>
     </navPoint>
     <navPoint id="c386d3d0-7fae-4279-9895-51226569ee90" playOrder="4">
       <navLabel>
