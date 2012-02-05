@@ -9,6 +9,7 @@ EPUB_FILES = 	mimetype \
 		section-5.html \
 		index_split_000.html \
 		index_split_001.html \
+		footnotes.html \
 		references.html \
 		META-INF/container.xml \
 		stylesheet.css \
