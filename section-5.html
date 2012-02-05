@@ -1,4 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Out of the Tar Pit: Classical approaches to managing complexity</title>
@@ -13,411 +15,411 @@
     <h2 class="calibre1">5 Classical approaches to managing complexity</h2>
     
     <p class="calibre1">The different classical approaches to managing
-    complexity can perhaps best be understood by looking at how programming
-    languages of each of the three major styles (imperative, functional, logic)
-    approach the issue. (We take object-oriented languages as a commonly used
-    example of the imperative style).</p>
+      complexity can perhaps best be understood by looking at how programming
+      languages of each of the three major styles (imperative, functional, logic)
+      approach the issue. (We take object-oriented languages as a commonly used
+      example of the imperative style).</p>
 
     <h3 class="calibre1">5.1 Object-Orientation</h3>
     
     <p class="calibre1">Object-orientation — whilst being a very broadly applied
-    term (encompassing everything from Java-style class-based to Self-style
-    prototype-based languages, from single-dispatch to CLOS-style multiple
-    dispatch languages, and from traditional passive objects to the active /
-    actor styles) — is essentially an imperative approach to programming. It has
-    evolved as the domi-nant method of general software development for
-    traditional (von-Neumann) computers, and many of its characteristics spring
-    from a desire to facilitate von-Neumann style (i.e. state-based)
-    computation.</p>
+      term (encompassing everything from Java-style class-based to Self-style
+      prototype-based languages, from single-dispatch to CLOS-style multiple
+      dispatch languages, and from traditional passive objects to the active /
+      actor styles) — is essentially an imperative approach to programming. It has
+      evolved as the dominant method of general software development for
+      traditional (von-Neumann) computers, and many of its characteristics spring
+      from a desire to facilitate von-Neumann style (i.e. state-based)
+      computation.</p>
 
     <h4 class="calibre1">5.1.1 State</h4>
     
     <p class="calibre1">In most forms of object-oriented programming (OOP) an
-    object is seen as consisting of some state together with a set of procedures
-    for accessing and manipulating that state.</p>
+      object is seen as consisting of some state together with a set of procedures
+      for accessing and manipulating that state.</p>
 
     <p class="calibre1">This is essentially similar to the (earlier) idea of an
-    abstract data type (ADT) and is one of the primary strengths of the OOP
-    approach when compared with less structured imperative styles. In the OOP
-    context this is referred to as the idea of encapsulation, and it allows the
-    programmer to enforce integrity constraints over an object’s state by
-    regulating access to that state through the access procedures
-    (“methods”).</p>
+      <em>abstract data type (ADT)</em> and is one of the primary strengths of the OOP
+      approach when compared with less structured imperative styles. In the OOP
+      context this is referred to as the idea of <em>encapsulation</em>, and it allows the
+      programmer to enforce integrity constraints over an object’s state by
+      regulating access to that state through the access procedures
+      (“methods”).</p>
 
     <p class="calibre1">One problem with this is that, if several of the access
-    procedures access or manipulate the same bit of state, then there may be
-    several places where a given constraint must be enforced (these different
-    access procedures may or may not be within the same file depending on the
-    specific language and whether features, such as inheritance, are in
-    use). Another major problem<sup><a href="section-5.html#footnote-4"
-    class="calibre2">4</a></sup> is that encapsulation-based integrity
-    constraint enforcement is strongly biased toward single-object constraints
-    and it is awkward to enforce more complicated constraints involving multiple
-    objects with this approach (for one thing it becomes unclear where such
-    multiple-object constraints should reside).</p>
+      procedures access or manipulate the same bit of state, then there may be
+      several places where a given constraint must be enforced (these different
+      access procedures may or may not be within the same file depending on the
+      specific language and whether features, such as inheritance, are in
+      use). Another major problem<sup><a href="section-5.html#footnote-4"
+					 class="calibre2">4</a></sup> is that encapsulation-based integrity
+      constraint enforcement is strongly biased toward single-object constraints
+      and it is awkward to enforce more complicated constraints involving multiple
+      objects with this approach (for one thing it becomes unclear where such
+      multiple-object constraints should reside).</p>
 
     <h5 class="calibre1">Identity and State</h5>
 
     <p class="calibre1">There is one other intrinsic aspect of OOP which is
-    intimately bound up with the issue of state, and that is the concept of
-    object identity.</p>
+      intimately bound up with the issue of state, and that is the concept of
+      <em>object identity</em>.</p>
 
     <p class="calibre1">In OOP, each object is seen as being a uniquely
-    identifiable entity regardless of its attributes. This is known as
-    intensional identity (in contrast with extensional identity in which things
-    are considered the same if their attributes are the same). As Baker
-    observed <a href="index_split_000.html#dummy" class="calibre2">[Bak93]</a>:
-    In a sense, object identity can be considered to be a rejection of the
-    “relational algebra” view of the world in which two objects can only be
-    distinguished through differing attributes.</p>
+      identifiable entity regardless of its attributes. This is known as
+      <em>intensional</em> identity (in contrast with <em>extensional</em> identity in which things
+      are considered the same if their attributes are the same). As Baker
+      observed [<a href="references.html#Bak93" class="calibre2">Bak93</a>]:</p>
 
-    <p class="calibre1">Object identity does make sense when objects are used to
-    provide a (mutable) stateful abstraction — because two distinct stateful
-    objects can be mutated to contain different state even if their attributes
-    (the contained state) happen initially to be the same.</p>
+      <blockquote><p>In a sense, object identity can be considered to be a rejection of the
+	"relational algebra" view of the world in which two objects can only be
+	distinguished through differing attributes.</p></blockquote>
 
-    <p class="calibre1">However, in other situations where mutability is not
-    required (such as — say — the need to represent a simple numeric value), the
-    OOP approach is forced to adopt techniques such as the creation of “Value
-    Objects”, and an attempt is made to de-emphasise the original intensional
-    concept of object identity and re-introduce extensional identity. In these
-    cases it is common to start using custom access procedures (methods) to
-    determine whether two objects are equivalent in some other, domain-specific
-    sense. (One risk — aside from the extra code volume required to support this
-    — is that there can no longer be any guarantee that such domain-specific
-    equivalence concepts conform to the standard idea of an equivalence relation
-    — for example there is not necessarily any guarantee of transitivity).</p>
+      <p>Object identity <em>does</em> make sense when objects are used to
+      provide a (mutable) stateful abstraction — because two distinct stateful
+      objects can be mutated to contain different state even if their attributes
+      (the contained state) happen initially to be the same.</p>
 
-    <p class="calibre1">The intrinsic concept of object identity stems directly
-    from the use of state, and is (being part of the paradigm itself)
-    unavoidable. This additional concept of identity adds complexity to the task
-    of reasoning about systems developed in the OOP style (it is necessary to
-    switch mentally between the two equivalence concepts — serious errors can
-    result from confusion between the two).</p>
+    <p class="calibre1">However, in other situations where mutability is <em>not</em>
+      required (such as — say — the need to represent a simple numeric value), the
+      OOP approach is forced to adopt techniques such as the creation of “Value
+      Objects”, and an attempt is made to de-emphasise the original intensional
+      concept of <em>object identity</em> and re-introduce extensional identity. In these
+      cases it is common to start using custom access procedures (methods) to
+      determine whether two objects are equivalent in some other, domain-specific
+      sense. (One risk — aside from the extra code volume required to support this
+      — is that there can no longer be any guarantee that such domain-specific
+      equivalence concepts conform to the standard idea of an equivalence relation
+      — for example there is not necessarily any guarantee of transitivity).</p>
+
+    <p class="calibre1">The intrinsic concept of <em>object identity</em> stems directly
+      from the use of state, and is (being part of the paradigm itself)
+      unavoidable. This additional concept of identity adds complexity to the task
+      of reasoning about systems developed in the OOP style (it is necessary to
+      switch mentally between the two equivalence concepts — serious errors can
+      result from confusion between the two).</p>
 
     <h5 class="calibre1">State in OOP</h5>
 
     <p class="calibre1">The bottom line is that all forms of OOP rely on state
-    (contained within objects) and in general all behaviour is affected by this
-    state. As a result of this, OOP suffers directly from the problems
-    associated with state described above, and as such we believe that it does
-    not provide an adequate foundation for avoiding complexity.</p>
+      (contained within objects) and in general all behaviour is affected by this
+      state. As a result of this, OOP suffers directly from the problems
+      associated with state described above, and as such we believe that it does
+      not provide an adequate foundation for avoiding complexity.</p>
 
     <h4 class="calibre1">5.1.2 Control</h4>
 
     <p class="calibre1">Most OOP languages offer standard sequential control
-    flow, and many offer explicit classical “shared-state concurrency”
-    mechanisms together with all the standard complexity problems that these can
-    cause. One slight variation is that actor-style languages use the
-    “message-passing” model of concurrency — they associate threads of control
-    with individual objects and messages are passed between these. This can lead
-    to easier informal reasoning in some cases, but the use of actor-style
-    languages is not widespread.</p>
+      flow, and many offer explicit classical “shared-state concurrency”
+      mechanisms together with all the standard complexity problems that these can
+      cause. One slight variation is that actor-style languages use the
+      “message-passing” model of concurrency — they associate threads of control
+      with individual objects and messages are passed between these. This can lead
+      to easier informal reasoning in some cases, but the use of actor-style
+      languages is not widespread.</p>
 
     <h4 class="calibre1">5.1.3 Summary — OOP</h4>
 
     <p class="calibre1">Conventional imperative and object-oriented programs
-    suffer greatly from both state-derived and control-derived complexity.</p>
+      suffer greatly from both state-derived and control-derived complexity.</p>
 
     <h3 class="calibre1">5.2 Functional Programming</h3>
 
     <p class="calibre1">Whilst OOP developed out of a desire to offer improved
-    ways of managing and dealing with the classic stateful von-Neumann
-    architecture, functional programming has its roots in the completely
-    stateless lambda calculus of Church (we are ignoring the even simpler
-    functional systems based on com-binatory logic). The untyped lambda calculus
-    is known to be equivalent in power to the standard stateful abstraction of
-    computation — the Turing machine.</p>
+      ways of managing and dealing with the classic stateful von-Neumann
+      architecture, functional programming has its roots in the completely
+      stateless lambda calculus of Church (we are ignoring the even simpler
+      functional systems based on com-binatory logic). The untyped lambda calculus
+      is known to be equivalent in power to the standard stateful abstraction of
+      computation — the Turing machine.</p>
 
     <h4 class="calibre1">5.2.1 State</h4>
 
     <p class="calibre1">Modern functional programming languages are often
-    classified as ‘pure’ — those such as
-    Hask<a href="index_split_000.html#dummy"
-    class="calibre2">ell[PJ+03] </a>which shun state and side-effects
-    completely, and ‘impure’ — those such as ML which, whilst advocating the
-    avoidance of state and side-effects in general, do permit their use. Where
-    not explicitly mentioned we shall generally be considering functional
-    programming in its pure form.</p>
+      classified as ‘pure’ — those such as
+      Haskell [<a href="references.html#PJ03" class="calibre2">PJ+03</a>]
+      which shun state and side-effects
+      completely, and ‘impure’ — those such as ML which, whilst advocating the
+      avoidance of state and side-effects in general, do permit their use. Where
+      not explicitly mentioned we shall generally be considering functional
+      programming in its pure form.</p>
 
     <p class="calibre1">The primary strength of functional programming is that
-    by avoiding state (and side-effects) the entire system gains the property of
-    referential transparency — which implies that when supplied with a given set
-    of arguments a function will always return exactly the same result (speaking
-    loosely we could say that it will always behave in the same way). Everything
-    which can possibly affect the result in any way is always immediately
-    visible in the actual parameters.</p>
+      by avoiding state (and side-effects) the entire system gains the property of
+      <em>referential transparency</em> — which implies that when supplied with a given set
+      of arguments a function will <em>always</em> return exactly the same result (speaking
+      loosely we could say that it will always behave in the same way). Everything
+      which can possibly affect the result in any way is always immediately
+      visible in the actual parameters.</p>
 
-    <p class="calibre1">It is this cast iron guarantee of referential
-    transparency that obliterates one of the two crucial weaknesses of testing
-    as discussed above. As a result, even though the other weakness of testing
-    remains (testing for one set of inputs says nothing at all about behaviour
-    with another set of inputs), testing does become far more effective if a
-    system has been developed in a functional style.</p>
+    <p class="calibre1">It is this cast iron guarantee of <em>referential
+      transparency</em> that obliterates one of the two crucial weaknesses of testing
+      as discussed above. As a result, even though the other weakness of testing
+      remains (testing for one set of inputs says <em>nothing at all</em> about behaviour
+      with another set of inputs), testing does become far more effective if a
+      system has been developed in a functional style.</p>
 
     <p class="calibre1">By avoiding state functional programming also avoids all
-    of the other state-related weaknesses discussed above, so — for example —
-    informal reasoning also becomes much more effective.</p>
+      of the other state-related weaknesses discussed above, so — for example —
+      informal reasoning also becomes much more effective.</p>
 
     <h4 class="calibre1">5.2.2 Control</h4>
 
     <p class="calibre1">Most functional languages specify implicit
-    (left-to-right) sequencing (of calculation of function arguments) and hence
-    they face many of the same issues mentioned above. Functional languages do
-    derive one slight benefit when it comes to control because they encourage a
-    more abstract use of control using functionals (such as fold / map) rather
-    than explicit looping.</p>
+      (left-to-right) sequencing (of calculation of function arguments) and hence
+      they face many of the same issues mentioned above. Functional languages do
+      derive one slight benefit when it comes to control because they encourage a
+      more abstract use of control using functionals (such as fold / map) rather
+      than explicit looping.</p>
 
     <p class="calibre1">There are also concurrent versions of many functional
-    languages, and the fact that state is generally avoided can give benefits in
-    this area (for example in a pure functional language it will always be safe
-    to evaluate all arguments to a function in parallel).</p>
+      languages, and the fact that state is generally avoided can give benefits in
+      this area (for example in a pure functional language it will always be safe
+      to evaluate all arguments to a function in parallel).</p>
 
     <h4 class="calibre1">5.2.3 Kinds of State</h4>
 
     <p class="calibre1">In most of this paper when we refer to “state” what we
-    really mean is mutable state.</p>
+      really mean is <em>mutable state</em>.</p>
 
     <p class="calibre1">In languages which do not support (or discourage)
-    mutable state it is common to achieve somewhat similar effects by means of
-    passing extra parameters to procedures (functions). Consider a procedure
-    which performs some internal stateful computation and returns a result —
-    perhaps the procedure implements a counter and returns an incremented value
-    each time it is called:</p>
+      mutable state it is common to achieve somewhat similar effects by means of
+      passing extra parameters to procedures (functions). Consider a procedure
+      which performs some internal stateful computation and returns a result —
+      perhaps the procedure implements a counter and returns an incremented value
+      each time it is called:</p>
 
     <pre>
 procedure int getNextCounter()
   // ’counter’ is declared and initialized elsewhere in the code
   counter := counter + 1
   return counter
-</pre>
+    </pre>
 
     <p class="calibre1">The way that this is typically implemented in a basic
-    functional programming language is to replace the stateful procedure which
-    took no arguments and returned one result with a function which takes one
-    argument and returns a pair of values as a result.</p>
+      functional programming language is to replace the stateful procedure which
+      took no arguments and returned one result with a function which takes one
+      argument and returns a pair of values as a result.</p>
 
     <pre>
 function (int,int) getNextCounter(int oldCounter)
   let int result = oldCounter + 1
   let int newCounter = oldCounter + 1
   return (newCounter, result)
-</pre>
+    </pre>
 
     <p class="calibre1">There is then an obligation upon the caller of the
-    function to make sure that the next time the getNextCounter function gets
-    called it is supplied with the newCounter returned from the previous
-    invocation.Effectively what is happening is that the mutable state that was
-    hidden inside the getNextCounter procedure is replaced by an extra parameter
-    on both the input and output of the getNextCounter function. This extra
-    parameter is not mutable in any way (the entity which is referred to by
-    oldCounter is a different value each time the function is called).</p>
+      function to make sure that the next time the <code>getNextCounter</code> function gets
+      called it is supplied with the <code>newCounter</code> returned from the previous
+      invocation.Effectively what is happening is that the mutable state that was
+      hidden inside the <code>getNextCounter</code> procedure is replaced by an extra parameter
+      on both the input and output of the <code>getNextCounter</code> function. This extra
+      parameter is not mutable in any way (the entity which is referred to by
+      <code>oldCounter</code> is a different value each time the function is called).</p>
 
     <p class="calibre1">As we have discussed, the functional version of this
-    program is referentially transparent, and the imperative version is not
-    (hence the caller of the getNextCounter procedure has no idea what may
-    influence the result he gets — it could in principle be dependent upon many,
-    many different hidden mutable variables — but the caller of the
-    getNextCounter function can instantly see exactly that the result can depend
-    only on the single value supplied to the function).</p>
+      program is referentially transparent, and the imperative version is not
+      (hence the caller of the <code>getNextCounter</code> <em>procedure</em> has no idea what may
+      influence the result he gets — it could in principle be dependent upon many,
+      many different hidden mutable variables — but the caller of the
+      <code>getNextCounter</code> <em>function</em> can instantly see exactly that the result can depend
+      only on the single value supplied to the function).</p>
 
     <p class="calibre1">Despite this, the fact is that we are using functional
-    values to simulate state. There is in principle nothing to stop functional
-    programs from passing a single extra parameter into and out of every single
-    function in the entire system. If this extra parameter were a collection
-    (compound value) of some kind then it could be used to simulate an
-    arbitrarily large set of mutable variables. In effect this approach
-    recreates a single pool of global variables — hence, even though referential
-    transparency is maintained, ease of reasoning is lost (we still know that
-    each function is dependent only upon its arguments, but one of them has
-    become so large and contains irrelevant values that the benefit of this
-    knowledge as an aid to understanding is almost nothing). This is however an
-    extreme example and does not detract from the general power of the
-    functional approach.</p>
+      values to simulate state. There is <em>in principle</em> nothing to stop functional
+      programs from passing a single extra parameter into and out of every single
+      function in the entire system. If this extra parameter were a collection
+      (compound value) of some kind then it could be used to <em>simulate</em> an
+      arbitrarily large set of mutable variables. In effect this approach
+      recreates a single pool of global variables — hence, even though referential
+      transparency is maintained, ease of reasoning is lost (we still know that
+      each function is dependent only upon its arguments, but one of them has
+      become so large <em>and contains irrelevant values</em> that the benefit of this
+      knowledge as an aid to understanding is almost nothing). This is however an
+      extreme example and does not detract from the general power of the
+      functional approach.</p>
 
     <p class="calibre1">It is worth noting in passing that — even though it
-    would be no substitute for a guarantee of referential transparency — there
-    is no reason why the functional style of programming cannot be adopted in
-    stateful languages (i.e. imperative as well as impure functional ones). More
-    generally, we would argue that — whatever the language being used — there
-    are large benefits to be had from avoiding hidden, implicit, mutable
-    state.</p>
+      would be no substitute for a <em>guarantee</em> of referential transparency — there
+      is no reason why the functional style of programming cannot be adopted in
+      stateful languages (i.e. imperative as well as impure functional ones). More
+      generally, we would argue that — whatever the language being used — there
+      are large benefits to be had from avoiding hidden, implicit, mutable
+      state.</p>
 
     <h4 class="calibre1">5.2.4 State and Modularity</h4>
 
     <p class="calibre1">It is sometimes argued
-    (e.g. <a href="index_split_000.html#dummy"
-    class="calibre2">[vRH04, </a>p315]) that state is important because it
-    permits a particular kind of modularity. This is certainly true. Working
-    within a stateful framework it is possible to add state to any component
-    without adjusting the components which invoke it. Working within a
-    functional framework the same effect can only be achieved by adjusting every
-    single component that invokes it to carry the additional information around
-    (as with the getNextCounter function above).</p>
+      (e.g. [<a href="references.html#vRH04" class="calibre2">vRH04</a>])
+      that state is important because it
+      permits a particular kind of modularity. This is certainly true. Working
+      within a stateful framework it is possible to add state to any component
+      without adjusting the components which invoke it. Working within a
+      functional framework the same effect can only be achieved by adjusting every
+      single component that invokes it to carry the additional information around
+      (as with the <code>getNextCounter</code> function above).</p>
 
     <p class="calibre1">There is a fundamental trade off between the two
-    approaches. In the functional approach (when trying to achieve state-like
-    results) you are forced to make changes to every part of the program that
-    could be affected (adding the relevant extra parameter), in the stateful you
-    are not.</p>
+      approaches. In the functional approach (when trying to achieve state-like
+      results) you are forced to make changes to every part of the program that
+      could be affected (adding the relevant extra parameter), in the stateful you
+      are not.</p>
 
-    <p class="calibre1">But what this means is that in a functional program you
-    can always tell exactly what will control the outcome of a procedure
-    (i.e. function) simply by looking at the arguments supplied where it is
-    invoked. In a stateful program this property (again a consequence of
-    referential transparency) is completely destroyed, you can never tell what
-    will control the outcome, and potentially have to look at every single piece
-    of code in the entire system to determine this information.</p>
+    <p class="calibre1">But what this means is that in a functional program <em>you
+      can always tell exactly what will control the outcome of a procedure
+      (i.e. function)</em> simply by looking at the arguments supplied where it is
+      invoked. In a stateful program this property (again a consequence of
+      <em>referential transparency</em>) is completely destroyed, you can never tell what
+      will control the outcome, and <em>potentially</em> have to look at every single piece
+      of code in the <em>entire system</em> to determine this information.</p>
 
-    <p class="calibre1">The trade-off is between complexity (with the ability to
-    take a shortcut when making some specific types of change) and simplicity
-    (with huge improvements in both testing and reasoning). As with the
-    discipline of (static) typing, it is trading a one-off up-front cost for
-    continuing future gains and safety (“one-off” because each piece of code is
-    written once but is read, reasoned about and tested on a continuing
-    basis).</p>
+    <p class="calibre1">The trade-off is between <em>complexity</em> (with the ability to
+      take a shortcut when making some specific types of change) and <em>simplicity</em>
+      (with <em>huge</em> improvements in both testing and reasoning). As with the
+      discipline of (static) typing, it is trading a one-off up-front cost for
+      continuing future gains and safety (“one-off” because each piece of code is
+      written once but is read, reasoned about and tested on a continuing
+      basis).</p>
 
     <p class="calibre1">A further problem with the modularity argument is that
-    some examples — such as the use of procedure (function) invocation counts
-    for debugging / performance-tuning purposes — seem to be better addressed
-    within the supporting infrastructure / language, rather than within the
-    system itself (we prefer to advocate a clear separation between such
-    administrative/diagnostic information and the core logic of the system).</p>
+      some examples — such as the use of procedure (function) invocation counts
+      for debugging / performance-tuning purposes — seem to be better addressed
+      within the supporting infrastructure / language, rather than within the
+      system itself (we prefer to advocate a clear separation between such
+      administrative/diagnostic information and the core logic of the system).</p>
 
     <p class="calibre1">Still, the fact remains that such arguments have been
-    insufficient to result in widespread adoption of functional programming. We
-    must therefore conclude that the main weakness of functional programming is
-    the flip side of its main strength — namely that problems arise when (as is
-    often the case) the system to be built must maintain state of some kind.</p>
+      insufficient to result in widespread adoption of functional programming. We
+      must therefore conclude that the main weakness of functional programming is
+      the flip side of its main strength — namely that problems arise when (as is
+      often the case) the system to be built must maintain state of some kind.</p>
 
     <p class="calibre1">The question inevitably arises of whether we can find
-    some way to “have our cake and eat it”. One potential approach is the
-    elegant system of monads used by
-    Haskell <a href="index_split_000.html#dummy"
-    class="calibre2">[Wad95]. </a>This does basically allow you to avoid the
-    problem described above, but it can very easily be abused to create a
-    stateful, side-effecting sub-language (and hence re-introduce all the
-    problems we are seeking to avoid) inside Haskell — albeit one that is marked
-    by its type. Again, despite their huge strengths, monads have as yet been
-    insufficient to give rise to widespread adoption of functional
-    techniques.</p>
+      some way to “have our cake and eat it”. One potential approach is the
+      elegant system of monads used by
+      Haskell [<a href="references.html#Wad95"
+		 class="calibre2">Wad95</a>]. This does basically allow you to avoid the
+      problem described above, but it can very easily be abused to create a
+      stateful, side-effecting sub-language (and hence re-introduce all the
+      problems we are seeking to avoid) inside Haskell — albeit one that is marked
+      by its type. Again, despite their huge strengths, monads have as yet been
+      insufficient to give rise to widespread adoption of functional
+      techniques.</p>
 
     <h4 class="calibre1">5.2.5 Summary — Functional Programming</h4>
 
     <p class="calibre1">Functional programming goes a long way towards avoiding
-    the problems of state-derived complexity. This has very significant benefits
-    for testing (avoiding what is normally one of testing’s biggest weaknesses)
-    as well as for reasoning.</p>
+      the problems of state-derived complexity. This has very significant benefits
+      for testing (avoiding what is normally one of testing’s biggest weaknesses)
+      as well as for reasoning.</p>
 
     <h3 class="calibre1">5.3 Logic Programming</h3>
 
     <p class="calibre1">Together with functional programming, logic programming
-    is considered to be a declarative style of programming because the emphasis
-    is on specifying what needs to be done rather than exactly how to do
-    it. Also as with functional programming — and in contrast with OOP — its
-    principles and the way of thinking encouraged do not derive from the
-    stateful von-Neumann architecture.</p>
+      is considered to be a <em>declarative</em> style of programming because the emphasis
+      is on specifying <em>what</em> needs to be done rather than exactly <em>how</em> to do
+      it. Also as with functional programming — and in contrast with OOP — its
+      principles and the way of thinking encouraged do <em>not</em> derive from the
+      stateful von-Neumann architecture.</p>
 
     <p class="calibre1">Pure logic programming is the approach of doing nothing
-    more than making statements about the problem (and desired solutions). This
-    is done by stating a set of axioms which describe the problem and the
-    attributes required of something for it to be considered a solution. The
-    ideal of logic programming is that there should be an infrastructure which
-    can take the raw axioms and use them to find or check solutions. All
-    solutions are formal logical consequences of the axioms supplied, and
-    “running” the system is equivalent to the construction of a formal proof of
-    each solution.</p>
+      more than making statements <em>about</em> the problem (and desired solutions). This
+      is done by stating a set of <em>axioms</em> which <em>describe</em> the problem and the
+      attributes required of something for it to be considered a solution. The
+      ideal of logic programming is that there should be an infrastructure which
+      can take the raw axioms and use them to find or check solutions. All
+      solutions are formal logical consequences of the axioms supplied, and
+      “running” the system is equivalent to the construction of a formal <em>proof</em> of
+      each solution.</p>
 
     <p class="calibre1">The seminal “logic programming” language was
-    Prolog. Prolog is best seen as a pure logical core (pure Prolog) with
-    various extra-logical<sup><a href="#footnote-5" class="calibre2">5</a></sup>
-    extensions. Pure Prolog is close to the ideals of logic programming, but
-    there are important differences. Every pure Prolog program can be “read” in
-    two ways — either as a pure set of logical axioms (i.e. assertions about the
-    problem domain — this is the pure logic programming reading), or
-    operationally — as a sequence of commands which are applied (in a particular
-    order) to determine whether a goal can be deduced (from the axioms). This
-    second reading corresponds to the actual way that pure Prolog will make use
-    of the axioms when it tries to prove goals. It is worth noting that a single
-    Prolog program can be both correct when read in the first way, and incorrect
-    (for example due to non-termination) when read in the second.</p>
+      Prolog. Prolog is best seen as a pure logical core (pure Prolog) with
+      various <em>extra-logical</em><sup><a href="#footnote-5" class="calibre2">5</a></sup>
+      extensions. Pure Prolog is close to the ideals of logic programming, but
+      there are important differences. Every pure Prolog program can be “read” in
+      two ways — either as a <em>pure set of logical axioms</em> (i.e. assertions about the
+      problem domain — this is the pure logic programming reading), or
+      <em>operationally</em> — as a sequence of commands which are applied (in a particular
+      order) to determine whether a goal can be deduced (from the axioms). This
+      second reading corresponds to the actual way that pure Prolog will make use
+      of the axioms when it tries to prove goals. It is worth noting that a single
+      Prolog program can be both correct when read in the first way, and incorrect
+      (for example due to non-termination) when read in the second.</p>
 
     <p class="calibre1">It is for this reason that Prolog falls short of the
-    ideals of logic programming. Specifically it is necessary to be concerned
-    with the operational interpretation of the program whilst writing the
-    axioms.</p>
+      ideals of logic programming. Specifically it is necessary to be concerned
+      with the operational interpretation of the program whilst writing the
+      axioms.</p>
 
     <h4 class="calibre1">5.3.1 State</h4>
 
     <p class="calibre1">Pure logic programming makes no use of mutable state,
-    and for this reason profits from the same advantages in understandability
-    that accrue to pure functional programming. Many languages based on the
-    paradigm do however provide some stateful mechanisms. In the extra-logical
-    part of Prolog for example there are facilities for adjusting the program
-    itself by adding new axioms for example. Other languages such as Oz (which
-    has its roots in logic programming but has been extended to become
-    “multi-paradigm”) provide mutable state in a traditional way — similar to
-    the way it is provided by impure functional languages.</p>
+      and for this reason profits from the same advantages in understandability
+      that accrue to pure functional programming. Many languages based on the
+      paradigm do however provide some stateful mechanisms. In the extra-logical
+      part of Prolog for example there are facilities for adjusting the program
+      itself by adding new axioms for example. Other languages such as Oz (which
+      has its roots in logic programming but has been extended to become
+      “multi-paradigm”) provide mutable state in a traditional way — similar to
+      the way it is provided by <em>impure</em> functional languages.</p>
 
     <p class="calibre1">All of these approaches to state sacrifice referential
-    transparency and hence potentially suffer from the same drawbacks as
-    imperative languages in this regard. The one advantage that all these impure
-    non-von-Neumann derived languages can claim is that — whilst state is
-    permitted its use is generally discouraged (which is in stark contrast to
-    the stateful von-Neumann world). Still, without purity there are no
-    guarantees and all the same state-related problems can sometimes occur.</p>
+      transparency and hence potentially suffer from the same drawbacks as
+      imperative languages in this regard. The one advantage that all these impure
+      non-von-Neumann derived languages can claim is that — whilst state is
+      permitted its use is generally discouraged (which is in stark contrast to
+      the stateful von-Neumann world). Still, without purity there are no
+      guarantees and all the same state-related problems can sometimes occur.</p>
 
     <h4 class="calibre1">5.3.2 Control</h4>
 
     <p class="calibre1">In the case of pure Prolog the language specifies both
-    an implicit ordering for the processing of sub-goals (left to right), and
-    also an implicit ordering of clause application (top down) — these basically
-    correspond to an operational commitment to process the program in the same
-    order as it is read textually (in a depth first manner). This means that
-    some particular ways of writing down the program can lead to
-    non-termination, and — when combined with the fact that some extra-logical
-    features of the language permit side-effects — leads inevitably to the
-    standard difficulty for informal reasoning caused by control flow. (Note
-    that these reasoning difficulties do not arise in ideal world of logic
-    programming where there simply is no specified control — as distinct from in
-    pure Prolog programming where there is).</p>
+      an <em>implicit</em> ordering for the processing of sub-goals (left to right), and
+      also an <em>implicit</em> ordering of clause application (top down) — these basically
+      correspond to an operational commitment to <em>process</em> the program in the same
+      order as it is read textually (in a depth first manner). This means that
+      some particular ways of writing down the program can lead to
+      non-termination, and — when combined with the fact that some extra-logical
+      features of the language permit side-effects — leads inevitably to the
+      standard difficulty for informal reasoning caused by control flow. (Note
+      that these reasoning difficulties do <em>not</em> arise in ideal world of logic
+      programming where there simply is no specified control — as distinct from in
+      pure Prolog programming where there is).</p>
 
     <p class="calibre1">As for Prolog’s other extra-logical features, some of
-    them further widen the gap between the language and logic programming in its
-    ideal form. One example of this is the provision of “cuts” which offer
-    explicit restriction of control flow. These explicit restrictions are
-    intertwined with the pure logic component of the system and inevitably have
-    an adverse affect on attempts to reason about the program (misunderstandings
-    of the effects of cuts are recognised to be a major source of bugs in Prolog
-    programs <a href="index_split_000.html#dummy"
-    class="calibre2">[SS94, </a>p190]).</p>
+      them further widen the gap between the language and logic programming in its
+      ideal form. One example of this is the provision of “cuts” which offer
+      <em>explicit</em> restriction of control flow. These explicit restrictions are
+      intertwined with the pure logic component of the system and inevitably have
+      an adverse affect on attempts to reason about the program (misunderstandings
+      of the effects of cuts are recognised to be a major source of bugs in Prolog
+      programs [<a href="references.html#SS94" class="calibre2">SS94</a>]).</p>
 
     <p class="calibre1">It is worth noting that some more modern languages of
-    the logic programming family offer more flexibility over control than the
-    implicit depth-first search used by Prolog. One example would be Oz which
-    offers the ability to program specific control strategies which can then be
-    applied to different problems as desired. This is a very useful feature
-    because it allows significant explicit control flexibility to be specified
-    separately from the main program (i.e. without contaminating it through the
-    addition of control complexity).</p>
+      the logic programming family offer more flexibility over control than the
+      implicit depth-first search used by Prolog. One example would be Oz which
+      offers the ability to program specific control strategies which can then be
+      applied to different problems as desired. This is a very useful feature
+      because it allows significant <em>explicit</em> control flexibility to be specified
+      <em>separately</em> from the main program (i.e. without contaminating it through the
+      addition of control complexity).</p>
 
     <h4 class="calibre1">5.3.3 Summary — Logic Programming</h4>
 
     <p class="calibre1">One of the most interesting things about logic
-    programming is that (despite the limitations of some actual logic-based
-    languages) it offers the tantalising promise of the ability to escape from
-    the complexity problems caused by control.</p>
+      programming is that (despite the limitations of some actual logic-based
+      languages) it offers the tantalising promise of the ability to escape from
+      the complexity problems caused by control.</p>
 
     <h4>Footnotes</h4>
     <dl>
       <dt id="footnote-4">4</dt>
       <dd>this particular problem doesn’t really apply to object-oriented
-      languages (such as CLOS) which are based upon generic functions — but they
-      don’t have the same concept of encapsulation.</dd>
+	languages (such as CLOS) which are based upon generic functions — but they
+	don’t have the same concept of encapsulation.</dd>
       <dt id="footnote-5">5</dt>
       <dd>We are using the term here to cover everything apart from the pure
-    core of Prolog -- for example we include what are sometimes referred to as
-    the meta-logical features.</dd>
+	core of Prolog -- for example we include what are sometimes referred to as
+	the meta-logical features.</dd>
     </dl>
   </body>
 </html>
