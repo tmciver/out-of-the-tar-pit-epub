@@ -131,7 +131,7 @@
       ways of managing and dealing with the classic stateful von-Neumann
       architecture, functional programming has its roots in the completely
       stateless lambda calculus of Church (we are ignoring the even simpler
-      functional systems based on com-binatory logic). The untyped lambda
+      functional systems based on combinatory logic). The untyped lambda
       calculus is known to be equivalent in power to the standard stateful
       abstraction of computation — the Turing machine.</p>
 
@@ -193,8 +193,10 @@
       value each time it is called:</p>
 
     <pre>
-procedure int getNextCounter() // ’counter’ is declared and initialized
-  elsewhere in the code counter := counter + 1 return counter
+procedure int getNextCounter()
+  // ’counter’ is declared and initialized elsewhere in the code
+  counter := counter + 1
+  return counter
     </pre>
 
     <p class="calibre1">The way that this is typically implemented in a basic
@@ -203,14 +205,16 @@ procedure int getNextCounter() // ’counter’ is declared and initialized
       argument and returns a pair of values as a result.</p>
 
     <pre>
-function (int,int) getNextCounter(int oldCounter) let int result = oldCounter +
-  1 let int newCounter = oldCounter + 1 return (newCounter, result)
+function (int,int) getNextCounter(int oldCounter)
+  let int result = oldCounter + 1
+  let int newCounter = oldCounter + 1
+  return (newCounter, result)
     </pre>
 
     <p class="calibre1">There is then an obligation upon the caller of the
       function to make sure that the next time the <code>getNextCounter</code>
       function gets called it is supplied with the <code>newCounter</code>
-      returned from the previous invocation.Effectively what is happening is
+      returned from the previous invocation. Effectively what is happening is
       that the mutable state that was hidden inside
       the <code>getNextCounter</code> procedure is replaced by an extra
       parameter on both the input and output of the <code>getNextCounter</code>
