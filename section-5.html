@@ -12,7 +12,7 @@
   </head>
   <body class="calibre">
     
-    <h2 class="calibre1">5 Classical approaches to managing complexity</h2>
+    <h2 id="section-5" class="calibre1">5 Classical approaches to managing complexity</h2>
     
     <p class="calibre1">The different classical approaches to managing
       complexity can perhaps best be understood by looking at how programming
@@ -20,7 +20,7 @@
       logic) approach the issue. (We take object-oriented languages as a
       commonly used example of the imperative style).</p>
 
-    <h3 class="calibre1">5.1 Object-Orientation</h3>
+    <h3 class="calibre1" id="section-5.1">5.1 Object-Orientation</h3>
     
     <p class="calibre1">Object-orientation — whilst being a very broadly applied
       term (encompassing everything from Java-style class-based to Self-style
@@ -32,7 +32,7 @@
       spring from a desire to facilitate von-Neumann style (i.e. state-based)
       computation.</p>
 
-    <h4 class="calibre1">5.1.1 State</h4>
+    <h4 id="section-5.1.1" class="calibre1">5.1.1 State</h4>
     
     <p class="calibre1">In most forms of object-oriented programming (OOP) an
       object is seen as consisting of some state together with a set of
@@ -109,7 +109,7 @@
       associated with state described above, and as such we believe that it does
       not provide an adequate foundation for avoiding complexity.</p>
 
-    <h4 class="calibre1">5.1.2 Control</h4>
+    <h4 id="section-5.1.2" class="calibre1">5.1.2 Control</h4>
 
     <p class="calibre1">Most OOP languages offer standard sequential control
       flow, and many offer explicit classical “shared-state concurrency”
@@ -120,12 +120,12 @@
       lead to easier informal reasoning in some cases, but the use of
       actor-style languages is not widespread.</p>
 
-    <h4 class="calibre1">5.1.3 Summary — OOP</h4>
+    <h4 id="section-5.1.3" class="calibre1">5.1.3 Summary — OOP</h4>
 
     <p class="calibre1">Conventional imperative and object-oriented programs
       suffer greatly from both state-derived and control-derived complexity.</p>
 
-    <h3 class="calibre1">5.2 Functional Programming</h3>
+    <h3 class="calibre1" id="section-5.2">5.2 Functional Programming</h3>
 
     <p class="calibre1">Whilst OOP developed out of a desire to offer improved
       ways of managing and dealing with the classic stateful von-Neumann
@@ -135,7 +135,7 @@
       calculus is known to be equivalent in power to the standard stateful
       abstraction of computation — the Turing machine.</p>
 
-    <h4 class="calibre1">5.2.1 State</h4>
+    <h4 id="section-5.2.1" class="calibre1">5.2.1 State</h4>
 
     <p class="calibre1">Modern functional programming languages are often
       classified as ‘pure’ — those such as Haskell
@@ -166,7 +166,7 @@
       of the other state-related weaknesses discussed above, so — for example —
       informal reasoning also becomes much more effective.</p>
 
-    <h4 class="calibre1">5.2.2 Control</h4>
+    <h4 id="section-5.2.2" class="calibre1">5.2.2 Control</h4>
 
     <p class="calibre1">Most functional languages specify implicit
       (left-to-right) sequencing (of calculation of function arguments) and
@@ -255,7 +255,7 @@ function (int,int) getNextCounter(int oldCounter)
       language being used — there are large benefits to be had from avoiding
       hidden, implicit, mutable state.</p>
 
-    <h4 class="calibre1">5.2.4 State and Modularity</h4>
+    <h4 id="section-5.2.4" class="calibre1">5.2.4 State and Modularity</h4>
 
     <p class="calibre1">It is sometimes argued
       (e.g. [<a href="references.html#vRH04" class="calibre2">vRH04</a>]) that
@@ -317,14 +317,14 @@ function (int,int) getNextCounter(int oldCounter)
       yet been insufficient to give rise to widespread adoption of functional
       techniques.</p>
 
-    <h4 class="calibre1">5.2.5 Summary — Functional Programming</h4>
+    <h4 id="section-5.2.5" class="calibre1">5.2.5 Summary — Functional Programming</h4>
 
     <p class="calibre1">Functional programming goes a long way towards avoiding
       the problems of state-derived complexity. This has very significant
       benefits for testing (avoiding what is normally one of testing’s biggest
       weaknesses) as well as for reasoning.</p>
 
-    <h3 class="calibre1">5.3 Logic Programming</h3>
+    <h3 class="calibre1" id="section-5.3">5.3 Logic Programming</h3>
 
     <p class="calibre1">Together with functional programming, logic programming
       is considered to be a <em>declarative</em> style of programming because
@@ -365,7 +365,7 @@ function (int,int) getNextCounter(int oldCounter)
       with the operational interpretation of the program whilst writing the
       axioms.</p>
 
-    <h4 class="calibre1">5.3.1 State</h4>
+    <h4 id="section-5.3.1" class="calibre1">5.3.1 State</h4>
 
     <p class="calibre1">Pure logic programming makes no use of mutable state,
       and for this reason profits from the same advantages in understandability
@@ -386,7 +386,7 @@ function (int,int) getNextCounter(int oldCounter)
       guarantees and all the same state-related problems can sometimes
       occur.</p>
 
-    <h4 class="calibre1">5.3.2 Control</h4>
+    <h4 id="section-5.3.2" class="calibre1">5.3.2 Control</h4>
 
     <p class="calibre1">In the case of pure Prolog the language specifies both
       an <em>implicit</em> ordering for the processing of sub-goals (left to
@@ -422,7 +422,7 @@ function (int,int) getNextCounter(int oldCounter)
       <em>separately</em> from the main program (i.e. without contaminating it
       through the addition of control complexity).</p>
 
-    <h4 class="calibre1">5.3.3 Summary — Logic Programming</h4>
+    <h4 id="section-5.3.3" class="calibre1">5.3.3 Summary — Logic Programming</h4>
 
     <p class="calibre1">One of the most interesting things about logic
       programming is that (despite the limitations of some actual logic-based
