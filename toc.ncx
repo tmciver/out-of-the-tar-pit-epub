@@ -193,12 +193,12 @@
       </navLabel>
       <content src="section-6.html#section-6" />
     </navPoint>
-    <navPoint id="navpoint-id-section-8" playOrder="27">
+    <navPoint id="navpoint-id-section-7" playOrder="27">
       <navLabel>
 	<text>7 Recommended General Approach
 	</text>
       </navLabel>
-      <content src="section-7.html#section-8" />
+      <content src="section-7.html#section-7" />
       <navPoint id="navpoint-id-section-7.1" playOrder="28">
 	<navLabel>
 	  <text>7.1 Ideal World
@@ -283,32 +283,82 @@
 	</navLabel>
 	<content src="section-7.html#section-7.4" />
       </navPoint>
-    </navPoint>    
-    <navPoint id="dc5c3f06-ff47-415b-9bb5-b85cdcacf947" playOrder="40">
-      <navLabel>
-        <text>section 8</text>
-      </navLabel>
-      <content src="index_split_000.html#section8"/>
     </navPoint>
-    <navPoint id="333c9449-078c-4106-8188-5096f913a437" playOrder="41">
+    <navPoint id="navpoint-id-section-8" playOrder="40">
+      <navLabel>
+	<text>8 The Relational Model
+	</text>
+      </navLabel>
+      <content src="section-8.html#section-8" />
+      <navPoint id="navpoint-id-section-8.1" playOrder="41">
+	<navLabel>
+	  <text>8.1 Structure
+	  </text>
+	</navLabel>
+	<content src="section-8.html#section-8.1" />
+	<navPoint id="navpoint-id-section-8.1.1" playOrder="42">
+	  <navLabel>
+	    <text>8.1.1 Relations
+	    </text>
+	  </navLabel>
+	  <content src="section-8.html#section-8.1.1" />
+	</navPoint>
+	<navPoint id="navpoint-id-section-8.1.2" playOrder="43">
+	  <navLabel>
+	    <text>8.1.2 Structuring benefits of Relations — Access path independence
+	    </text>
+	  </navLabel>
+	  <content src="section-8.html#section-8.1.2" />
+	</navPoint>
+      </navPoint>
+      <navPoint id="navpoint-id-section-8.2" playOrder="44">
+	<navLabel>
+	  <text>8.2 Manipulation
+	  </text>
+	</navLabel>
+	<content src="section-8.html#section-8.2" />
+      </navPoint>
+      <navPoint id="navpoint-id-section-8.3" playOrder="45">
+	<navLabel>
+	  <text>8.3 Integrity
+	  </text>
+	</navLabel>
+	<content src="section-8.html#section-8.3" />
+      </navPoint>
+      <navPoint id="navpoint-id-section-8.4" playOrder="46">
+	<navLabel>
+	  <text>8.4 Data Independence
+	  </text>
+	</navLabel>
+	<content src="section-8.html#section-8.4" />
+      </navPoint>
+      <navPoint id="navpoint-id-section-8.5" playOrder="47">
+	<navLabel>
+	  <text>8.5 Extensions
+	  </text>
+	</navLabel>
+	<content src="section-8.html#section-8.5" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="333c9449-078c-4106-8188-5096f913a437" playOrder="48">
       <navLabel>
         <text>section 9.</text>
       </navLabel>
       <content src="index_split_000.html#section9"/>
     </navPoint>
-    <navPoint id="ab96c58c-95b7-4131-9e19-7aa7e3ed4f11" playOrder="42">
+    <navPoint id="ab96c58c-95b7-4131-9e19-7aa7e3ed4f11" playOrder="49">
       <navLabel>
         <text>section 10</text>
       </navLabel>
       <content src="index_split_000.html#section10"/>
     </navPoint>
-    <navPoint id="b2a65bb2-9582-42e2-aa78-993d13c0529b" playOrder="43">
+    <navPoint id="b2a65bb2-9582-42e2-aa78-993d13c0529b" playOrder="50">
       <navLabel>
         <text>section 11</text>
       </navLabel>
       <content src="index_split_000.html#section11"/>
     </navPoint>
-    <navPoint id="f45889bd-971f-4ff2-9fdf-9c82bc24f242" playOrder="44">
+    <navPoint id="f45889bd-971f-4ff2-9fdf-9c82bc24f242" playOrder="51">
       <navLabel>
         <text>section 12</text>
       </navLabel>
