@@ -19,6 +19,9 @@ EPUB_FILES = 	mimetype \
 		toc.ncx
 EPUB_ARCHIVE = out-of-the-tar-pit.epub
 
+test : $(EPUB_ARCHIVE)
+	java -jar lib/epubcheck-3.0b4.jar $(EPUB_ARCHIVE)
+
 $(EPUB_ARCHIVE) : $(EPUB_FILES)
 	zip -X $@ $^
 
