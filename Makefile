@@ -10,6 +10,7 @@ EPUB_FILES = 	mimetype \
 		section-6.html \
 		section-7.html \
 		section-8.html \
+		section-9.html \
 		index_split_000.html \
 		index_split_001.html \
 		footnotes.html \

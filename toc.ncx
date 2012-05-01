@@ -44,36 +44,22 @@
 	  </text>
 	</navLabel>
 	<content src="section-4.html#section-4.1" />
-	<navPoint id="navpoint-id-section-4.1.1" playOrder="6">
-	  <navLabel>
-	    <text>4.1.1 Impact of State on Testing
-	    </text>
-	  </navLabel>
-	  <content src="section-4.html#section-4.1.1" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-4.1.2" playOrder="7">
-	  <navLabel>
-	    <text>4.1.2 Impact of State on Informal Reasoning
-	    </text>
-	  </navLabel>
-	  <content src="section-4.html#section-4.1.2" />
-	</navPoint>
       </navPoint>
-      <navPoint id="navpoint-id-section-4.2" playOrder="8">
+      <navPoint id="navpoint-id-section-4.2" playOrder="6">
 	<navLabel>
 	  <text>4.2 Complexity caused by Control
 	  </text>
 	</navLabel>
 	<content src="section-4.html#section-4.2" />
       </navPoint>
-      <navPoint id="navpoint-id-section-4.3" playOrder="9">
+      <navPoint id="navpoint-id-section-4.3" playOrder="7">
 	<navLabel>
 	  <text>4.3 Complexity caused by Code Volume
 	  </text>
 	</navLabel>
 	<content src="section-4.html#section-4.3" />
       </navPoint>
-      <navPoint id="navpoint-id-section-4.4" playOrder="10">
+      <navPoint id="navpoint-id-section-4.4" playOrder="8">
 	<navLabel>
 	  <text>4.4 Other causes of complexity
 	  </text>
@@ -81,202 +67,69 @@
 	<content src="section-4.html#section-4.4" />
       </navPoint>
     </navPoint>
-    <navPoint id="navpoint-id-section-5" playOrder="11">
+    <navPoint id="navpoint-id-section-5" playOrder="9">
       <navLabel>
 	<text>5 Classical approaches to managing complexity
 	</text>
       </navLabel>
       <content src="section-5.html#section-5" />
-      <navPoint id="navpoint-id-section-5.1" playOrder="12">
+      <navPoint id="navpoint-id-section-5.1" playOrder="10">
 	<navLabel>
 	  <text>5.1 Object-Orientation
 	  </text>
 	</navLabel>
 	<content src="section-5.html#section-5.1" />
-	<navPoint id="navpoint-id-section-5.1.1" playOrder="13">
-	  <navLabel>
-	    <text>5.1.1 State
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.1.1" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-5.1.2" playOrder="14">
-	  <navLabel>
-	    <text>5.1.2 Control
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.1.2" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-5.1.3" playOrder="15">
-	  <navLabel>
-	    <text>5.1.3 Summary — OOP
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.1.3" />
-	</navPoint>
       </navPoint>
-      <navPoint id="navpoint-id-section-5.2" playOrder="16">
+      <navPoint id="navpoint-id-section-5.2" playOrder="11">
 	<navLabel>
 	  <text>5.2 Functional Programming
 	  </text>
 	</navLabel>
 	<content src="section-5.html#section-5.2" />
-	<navPoint id="navpoint-id-section-5.2.1" playOrder="17">
-	  <navLabel>
-	    <text>5.2.1 State
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.2.1" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-5.2.2" playOrder="18">
-	  <navLabel>
-	    <text>5.2.2 Control
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.2.2" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-5.2.3" playOrder="19">
-	  <navLabel>
-	    <text>5.2.3 Kinds of State
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.2.3" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-5.2.4" playOrder="20">
-	  <navLabel>
-	    <text>5.2.4 State and Modularity
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.2.4" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-5.2.5" playOrder="21">
-	  <navLabel>
-	    <text>5.2.5 Summary — Functional Programming
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.2.5" />
-	</navPoint>
       </navPoint>
-      <navPoint id="navpoint-id-section-5.3" playOrder="22">
+      <navPoint id="navpoint-id-section-5.3" playOrder="12">
 	<navLabel>
 	  <text>5.3 Logic Programming
 	  </text>
 	</navLabel>
 	<content src="section-5.html#section-5.3" />
-	<navPoint id="navpoint-id-section-5.3.1" playOrder="23">
-	  <navLabel>
-	    <text>5.3.1 State
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.3.1" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-5.3.2" playOrder="24">
-	  <navLabel>
-	    <text>5.3.2 Control
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.3.2" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-5.3.3" playOrder="25">
-	  <navLabel>
-	    <text>5.3.3 Summary — Logic Programming
-	    </text>
-	  </navLabel>
-	  <content src="section-5.html#section-5.3.3" />
-	</navPoint>
       </navPoint>
     </navPoint>
-    <navPoint id="navpoint-id-section-6" playOrder="26">
+    <navPoint id="navpoint-id-section-6" playOrder="13">
       <navLabel>
 	<text>6 Accidents and Essence
 	</text>
       </navLabel>
       <content src="section-6.html#section-6" />
     </navPoint>
-    <navPoint id="navpoint-id-section-7" playOrder="27">
+    <navPoint id="navpoint-id-section-7" playOrder="14">
       <navLabel>
 	<text>7 Recommended General Approach
 	</text>
       </navLabel>
       <content src="section-7.html#section-7" />
-      <navPoint id="navpoint-id-section-7.1" playOrder="28">
+      <navPoint id="navpoint-id-section-7.1" playOrder="15">
 	<navLabel>
 	  <text>7.1 Ideal World
 	  </text>
 	</navLabel>
 	<content src="section-7.html#section-7.1" />
-	<navPoint id="navpoint-id-section-7.1.1" playOrder="29">
-	  <navLabel>
-	    <text>7.1.1 State in the ideal world
-	    </text>
-	  </navLabel>
-	  <content src="section-7.html#section-7.1.1" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-7.1.2" playOrder="30">
-	  <navLabel>
-	    <text>7.1.2 Control in the ideal world
-	    </text>
-	  </navLabel>
-	  <content src="section-7.html#section-7.1.2" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-7.1.3" playOrder="31">
-	  <navLabel>
-	    <text>7.1.3 Summary
-	    </text>
-	  </navLabel>
-	  <content src="section-7.html#section-7.1.3" />
-	</navPoint>
       </navPoint>
-      <navPoint id="navpoint-id-section-7.2" playOrder="32">
+      <navPoint id="navpoint-id-section-7.2" playOrder="16">
 	<navLabel>
 	  <text>7.2 Theoretical and Practical Limitations
 	  </text>
 	</navLabel>
 	<content src="section-7.html#section-7.2" />
-	<navPoint id="navpoint-id-section-7.2.1" playOrder="33">
-	  <navLabel>
-	    <text>7.2.1 Formal Specification Languages
-	    </text>
-	  </navLabel>
-	  <content src="section-7.html#section-7.2.1" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-7.2.2" playOrder="34">
-	  <navLabel>
-	    <text>7.2.2 Ease of Expression
-	    </text>
-	  </navLabel>
-	  <content src="section-7.html#section-7.2.2" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-7.2.3" playOrder="35">
-	  <navLabel>
-	    <text>7.2.3 Required Accidental Complexity
-	    </text>
-	  </navLabel>
-	  <content src="section-7.html#section-7.2.3" />
-	</navPoint>
       </navPoint>
-      <navPoint id="navpoint-id-section-7.3" playOrder="36">
+      <navPoint id="navpoint-id-section-7.3" playOrder="17">
 	<navLabel>
 	  <text>7.3 Recommendations
 	  </text>
 	</navLabel>
 	<content src="section-7.html#section-7.3" />
-	<navPoint id="navpoint-id-section-7.3.1" playOrder="37">
-	  <navLabel>
-	    <text>7.3.1 Required Accidental Complexity
-	    </text>
-	  </navLabel>
-	  <content src="section-7.html#section-7.3.1" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-7.3.2" playOrder="38">
-	  <navLabel>
-	    <text>7.3.2 Separation and the relationship between the components
-	    </text>
-	  </navLabel>
-	  <content src="section-7.html#section-7.3.2" />
-	</navPoint>
       </navPoint>
-      <navPoint id="navpoint-id-section-7.4" playOrder="39">
+      <navPoint id="navpoint-id-section-7.4" playOrder="18">
 	<navLabel>
 	  <text>7.4 Summary
 	  </text>
@@ -284,55 +137,41 @@
 	<content src="section-7.html#section-7.4" />
       </navPoint>
     </navPoint>
-    <navPoint id="navpoint-id-section-8" playOrder="40">
+    <navPoint id="navpoint-id-section-8" playOrder="19">
       <navLabel>
 	<text>8 The Relational Model
 	</text>
       </navLabel>
       <content src="section-8.html#section-8" />
-      <navPoint id="navpoint-id-section-8.1" playOrder="41">
+      <navPoint id="navpoint-id-section-8.1" playOrder="20">
 	<navLabel>
 	  <text>8.1 Structure
 	  </text>
 	</navLabel>
 	<content src="section-8.html#section-8.1" />
-	<navPoint id="navpoint-id-section-8.1.1" playOrder="42">
-	  <navLabel>
-	    <text>8.1.1 Relations
-	    </text>
-	  </navLabel>
-	  <content src="section-8.html#section-8.1.1" />
-	</navPoint>
-	<navPoint id="navpoint-id-section-8.1.2" playOrder="43">
-	  <navLabel>
-	    <text>8.1.2 Structuring benefits of Relations — Access path independence
-	    </text>
-	  </navLabel>
-	  <content src="section-8.html#section-8.1.2" />
-	</navPoint>
       </navPoint>
-      <navPoint id="navpoint-id-section-8.2" playOrder="44">
+      <navPoint id="navpoint-id-section-8.2" playOrder="21">
 	<navLabel>
 	  <text>8.2 Manipulation
 	  </text>
 	</navLabel>
 	<content src="section-8.html#section-8.2" />
       </navPoint>
-      <navPoint id="navpoint-id-section-8.3" playOrder="45">
+      <navPoint id="navpoint-id-section-8.3" playOrder="22">
 	<navLabel>
 	  <text>8.3 Integrity
 	  </text>
 	</navLabel>
 	<content src="section-8.html#section-8.3" />
       </navPoint>
-      <navPoint id="navpoint-id-section-8.4" playOrder="46">
+      <navPoint id="navpoint-id-section-8.4" playOrder="23">
 	<navLabel>
 	  <text>8.4 Data Independence
 	  </text>
 	</navLabel>
 	<content src="section-8.html#section-8.4" />
       </navPoint>
-      <navPoint id="navpoint-id-section-8.5" playOrder="47">
+      <navPoint id="navpoint-id-section-8.5" playOrder="24">
 	<navLabel>
 	  <text>8.5 Extensions
 	  </text>
@@ -340,25 +179,47 @@
 	<content src="section-8.html#section-8.5" />
       </navPoint>
     </navPoint>
-    <navPoint id="333c9449-078c-4106-8188-5096f913a437" playOrder="48">
+    <navPoint id="navpoint-id-section-9" playOrder="25">
       <navLabel>
-        <text>section 9.</text>
+	<text>9 Functional Relational Programming
+	</text>
       </navLabel>
-      <content src="index_split_000.html#section9"/>
+      <content src="section-9.html#section-9" />
+      <navPoint id="navpoint-id-section-9.1" playOrder="26">
+	<navLabel>
+	  <text>9.1 Architecture
+	  </text>
+	</navLabel>
+	<content src="section-9.html#section-9.1" />
+      </navPoint>
+      <navPoint id="navpoint-id-section-9.2" playOrder="27">
+	<navLabel>
+	  <text>9.2 Benefits of this approach
+	  </text>
+	</navLabel>
+	<content src="section-9.html#section-9.2" />
+      </navPoint>
+      <navPoint id="navpoint-id-section-9.3" playOrder="28">
+	<navLabel>
+	  <text>9.3 Types
+	  </text>
+	</navLabel>
+	<content src="section-9.html#section-9.3" />
+      </navPoint>
     </navPoint>
-    <navPoint id="ab96c58c-95b7-4131-9e19-7aa7e3ed4f11" playOrder="49">
+    <navPoint id="ab96c58c-95b7-4131-9e19-7aa7e3ed4f11" playOrder="29">
       <navLabel>
         <text>section 10</text>
       </navLabel>
       <content src="index_split_000.html#section10"/>
     </navPoint>
-    <navPoint id="b2a65bb2-9582-42e2-aa78-993d13c0529b" playOrder="50">
+    <navPoint id="b2a65bb2-9582-42e2-aa78-993d13c0529b" playOrder="30">
       <navLabel>
         <text>section 11</text>
       </navLabel>
       <content src="index_split_000.html#section11"/>
     </navPoint>
-    <navPoint id="f45889bd-971f-4ff2-9fdf-9c82bc24f242" playOrder="51">
+    <navPoint id="f45889bd-971f-4ff2-9fdf-9c82bc24f242" playOrder="31">
       <navLabel>
         <text>section 12</text>
       </navLabel>

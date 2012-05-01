@@ -71,8 +71,67 @@
     mapping. This has the unhappy result that physical performance concerns can
     invade the logical design even though avoiding exactly this was one of
     Codd’s most important original goals.</dd>
-      <dt id="footnote-"></dt>
-      <dd></dd>
+      <dt id="footnote-16">16</dt>
+      <dd>Not to be confused with functional reactive
+      programming [<a href="references.html#EH97"
+      class="calibre2">EH97</a>] which does in fact have some similarities to
+      this approach, but has no intrinsic focus on relations or the relational
+      model</dd>
+      <dt id="footnote-17">17</dt>
+      <dd>Aside from token experimental implementations of FRP
+      infrastructures created by the authors.</dd>
+      <dt id="footnote-18">18</dt>
+      <dd>By <em>user-defined</em> we mean <em>specific to this particular
+      FRP system</em> (as opposed to pre-provided by an underlying
+      infrastructure).</dd>
+      <dt id="footnote-19">19</dt>
+      <dd>Equally, traditional OOP pays little attention
+      to the accidental / essential split which was also discussed
+      in <a href="section-7.html#section-7.3.2" class="calibre2">section
+      7.3.2.</a></dd>
+      <dt id="footnote-20">20</dt>
+      <dd>see <a href="section-8.html#section-8.1.1" class="calibre2">section
+	  8.1.1</a> for a definition of this term.</dd>
+      <dt id="footnote-21">21</dt>
+      <dd>aside from the <em>ease of expression</em> issue discussed
+      in <a href="index_split_000.html#dummy" class="calibre2">section
+      9.1.4.</a></dd>
+      <dt id="footnote-22">22</dt>
+      <dd>Other systems connected electronically are considered
+      equivalent to users inputting data for these purposes.</dd>
+      <dt id="footnote-23">23</dt>
+      <dd>In fact one implication of this is that it is in
+      fact necessary for the assignment command to support multiple simultaneous
+      assignment of several distinct relation values to several
+	distinct relvars — this is to avoid temporary
+      inconsistencies which could otherwise occur with integrity constraints
+      that involved multiple relvars.</dd>
+      <dt id="footnote-24">24</dt>
+      <dd>Some systems — for example the Kleisli system used in
+      bio-informatics [<a href="references.html#Won00"
+      class="calibre2">Won00</a>] — seek to avoid this conversion by providing support for
+      more complex structures such as nested relations. We believe that the
+      simplicity gained from having flat relations through-out the system is
+      worth the effort sometimes involved at the system
+      edges (<a href="section-9.html#section-9.2.4" class="calibre2">section
+      9.2.4</a> describes some of the rationale behind this).</dd>
+      <dt id="footnote-25">25</dt>
+      <dd>A prototype implementation of the essential state and essential logic
+      infrastructure — the most significant parts — was developed in a mere 1500
+      lines of Scheme. In fact this prototype supported not only the relational
+      algebra but also some temporal extensions. The effort involved in this is
+      insignificant when compared to the hundreds of man-years often involved in
+      large systems.</dd>
+      <dt id="footnote-26">26</dt>
+      <dd>The exception might be in the kind of highly
+      interactive scenario considered in
+      sections <a href="section-7.html#section-7.2.2"
+      class="calibre2">7.2.2</a> and <a href="section-7.html#section-7.3.1"
+      class="calibre2">7.3.1</a></dd>
+      <dt id="footnote-27">27</dt>
+      <dd>We’re talking here solely about fixing the system
+      itself — of course FRP can’t guarantee that errors in the logic won’t
+      escape and affect the real world via <em>observers</em>!</dd>
     </dl>
   </body>
 </html>
