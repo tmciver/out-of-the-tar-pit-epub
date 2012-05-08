@@ -12,236 +12,66 @@
 		@page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }</style></head>
   <body class="calibre">
     <p id="dummy"></p>
-<p class="calibre1" id="section10">10</p>
-<p class="calibre1">Example of an FRP system</p>
-<p class="calibre1">We now examine a simple example FRP system. The system is designed to support an estate agency (real estate) business. It will keep track of properties which are being sold, offers which are made on the properties, 53</p>
-<p class="calibre1"/>
-<p class="calibre1">decisions made on the offers by the owners, and commission fees earnt by the individual agency employees from their successful sales. The example should serve to highlight the declarative nature of the components of an FRP system. </p>
-<p class="calibre1">To keep things simple, this system operates under some restrictions: 1. Sales only — no rentals / lettings</p>
-<p class="calibre1">2. People only have one home, and the owners reside at the property they are selling</p>
-<p class="calibre1">3. Rooms are perfectly rectangular</p>
-<p class="calibre1">4. Offer acceptance is binding (ie an accepted offer constitutes a sale) The example will use syntax from a hypothetical FRP infrastructure (which supports not only the relational algebra but also some of the common extensions from <a href="index_split_000.html#dummy" class="calibre2">section 8.5) </a>— typewriter font is used for this. </p>
-<p class="calibre1">10.1</p>
-<p class="calibre1">User-defined Types</p>
-<p class="calibre1">The example system makes use of a small number of custom types (see</p>
-<p class="calibre1"><a href="index_split_000.html#dummy" class="calibre2">section 9.3), </a>some of which are just aliases for types provided by the infrastructure:</p>
-<p class="calibre1">def alias address :</p>
-<p class="calibre1">string</p>
-<p class="calibre1">def alias agent :</p>
-<p class="calibre1">string</p>
-<p class="calibre1">def alias name :</p>
-<p class="calibre1">string</p>
-<p class="calibre1">def alias price :</p>
-<p class="calibre1">double</p>
-<p class="calibre1">def enum roomType :</p>
-<p class="calibre1">KITCHEN | BATHROOM | LIVING_ROOM</p>
-<p class="calibre1">def enum priceBand :</p>
-<p class="calibre1">LOW | MED | HIGH | PREMIUM</p>
-<p class="calibre1">def enum areaCode :</p>
-<p class="calibre1">CITY | SUBURBAN | RURAL</p>
-<p class="calibre1">def enum speedBand :</p>
-<p class="calibre1">VERY_FAST | FAST | MEDIUM | SLOW |</p>
-<p class="calibre1">VERY_SLOW</p>
-<p class="calibre1">10.2</p>
-<p class="calibre1">Essential State</p>
-<p class="calibre1">The essential state (see <a href="index_split_000.html#dummy" class="calibre2">section 9.1.1) </a>consists of the definitions of the types of the base relvars (the types of the attributes are shown in italics). </p>
-<p class="calibre1">def relvar Property :: {address:address price:price photo:filename agent:agent dateRegistered:date }</p>
-<p class="calibre1">54</p>
-<p class="calibre1"/>
-<p class="calibre1">def relvar Offer :: {address:address offerPrice:price offerDate:date bidderName:name bidderAddress:address }</p>
-<p class="calibre1">def relvar Decision :: {address:address offerDate:date bidderName:name bidderAddress:address decisionDate:date accepted:bool }</p>
-<p class="calibre1">def relvar Room :: {address:address roomName:string width:double breadth:double type:roomType }</p>
-<p class="calibre1">def relvar Floor :: {address:address roomName:string floor:int }</p>
-<p class="calibre1">def relvar Commission :: {priceBand:priceBand</p>
-<p class="calibre1">areaCode:areaCode saleSpeed:speedBand commission:double }</p>
-<p class="calibre1">The example makes use of six base relations, most of which are self-explanatory. </p>
-<p class="calibre1">The Property relation stores all properties sold or for-sale. As will be seen in <a href="index_split_000.html#dummy" class="calibre2">section 10.3.3, </a>properties are uniquely identified by their address. </p>
-<p class="calibre1">The price is the desired sale price, the agent is the agency employee responsible for selling the Property, and the dateRegistered is the date that the Property was registred for sale with the agency. </p>
-<p class="calibre1">The Offer relation records the history of all offers ever made. The address represents the Property on which the Offer is being made (by the bidderName who lives at bidderAddress). The offerDate attribute records the date when the offer was made, and the offerPrice records the price offered. Offers are uniquely identified by an (address, offerDate, bidderName, bidderAddress) combination. </p>
-<p class="calibre1">The Decision relation records the decisions made by the owner on the Offers that have been made. </p>
-<p class="calibre1">The Offer in question is identified by the</p>
-<p class="calibre1">(address, offerDate, bidderName, bidderAddress) attributes, and the date and outcome of the decision are recorded by (decisionDate and accepted ). </p>
-<p class="calibre1">The Room relation records information (width, breadth, type) about the rooms that exist at each Property. The Property is of course represented by the address. One point worthy of note (because it’s slightly artificial) is that an assumption is made that every Room in each Property has a unique (within the scope of that Property) roomName. This is necessary because many properties may have more than one room of a given type (and size). </p>
-<p class="calibre1">The Floor relation records which floor each Room (roomName, address) is on. </p>
-<p class="calibre1">55</p>
-<p class="calibre1"/>
-<p class="calibre1">Finally, the Commission relation stores commission fees that can be earned by the agency employees. The commission fees are assigned on the basis of sale prices divided into different priceBand s, Property addresses categorized into areaCodes and ratings of the saleSpeed. (The decision has been made to represent commission rates as a base relation — rather than as a function — so that the commission fees can be queried and easily adjusted). </p>
-<p class="calibre1">10.3</p>
-<p class="calibre1">Essential Logic</p>
-<p class="calibre1">This is the heart of the system (see <a href="index_split_000.html#dummy" class="calibre2">section 9.1.2) </a>and corresponds to the</p>
-<p class="calibre1">“business logic”. </p>
-<p class="calibre1">10.3.1</p>
-<p class="calibre1">Functions</p>
-<p class="calibre1">We do not give the actual function definitions here, we just describe their operation informally. In reality we would supply the function definitions in terms of some language provided by the infrastructure. </p>
-<p class="calibre1">priceBandForPrice Converts a price into a priceBand (which will be used in the commission calculations)</p>
-<p class="calibre1">areaCodeForAddress Converts an address into an areaCode datesToSpeedBand Converts a pair of dates into a speedBand (reflecting the speed of sale after taking into account the time of year) 10.3.2</p>
-<p class="calibre1">Derived Relations</p>
-<p class="calibre1">There are thirteen derived relations in the system. These can be very loosely classified as internal or external according to whether their main purpose is simply to facilitate the definition of other derived relations (and constraints) or to provide information to the users. We consider the definition and purpose of each in turn. </p>
-<p class="calibre1">As an aid to understanding, the types of the derived relations are shown in comments (delimited by /* and */). In reality these types would be derived (or checked) by an infrastructure-provided type inference mechanism. </p>
-<p class="calibre1">Internal</p>
-<p class="calibre1">The ten internal derived relations exist mainly to help with the later definition of the three external ones. </p>
-<p class="calibre1">56</p>
-<p class="calibre1"/>
-<p class="calibre1">/* RoomInfo :: {address:address roomName:string width:double breadth:double type:roomType roomSize:double} */</p>
-<p class="calibre1">RoomInfo = extend(Room, (roomSize = width*breadth)) The RoomInfo derived relation simply extends the Room base relation with an extra attribute roomSize which gives the area of each room. </p>
-<p class="calibre1">/* Acceptance :: {address:address offerDate:date bidderName:name bidderAddress:address decisionDate:date} */</p>
-<p class="calibre1">Acceptance = project_away(restrict(Decision | accepted == true), accepted)</p>
-<p class="calibre1">The Acceptance derived relation simply selects the positive entries from the Decision base relation, and then strips away the accepted attribute (the project_away operation is the dual of the project operation — it removes the listed attributes rather than keeping them). </p>
-<p class="calibre1">/* Rejection :: {address:address offerDate:date bidderName:name bidderAddress:address decisionDate:date} */</p>
-<p class="calibre1">Rejection = project_away(restrict(Decision | accepted == false), accepted)</p>
-<p class="calibre1">The Rejection derived relation simply selects the negative decisions and removes the accepted attribute. </p>
-<p class="calibre1">/* PropertyInfo :: {address:address price:price photo:filename agent:agent dateRegistered:date</p>
-<p class="calibre1">priceBand:priceBand areaCode:areaCode</p>
-<p class="calibre1">numberOfRooms:int squareFeet:double} */</p>
-<p class="calibre1">PropertyInfo =</p>
-<p class="calibre1">extend(Property, </p>
-<p class="calibre1">(priceBand = priceBandForPrice(price)), </p>
-<p class="calibre1">(areaCode = areaCodeForAddress(address)), </p>
-<p class="calibre1">(numberOfRooms = count(restrict(RoomInfo |</p>
-<p class="calibre1">address == address))), </p>
-<p class="calibre1">(squareFeet = sum(roomSize, restrict(RoomInfo |</p>
-<p class="calibre1">address == address))))</p>
-<p class="calibre1">The PropertyInfo derived relation extends the Property base relation with four new attributes. The first — called priceBand — indicates which of the estate agency’s price bands the property is in. The price band of the 57</p>
-<p class="calibre1"/>
-<p class="calibre1">final sale price will affect the commission derived by the agent for selling the property. The areaCode attribute indicates the area code, which also affects the commission an agent may earn. The numberOfRooms is calculated by counting the number of rooms (actually the number of entries in the RoomInfo derived relation at the corresponding address), and the squareFeet is computed by summing up the relevant roomSizes. </p>
-<p class="calibre1">/* CurrentOffer :: {address:address offerPrice:price offerDate:date bidderName:name</p>
-<p class="calibre1">bidderAddress:address} */</p>
-<p class="calibre1">CurrentOffer =</p>
-<p class="calibre1">summarize(Offer, </p>
-<p class="calibre1">project(Offer, address bidderName bidderAddress), </p>
-<p class="calibre1">quota(offerDate,1))</p>
-<p class="calibre1">The purpose of the CurrentOffer derived relation is to filter out old offers which have been superceded by newer ones (e.g. if the bidder has submitted a revised — higher or lower — offer, then we are no longer interested in older offers they may have made on the same property). </p>
-<p class="calibre1">The definition summarizes the Offer base relation, taking the most recent (ie the single greatest offerDate) offer made by each bidder on a property (ie per unique address, bidderName, bidderAddress combination). Because both bidderName and bidderAddress are included, the system supports the (admittedly unusual) possibility of different people living in the same place (bidderAddress) submitting different offers on the same property (address). </p>
-<p class="calibre1">/* RawSales :: {address:address offerPrice:price</p>
-<p class="calibre1">decisionDate:date agent:agent</p>
-<p class="calibre1">dateRegistered:date} */</p>
-<p class="calibre1">RawSales =</p>
-<p class="calibre1">project_away(join(Acceptance, </p>
-<p class="calibre1">join(CurrentOffer, </p>
-<p class="calibre1">project(Property, address agent</p>
-<p class="calibre1">dateRegistered))), </p>
-<p class="calibre1">offerDate bidderName bidderAddress)</p>
-<p class="calibre1">For the purposes of this example, sales are seen as corresponding directly to accepted offers. As a result the definition of the RawSales relation is in terms of the Acceptance relation. These accepted offers are augmented (joined) with the CurrentOffer information (which includes the agreed offerPrice) and with information (agent, dateRegistered ) from the Property relation. </p>
-<p class="calibre1">58</p>
-<p class="calibre1"/>
-<p class="calibre1">/* SoldProperty :: {address:address} */</p>
-<p class="calibre1">SoldProperty = project(RawSales, address)</p>
-<p class="calibre1">The SoldProperty relation simply contains the address of all Properties on which a sale has been agreed (ie the properties in the RawSales relation). </p>
-<p class="calibre1">/* UnsoldProperty :: {address:address} */</p>
-<p class="calibre1">UnsoldProperty = minus(project(Property, address), SoldProperty) The UnsoldProperty is obviously just the Property which is not SoldProperty (i.e. all Property addresses minus the SoldProperty addresses). </p>
-<p class="calibre1">/* SalesInfo :: {address:address agent:agent areaCode:areaCode saleSpeed:speedBand priceBand:priceBand} */</p>
-<p class="calibre1">SalesInfo =</p>
-<p class="calibre1">project(extend(RawSales, </p>
-<p class="calibre1">(areaCode = areaCodeForAddress(address)), </p>
-<p class="calibre1">(saleSpeed = datesToSpeedBand(dateRegistered, </p>
-<p class="calibre1">decisionDate)), </p>
-<p class="calibre1">(priceBand = priceBandForPrice(offerPrice))), </p>
-<p class="calibre1">address agent areaCode saleSpeed priceBand)</p>
-<p class="calibre1">The SalesInfo relation is based on the RawSales relation, but extends it with areaCode, saleSpeed and priceBand information by calling the three relevant functions. </p>
-<p class="calibre1">/* SalesCommissions :: {address:address agent:agent commission:double} */</p>
-<p class="calibre1">SalesCommissions =</p>
-<p class="calibre1">project(join(SalesInfo, Commission), </p>
-<p class="calibre1">address agent commission)</p>
-<p class="calibre1">The SalesCommissions which are due to the agents are derived simply by joining together the SalesInfo with the Commission base relation. This gives the amount of commission due to each agent on each Property (represented by address). </p>
-<p class="calibre1">External</p>
-<p class="calibre1">Having now defined all the internal derived relations, we are now in a position to define the external derived relations — these are the ones which will be of most direct interest to the users of the system. </p>
-<p class="calibre1">59</p>
-<p class="calibre1"/>
-<p class="calibre1">/* OpenOffers :: {address:address offerPrice:price offerDate:date bidderName:name</p>
-<p class="calibre1">bidderAddress:address} */</p>
-<p class="calibre1">OpenOffers =</p>
-<p class="calibre1">join(CurrentOffer, </p>
-<p class="calibre1">minus(project_away(CurrentOffer, offerPrice), </p>
-<p class="calibre1">project_away(Decision, accepted decisionDate)))</p>
-<p class="calibre1">The OpenOffers relation gives details of the CurrentOffers on which the owner has not yet made a Decision. This is calculated by joining the CurrentOffer information (which includes offerPrice) with those CurrentOffers (excluding the price information) that do not have corresponding Decisions. </p>
-<p class="calibre1">project_away is used here because minus requires its arguments to be of the same type. </p>
-<p class="calibre1">/* PropertyForWebSite :: {address:address price:price photo:filename numberOfRooms:int</p>
-<p class="calibre1">squareFeet:double} */</p>
-<p class="calibre1">PropertyForWebSite = project( join(UnsoldProperty, PropertyInfo), address price photo</p>
-<p class="calibre1">numberOfRooms squareFeet )</p>
-<p class="calibre1">The business wants to display the information from PropertyInfo on their external website. However, they only want to show unsold property (this is achieved simply by a join), and they only want to show a subset of the attributes (this is achieved with a project). </p>
-<p class="calibre1">/* CommissionDue :: {agent:agent totalCommission:double} */</p>
-<p class="calibre1">CommissionDue =</p>
-<p class="calibre1">project(summarize(SalesCommissions, </p>
-<p class="calibre1">project(SalesCommissions, agent), </p>
-<p class="calibre1">totalCommission = sum(commission)), </p>
-<p class="calibre1">agent totalCommission)</p>
-<p class="calibre1">Finally, the total commission due to each agent is calculated by simply summing up the commission attribute of the SalesCommissions relation on a per agent basis to give the totalCommission attribute. </p>
-<p class="calibre1">10.3.3</p>
-<p class="calibre1">Integrity</p>
-<p class="calibre1">Integrity constraints are given in the form of relational algebra or relational calculus expressions. As already noted, our hypothetical FRP infrastructure 60</p>
-<p class="calibre1"/>
-<p class="calibre1">provides common relational algebra extensions (see <a href="index_split_000.html#dummy" class="calibre2">section 8.5). </a></p>
-<p class="calibre1">It also</p>
-<p class="calibre1">provides special syntax for candidate and foreign key constraints. (This syntax is effectively just a shorthand for the underlying algebra or calculus expression). </p>
-<p class="calibre1">We consider the standard (key) constraints first:</p>
-<p class="calibre1">candidate key Property = (address)</p>
-<p class="calibre1">candidate key Offer = (address, offerDate, </p>
-<p class="calibre1">bidderName, bidderAddress)</p>
-<p class="calibre1">candidate key Decision = (address, offerDate, </p>
-<p class="calibre1">bidderName, bidderAddress)</p>
-<p class="calibre1">candidate key Room = (address, roomName)</p>
-<p class="calibre1">candidate key Floor = (address, roomName)</p>
-<p class="calibre1">candidate key Commision = (priceBand, areaCode, saleSpeed) foreign key Offer (address) in Property</p>
-<p class="calibre1">foreign key Decision (address, offerDate, </p>
-<p class="calibre1">bidderName, bidderAddress) in Offer</p>
-<p class="calibre1">foreign key Room (address) in Property</p>
-<p class="calibre1">foreign key Floor (address) in Property</p>
-<p class="calibre1">There are also some slightly more interesting, domain-specific constraints. </p>
-<p class="calibre1">The first insists that all properties must have at least one room: count(restrict(PropertyInfo | numberOfRooms &lt; 1)) == 0</p>
-<p class="calibre1">The next ensures that people cannot submit bids on their own property (owners are assumed to be residing at the property they are selling): count(restrict(Offer | bidderAddress == address)) == 0</p>
-<p class="calibre1">This constraint prohibits the submission of any Offers on a property (address) after a sale has happened (i.e. after an Acceptance has occurred for the address):</p>
-<p class="calibre1">count(restrict(join(Offer, </p>
-<p class="calibre1">project(Acceptance, address decisionDate))</p>
-<p class="calibre1">| offerDate &gt; decisionDate)) == 0</p>
-<p class="calibre1">The next constraint ensures that there are never more than 50 properties advertised on the website in the PREMIUM price band: 61</p>
-<p class="calibre1"/>
-<p class="calibre1">count(restrict(extend(PropertyForWebSite, </p>
-<p class="calibre1">(priceBand = priceBandForPrice(price)))</p>
-<p class="calibre1">| priceBand == PREMIUM)) &lt; 50</p>
-<p class="calibre1">This is an interesting constraint because it depends (directly as it happens) on a user-defined function (priceBandForPrice). One implication of this is that changes to function definitions (as well as changes to essential state) could — if unchecked — cause the system to violate its constraints. </p>
-<p class="calibre1">No FRP infrastructure can allow this. </p>
-<p class="calibre1">Fortunately there are two straightforward approaches to solving this. </p>
-<p class="calibre1">The first is that the infrastructure could treat function definitions as data (essential state) and apply the same kind of modification checks. The alternative is that it could refuse to run a system with a new function version which causes existing data to be considered invalid. In this latter case manual state changes would be required to restore integrity and to allow the system became operational again. </p>
-<p class="calibre1">Finally, no single bidder can submit more than 10 offers (over time) on a single Property. This constraint works by first computing the number of offers made by each bidder (bidderName, bidderAddress) on each Property (address), and ensuring that this is never more than 10: count(restrict(summarize(Offer, </p>
-<p class="calibre1">project(Offer, address bidderName</p>
-<p class="calibre1">bidderAddress), </p>
-<p class="calibre1">numberOfOffers = count())</p>
-<p class="calibre1">| numberOfOffers &gt; 10)) == 0</p>
-<p class="calibre1">Once the system is deployed, the FRP infrastructure will reject any state modification attempts which would violate any of these integrity constraints. </p>
-<p class="calibre1">10.4</p>
-<p class="calibre1">Accidental State and Control</p>
-<p class="calibre1">The accidental state and control component of an FRP system consists solely of a set of declarations which represent performance hints for the infrastructure (see <a href="index_split_000.html#dummy" class="calibre2">section 9.1.3). </a>In this example the accidental state and control is a set of three hint declarations. </p>
-<p class="calibre1">declare store PropertyInfo</p>
-<p class="calibre1">This declaration is simply a hint to the infrastructure to request that the PropertyInfo derived relation is actually stored (ie cached) rather than continually recalculated. </p>
-<p class="calibre1">62</p>
-<p class="calibre1"/>
-<p class="calibre1">declare store shared Room Floor</p>
-<p class="calibre1">This hint instructs the infrastructure to denormalize the Room and Floor relations into a single shared storage structure. (Note that because we are able to express this as part of the accidental state and control we have not been forced to compromise the essential parts of our system which still treat Room and Floor separately). </p>
-<p class="calibre1">declare store separate Property (photo)</p>
-<p class="calibre1">This hint instructs the infrastructure to store the photo attribute of the Property relation separately from its other attributes (because it is not frequently used). </p>
-<p class="calibre1">These three hints have all focused on state (PropertyInfo is accidental state, and the other two declarations are concerned with accidental aspects of state). Larger systems would probably also include accidental control specifications for performance reasons. </p>
-<p class="calibre1">10.5</p>
-<p class="calibre1">Other</p>
-<p class="calibre1">The feeders and observers for this system would be fairly simple — feeding user input into Decisions, Offers etc., and directly observing and displaying the various derived relations as output (e.g. OpenOffers, PropertyForWebSite and CommisionDue). </p>
-<p class="calibre1">Because of this it is reasonable to expect that the feeders and observers would require no custom coding at all, but could instead be specified in a completely declarative fashion. </p>
-<p class="calibre1">One extension which might require a custom observer would be a requirement to connect CommissionDue into an external payroll system. </p>
-<p class="calibre1" id="section11">11</p>
-<p class="calibre1">Related Work</p>
-<p class="calibre1">FRP draws some influence from the ideas of <a href="index_split_000.html#dummy" class="calibre2">[DD00]. </a></p>
-<p class="calibre1">In contrast with</p>
-<p class="calibre1">this work however, FRP is aimed at general purpose, large-scale application programming. </p>
-<p class="calibre1">Additionally FRP focuses on a separate, functional, sub-language and has different ideas about the use of types. Finally the accidental component of FRP has a broader range than the physical / logical mapping of traditional DBMSs. </p>
-<p class="calibre1">There are also some similarities to Backus’ Applicative State Transition systems <a href="index_split_000.html#dummy" class="calibre2">[Bac78], </a>and to the Aldat project at McGill <a href="index_split_000.html#dummy" class="calibre2">[Mer85] </a>which investi-gated general purpose applications of relational algebra. </p>
-<p class="calibre1">63</p>
-<p class="calibre1"/>
-<p class="calibre1" id="section12">12</p>
-<p class="calibre1">Conclusions</p>
-<p class="calibre1">We have argued that complexity causes more problems in large software systems than anything else. We have also argued that it can be tamed</p>
-<p class="calibre1">— but only through a concerted effort to avoid it where possible, and to separate it where not. Specifically we have argued that a system can usefully be separated into three main parts: the essential state, the essential logic, and the accidental state and control. </p>
-<p class="calibre1">We believe that taking these principles and applying them to the top level of a system design — effectively using different specialised languages for the different components — can offer more in terms simplicity than can the unstructured adoption of any single general language (be it imperative, logic or functional). In making this argument we briefly surveyed each of the common programming paradigms, paying some attention to the weaknesses of object-orientation as a particular example of an imperative approach. </p>
-<p class="calibre1">In cases (such as existing large systems) where this separation cannot be directly applied we believe the focus should be on avoiding state, avoiding explicit control where possible, and striving at all costs to get rid of code. </p>
-<p class="calibre1">So, what is the way out of the tar pit? What is the silver bullet? . . . it may not be FRP, but we believe there can be no doubt that it is simplicity. </p>
-<p class="calibre1">66</p>
+
+        <p class="calibre1" id="section11">11</p>
+
+    <p class="calibre1">Related Work</p>
+
+    <p class="calibre1">FRP draws some influence from the ideas
+    of <a href="index_split_000.html#dummy" class="calibre2">[DD00]. </a></p>
+
+    <p class="calibre1">In contrast with</p>
+
+    <p class="calibre1">this work however, FRP is aimed at general purpose,
+    large-scale application programming.</p>
+
+    <p class="calibre1">Additionally FRP focuses on a separate, functional,
+    sub-language and has different ideas about the use of types. Finally the
+    accidental component of FRP has a broader range than the physical / logical
+    mapping of traditional DBMSs.</p>
+
+    <p class="calibre1">There are also some similarities to Backus’ Applicative
+    State Transition systems <a href="index_split_000.html#dummy"
+    class="calibre2">[Bac78], </a>and to the Aldat project at
+    McGill <a href="index_split_000.html#dummy"
+    class="calibre2">[Mer85] </a>which investi-gated general purpose
+    applications of relational algebra.</p>
+
+    <p class="calibre1">63</p>
+ <p class="calibre1"/>
+    <p class="calibre1" id="section12">12</p>
+
+    <p class="calibre1">Conclusions</p>
+
+    <p class="calibre1">We have argued that complexity causes more problems in
+    large software systems than anything else. We have also argued that it can
+    be tamed</p>
+
+    <p class="calibre1">— but only through a concerted effort to avoid it where
+    possible, and to separate it where not. Specifically we have argued that a
+    system can usefully be separated into three main parts: the essential state,
+    the essential logic, and the accidental state and control.</p>
+
+    <p class="calibre1">We believe that taking these principles and applying
+    them to the top level of a system design — effectively using different
+    specialised languages for the different components — can offer more in terms
+    simplicity than can the unstructured adoption of any single general language
+    (be it imperative, logic or functional). In making this argument we briefly
+    surveyed each of the common programming paradigms, paying some attention to
+    the weaknesses of object-orientation as a particular example of an
+    imperative approach.</p>
+
+    <p class="calibre1">In cases (such as existing large systems) where this
+    separation cannot be directly applied we believe the focus should be on
+    avoiding state, avoiding explicit control where possible, and striving at
+    all costs to get rid of code.</p>
+
+    <p class="calibre1">So, what is the way out of the tar pit? What is the
+    silver bullet? . . . it may not be FRP, but we believe there can be no doubt
+    that it is simplicity.</p>
+
+    <p class="calibre1">66</p>
+
+
 <p class="calibre1"/>
 <p class="calibre1"><a class="calibre3" id="outline"></a></p></body></html>

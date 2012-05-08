@@ -207,19 +207,55 @@
 	<content src="section-9.html#section-9.3" />
       </navPoint>
     </navPoint>
-    <navPoint id="ab96c58c-95b7-4131-9e19-7aa7e3ed4f11" playOrder="29">
+    <navPoint id="navpoint-id-section-10" playOrder="29">
       <navLabel>
-        <text>section 10</text>
+	<text>10 Example of an FRP system
+	</text>
       </navLabel>
-      <content src="index_split_000.html#section10"/>
+      <content src="section-10.html#section-10" />
+      <navPoint id="navpoint-id-section-10.1" playOrder="30">
+	<navLabel>
+	  <text>10.1 User-defined Types
+	  </text>
+	</navLabel>
+	<content src="section-10.html#section-10.1" />
+      </navPoint>
+      <navPoint id="navpoint-id-section-10.2" playOrder="31">
+	<navLabel>
+	  <text>10.2 Essential State
+	  </text>
+	</navLabel>
+	<content src="section-10.html#section-10.2" />
+      </navPoint>
+      <navPoint id="navpoint-id-section-10.3" playOrder="32">
+	<navLabel>
+	  <text>10.3 Essential Logic
+	  </text>
+	</navLabel>
+	<content src="section-10.html#section-10.3" />
+      </navPoint>
+      <navPoint id="navpoint-id-section-10.4" playOrder="33">
+	<navLabel>
+	  <text>10.4 Accidental State and Control
+	  </text>
+	</navLabel>
+	<content src="section-10.html#section-10.4" />
+      </navPoint>
+      <navPoint id="navpoint-id-section-10.5" playOrder="34">
+	<navLabel>
+	  <text>10.5 Other
+	  </text>
+	</navLabel>
+	<content src="section-10.html#section-10.5" />
+      </navPoint>
     </navPoint>
-    <navPoint id="b2a65bb2-9582-42e2-aa78-993d13c0529b" playOrder="30">
+    <navPoint id="b2a65bb2-9582-42e2-aa78-993d13c0529b" playOrder="35">
       <navLabel>
         <text>section 11</text>
       </navLabel>
       <content src="index_split_000.html#section11"/>
     </navPoint>
-    <navPoint id="f45889bd-971f-4ff2-9fdf-9c82bc24f242" playOrder="31">
+    <navPoint id="f45889bd-971f-4ff2-9fdf-9c82bc24f242" playOrder="36">
       <navLabel>
         <text>section 12</text>
       </navLabel>
