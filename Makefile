@@ -12,8 +12,8 @@ EPUB_FILES = 	mimetype \
 		section-8.html \
 		section-9.html \
 		section-10.html \
+		section-11.html \
 		index_split_000.html \
-		index_split_001.html \
 		footnotes.html \
 		references.html \
 		META-INF/container.xml \
