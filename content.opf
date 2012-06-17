@@ -31,7 +31,8 @@
     <item href="section-9.html" id="id9" media-type="application/xhtml+xml"/>
     <item href="section-10.html" id="id10" media-type="application/xhtml+xml"/>
     <item href="section-11.html" id="id11" media-type="application/xhtml+xml"/>
-    <item href="index_split_000.html" id="id12" media-type="application/xhtml+xml"/>
+    <item href="section-12.html" id="id12" media-type="application/xhtml+xml"/>
+    <item href="index_split_000.html" id="dummy" media-type="application/xhtml+xml"/>
     <item href="footnotes.html" id="footnotes" media-type="application/xhtml+xml"/>
     <item href="references.html" id="ref" media-type="application/xhtml+xml"/>
     <item href="stylesheet.css" id="css" media-type="text/css"/>
@@ -51,6 +52,7 @@
     <itemref idref="id10"/>
     <itemref idref="id11"/>
     <itemref idref="id12"/>
+    <itemref idref="dummy"/>
     <itemref idref="footnotes"/>
     <itemref idref="ref"/>
   </spine>

@@ -249,17 +249,17 @@
 	<content src="section-10.html#section-10.5" />
       </navPoint>
     </navPoint>
-    <navPoint id="b2a65bb2-9582-42e2-aa78-993d13c0529b" playOrder="35">
+    <navPoint id="navpoint-id-section-11" playOrder="35">
       <navLabel>
         <text>11 Related Work</text>
       </navLabel>
       <content src="section-11.html#section-11"/>
     </navPoint>
-    <navPoint id="f45889bd-971f-4ff2-9fdf-9c82bc24f242" playOrder="36">
+    <navPoint id="navpoint-id-section-12" playOrder="36">
       <navLabel>
-        <text>section 12</text>
+        <text>12 Conclusions</text>
       </navLabel>
-      <content src="index_split_000.html#section12"/>
+      <content src="section-12.html#section-12"/>
     </navPoint>
   </navMap>
 </ncx>
