@@ -1,24 +1,24 @@
 EPUB_FILES = 	mimetype \
-		content.opf \
-		titlepage.html \
-		abstract.html \
-		section-1.html \
-		section-2.html \
-		section-3.html \
-		section-4.html \
-		section-5.html \
-		section-6.html \
-		section-7.html \
-		section-8.html \
-		section-9.html \
-		section-10.html \
-		section-11.html \
-		section-12.html \
-		footnotes.html \
-		references.html \
 		META-INF/container.xml \
-		stylesheet.css \
-		toc.ncx
+		OEBPS/content.opf \
+		OEBPS/titlepage.html \
+		OEBPS/abstract.html \
+		OEBPS/section-1.html \
+		OEBPS/section-2.html \
+		OEBPS/section-3.html \
+		OEBPS/section-4.html \
+		OEBPS/section-5.html \
+		OEBPS/section-6.html \
+		OEBPS/section-7.html \
+		OEBPS/section-8.html \
+		OEBPS/section-9.html \
+		OEBPS/section-10.html \
+		OEBPS/section-11.html \
+		OEBPS/section-12.html \
+		OEBPS/footnotes.html \
+		OEBPS/references.html \
+		OEBPS/stylesheet.css \
+		OEBPS/toc.ncx
 EPUB_ARCHIVE = out-of-the-tar-pit.epub
 
 test : $(EPUB_ARCHIVE)
