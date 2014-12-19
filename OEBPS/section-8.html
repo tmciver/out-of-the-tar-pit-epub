@@ -1,277 +1,249 @@
 <?xml version='1.0' encoding='utf-8'?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Out of the Tar Pit</title>
+    <title>Out of the Tar Pit Section 8: The Relational Model</title>
     <meta name="author" content="Ben Moseley and Peter Marks"/>
     <meta name="keywords" content="Complexity, SoftwareEngineering, RelationalModel, Functional, FunctionalProgramming"/>
     <meta name="subject" content="Complexity"/>
     <meta content="http://www.w3.org/1999/xhtml; charset=utf-8" http-equiv="Content-Type"/>
     <link href="stylesheet.css" type="text/css" rel="stylesheet"/>
   </head>
-  <body class="calibre">
-    <h2 id="section-8" class="calibre1">8 The Relational Model</h2>
-    <p class="calibre1">The relational
-    model [<a href="references.html#Cod70" class="calibre2">Cod70</a>] has
-    — despite its origins — nothing <em>intrinsically</em> to do with databases. Rather
-    it is an elegant approach to <em>structuring</em> data, a means for <em>manipulating</em> such
-    data, and a mechanism for maintaining <em>integrity</em> and consistency of
-    state. These features are applicable to state and data in any context.</p>
+  <body>
 
-    <p class="calibre1">In addition to these three broad
-    areas [<a href="references.html#Cod79" class="calibre2">Cod79</a>, section 2.1],
-    [<a href="references.html#Dat04" class="calibre2">Dat04</a>, p109], a fourth strength of the relational
-    model is its insistence on a clear separation between the logical and
-    physical layers of the system. This means that the concerns of designing a
-    logical model (minimizing the complexity) are addressed separately from the
-    concerns of designing an efficient physical storage model and mapping
-    between that and the logical model<sup><a href="footnotes.html#footnote-15"
-    class="calibre2">15</a></sup>. This principle is called <em>data independence</em> and is
-    a crucial part of the relational model [<a href="references.html#Cod70"
-    class="calibre2">Cod70</a>, section 1.1].</p>
+    <h2 id="section-8">8 The Relational Model</h2>
 
-    <p class="calibre1">We see the relational model as having the following four
-    aspects:</p>
+    <article>
+    <p>
+      The relational model [<a href="references.html#Cod70" class="reference">Cod70</a>] has — despite its origins — nothing <em>intrinsically</em> to do with databases.
+      Rather it is an elegant approach to <em>structuring</em> data, a means for <em>manipulating</em> such data, and a mechanism for maintaining <em>integrity</em> and consistency of state.
+      These features are applicable to state and data in any context.
+    </p>
+
+    <p>
+      In addition to these three broad areas [<a href="references.html#Cod79" class="reference">Cod79</a>, section 2.1], [<a href="references.html#Dat04" class="reference">Dat04</a>, p109], a fourth strength of the relational model is its insistence on a clear separation between the logical and physical layers of the system.
+      This means that the concerns of designing a logical model (minimizing the complexity) are addressed separately from the concerns of designing an efficient physical storage model and mapping between that and the logical model<sup><a href="footnotes.html#footnote-15" class="footnote">15</a></sup>.
+      This principle is called <em>data independence</em> and is a crucial part of the relational model [<a href="references.html#Cod70" class="reference">Cod70</a>, section 1.1].
+    </p>
+
+    <p>
+      We see the relational model as having the following four aspects:
+    </p>
 
     <dl>
       <dt>Structure</dt>
-      <dd>the use of relations as the means for representing all
-    data</dd>
+      <dd>the use of <em>relations</em> as the means for representing all data</dd>
       <dt>Manipulation</dt>
       <dd>a means to specify derived data</dd>
       <dt>Integrity</dt>
-      <dd>a means to specify certain inviolable
-    restrictions on the data</dd>
+      <dd>a means to specify certain inviolable restrictions on the data</dd>
       <dt>Data Independence</dt>
-      <dd>a clear separation is enforced
-    between the logical data and its physical representation</dd>
+      <dd>a clear separation is enforced between the logical data and its physical representation</dd>
     </dl>
 
-    <p class="calibre1">We will look briefly at each of these
-    aspects. [<a href="references.html#Dat04" class="calibre2">Dat04</a>] provides a more thorough overview of the
-    relational model.</p>
+    <p>
+      We will look briefly at each of these aspects. [<a href="references.html#Dat04" class="reference">Dat04</a>] provides a more thorough overview of the relational model.
+    </p>
 
-    <p class="calibre1">As a final comment, it is widely recognised that SQL (of
-    any version) — despite its widespread use — is <em>not</em> an accurate
-    reflection of the relational model [<a href="references.html#Cod90"
-    class="calibre2">Cod90</a>, p371, Serious flaws in SQL], [<a href="references.html#Dat04" class="calibre2">Dat04</a>, p xxiv] so the reader is warned against equating the two.</p>
+    <p>
+      As a final comment, it is widely recognised that SQL (of any version) — despite its widespread use — is <em>not</em> an accurate reflection of the relational model [<a href="references.html#Cod90" class="reference">Cod90</a>, p371, Serious flaws in SQL], [<a href="references.html#Dat04" class="reference">Dat04</a>, p xxiv] so the reader is warned against equating the two.
+    </p>
 
-    <h3 id="section-8.1" class="calibre1">8.1 Structure</h3>
+    </article>
 
-    <h4 id="section-8.1.1" class="calibre1">8.1.1 Relations</h4>
+    <h3 id="section-8.1">8.1 Structure</h3>
 
-    <p class="calibre1">As mentioned above, relations provide the sole means for
-    structuring data in the relational model. A relation is best seen as a
-    homogeneous <em>set of records</em>, each record itself consisting of a heterogeneous
-    set of uniquely named <em>attributes</em> (this is slightly different from the
-    general mathematical definition of a relation as a set of tuples whose
-    components are identified by position rather than name).</p>
+    <h4 id="section-8.1.1">8.1.1 Relations</h4>
 
-    <p class="calibre1">Implications of this definition include the fact that —
-    by virtue of being a set — a relation can contain no duplicates, and it has
-    no ordering. Both of these restrictions are in contrast with the common
-    usage of the word table which can obviously contain duplicate rows (and
-    column names), and — by virtue of being a visual entity on a page —
-    inevitably has both an ordering of its rows and of its columns.</p>
+    <article>
 
-    <p class="calibre1">Relations can be of the following kinds:</p>
+    <p>
+      As mentioned above, relations provide the sole means for structuring data in the relational model.
+      A relation is best seen as a homogeneous <em>set of records</em>, each record itself consisting of a heterogeneous set of uniquely named <em>attributes</em> (this is slightly different from the general mathematical definition of a relation as a set of tuples whose components are identified by position rather than name).
+    </p>
+
+    <p>
+      Implications of this definition include the fact that — by virtue of being a set — a relation can contain no duplicates, and it has no ordering.
+      Both of these restrictions are in contrast with the common usage of the word table which can obviously contain duplicate rows (and column names), and — by virtue of being a visual entity on a page — inevitably has both an ordering of its rows and of its columns.
+    </p>
+
+    <p>
+      Relations can be of the following kinds:
+    </p>
 
     <dl>
       <dt>Base Relations</dt>
       <dd>are those which are stored directly</dd>
       <dt>Derived Relations</dt>
-      <dd>(also known as <em>Views</em>) are those which are defined in terms
-    of other relations (base or derived) —
-    see <a href="section-8.html#section-8.2" class="calibre2">section
-    8.2</a></dd>
+      <dd>
+        (also known as <em>Views</em>) are those which are defined in terms of other relations (base or derived) — see <a href="section-8.html#section-8.2" class="section">section 8.2</a>
+      </dd>
     </dl>
 
-    <p class="calibre1">Following Date [<a href="references.html#Dat04"
-    class="calibre2">Dat04</a>] it is useful to think of a relation as being a
-    single (albeit compound) <em>value</em>, and to consider any mutable state not as
-    a “mutable relation” but rather as a <em>variable</em> which at any
-    time can contain a particular relation <em>value</em>. Date calls these variables
-    <em>relation variables</em> or <em>relvars</em>, leading to the terms <em>base relvar</em> and <em>derived
-    relvar</em>, and we shall use this terminology later. (Note however that our
-    definition of relation is slightly different from his in that — following
-    standard static typing practice — we do not consider the type to be part of the
-    value).</p>
+    <p>
+      Following Date [<a href="references.html#Dat04" class="reference">Dat04</a>] it is useful to think of a relation as being a single (albeit compound) <em>value</em>, and to consider any mutable state not as a “mutable relation” but rather as a <em>variable</em> which at any time can contain a particular relation <em>value</em>.
+      Date calls these variables <em>relation variables</em> or <em>relvars</em>, leading to the terms <em>base relvar</em> and <em>derived relvar</em>, and we shall use this terminology later. (Note however that our definition of relation is slightly different from his in that — following standard static typing practice — we do not consider the type to be part of the value).
+    </p>
 
-    <h4 id="section-8.1.2" class="calibre1">8.1.2 Structuring benefits of Relations — Access path
-    independence</h4>
+    </article>
 
-    <p class="calibre1">The idea of structuring data using relations is
-    appealing because no <em>subjective</em>, up-front decisions need to be made about
-    the <em>access paths</em> that will later be used to query and process the data.</p>
+    <h4 id="section-8.1.2">8.1.2 Structuring benefits of Relations — Access path independence</h4>
 
-    <p class="calibre1">To understand what is meant by <em>access path</em>, let us
-    consider a simple example. Suppose we are trying to represent information
-    about employees and the departments in which they work. A system in which
-    choosing the structure for the data involves setting up “routes” between
-    data instances (such as from a particular employee to a particular
-    department) is <em>access path dependent</em>.</p>
+    <article>
 
-    <p class="calibre1">The two main data structuring approaches which preceded
-    the relational model (the network and hierarchical models) were both access
-    path dependent in this way. For example, in the hierarchical model a
-    subjective choice would be forced early on as to whether departments would
-    form the top level (with each department “containing” its employees) or the
-    other way round (with employees “containing” their departments). The choice
-    made would impact all future use of the data. If the first alternative was
-    selected, then users of the data would find it easy to retrieve all
-    employees within a given department (following the access path), but they
-    would find it harder to retrieve the department of a given employee (and
-    would have to use some other technique corresponding to a search of all
-    departments). If the second alternative was selected then the problem was
-    simply reversed.</p>
+    <p>
+      The idea of structuring data using relations is appealing because no <em>subjective</em>, up-front decisions need to be made about the <em>access paths</em> that will later be used to query and process the data.
+    </p>
 
-    <p class="calibre1">The network model alleviated the problem to some degree
-    by allowing multiple access paths between data instances (so the choice
-    could be made to provide both an access path from department to employee and
-    an access path from employee to department). The problem of course is that
-    it is impossible to predict in advance what all the future required access
-    paths will be, and because of this there will always be a disparity between:</p>
+    <p>
+      To understand what is meant by <em>access path</em>, let us consider a simple example.
+      Suppose we are trying to represent information about employees and the departments in which they work.
+      A system in which choosing the structure for the data involves setting up “routes” between data instances (such as from a particular employee to a particular department) is <em>access path dependent</em>.
+    </p>
 
-    <ul>
-      <li><strong>Primary retrieval requirements</strong>
-	which were foreseen, and can be satisfied
-	simply by following the provided access paths</li>
-      <li><strong>Secondary retrieval requirements</strong>
-	which were either unforeseen, or at least not specially
-	supported, and hence can only be satisfied by some alternative mechanism
-	such as search</li>
-    </ul>
+    <p>
+      The two main data structuring approaches which preceded the relational model (the network and hierarchical models) were both access path dependent in this way.
+      For example, in the hierarchical model a subjective choice would be forced early on as to whether departments would form the top level (with each department “containing” its employees) or the other way round (with employees “containing” their departments).
+      The choice made would impact all future use of the data.
+      If the first alternative was selected, then users of the data would find it easy to retrieve all employees within a given department (following the access path), but they would find it harder to retrieve the department of a given employee (and would have to use some other technique corresponding to a search of all departments).
+      If the second alternative was selected then the problem was simply reversed.
+    </p>
 
-    <p class="calibre1">The ability of the relational model to avoid access
-    paths completely was one of the primary reasons for its success over the
-    network and hierarchical models.</p>
+    <p>
+      The network model alleviated the problem to some degree by allowing multiple access paths between data instances (so the choice could be made to provide both an access path from department to employee and an access path from employee to department).
+      The problem of course is that it is impossible to predict in advance what all the future required access paths will be, and because of this there will always be a disparity between:
+    </p>
 
-    <p class="calibre1">It is also interesting to consider briefly what is
-    involved when taking an object-oriented (OOP) approach to our example. We
-    can choose between the following options:</p>
+    <dl>
+      <dt>Primary retrieval requirements</dt>
+      <dd>which were foreseen, and can be satisfied simply by following the provided access paths</li>
+      <dt>Secondary retrieval requirements</dt>
+      <dd>which were either unforeseen, or at least not specially supported, and hence can only be satisfied by some alternative mechanism such as search</dd>
+    </dl>
+
+    <p>
+      The ability of the relational model to <em>avoid</em> access paths completely was one of the primary reasons for its success over the network and hierarchical models.
+    </p>
+
+    <p>
+      It is also interesting to consider briefly what is involved when taking an object-oriented (OOP) approach to our example.
+      We can choose between the following options:
+    </p>
 
     <ul>
       <li>Give Employee objects a reference to their Department</li>
-      <li>Give Department objects a set (or array) of references
-    to their Employees</li>
+      <li>Give Department objects a set (or array) of references to their Employees</li>
       <li>Both of the above</li>
     </ul>
 
-    <p class="calibre1">If we choose the third option, then we at best expose
-    ourselves to extra work in maintaining the redundant references, and at
-    worst expose ourselves to bugs.</p>
+    <p>
+      If we choose the third option, then we at best expose ourselves to extra work in maintaining the redundant references, and at worst expose ourselves to bugs.
+    </p>
 
-    <p class="calibre1">There are disturbing similarities between the data
-    structuring approaches of OOP and XML on the one hand and the network and
-    hierarchical models on the other.</p>
+    <p>
+      There are disturbing similarities between the data structuring approaches of OOP and XML on the one hand and the network and hierarchical models on the other.
+    </p>
 
-    <p class="calibre1">A final advantage of using relations for the structure —
-    in contrast with approaches such as Chen’s
-    ER-modelling [<a href="references.html#Che76"
-    class="calibre2">Che76</a>] — is that no distinction is made between
-    <em>entities</em> and <em>relationships</em>. (Using such a distinction can be problematic
-    because whether something is an <em>entity</em> or a <em>relationship</em> can be a very
-    subjective question).</p>
+    <p>
+      A final advantage of using relations for the structure — in contrast with approaches such as Chen’s ER-modelling [<a href="references.html#Che76" class="reference">Che76</a>] — is that no distinction is made between <em>entities</em> and <em>relationships</em>. (Using such a distinction can be problematic because whether something is an <em>entity</em> or a <em>relationship</em> can be a very subjective question).
+    </p>
 
-    <h3 id="section-8.2" class="calibre1">8.2 Manipulation</h3>
+    </article>
 
-    <p class="calibre1">Codd introduced two different mechanisms for expressing
-    the manipulation aspects of the relational model — the relational calculus
-    and the relational algebra. They are formally equivalent (in that
-    expressions in each can be converted into equivalent expressions in the
-    other), and we shall only consider the algebra.</p>
+    <h3 id="section-8.2">8.2 Manipulation</h3>
 
-    <p class="calibre1">The relational algebra (which is now normally considered
-    in a slightly different form from the one used originally by Codd) consists
-    of the following eight operations:</p>
+    <article>
+
+    <p>
+      Codd introduced two different mechanisms for expressing the manipulation aspects of the relational model — the relational calculus and the relational algebra.
+      They are formally equivalent (in that expressions in each can be converted into equivalent expressions in the other), and we shall only consider the algebra.
+    </p>
+
+    <p>
+      The relational algebra (which is now normally considered in a slightly different form from the one used originally by Codd) consists of the following eight operations:</p>
 
     <dl>
       <dt>Restrict</dt>
-      <dd>is a unary operation which allows the selection
-    of a subset of the records in a relation according to some desired criteria</dd>
+      <dd>is a unary operation which allows the selection of a subset of the records in a relation according to some desired criteria</dd>
       <dt>Project</dt>
-      <dd>is a unary operation which creates a new relation corresponding to
-    the old relation with various attributes removed from the records</dd>
+      <dd>is a unary operation which creates a new relation corresponding to the old relation with various attributes removed from the records</dd>
       <dt>Product</dt>
       <dd>is a binary operation corresponding to the cartesian product of mathematics</dd>
       <dt>Union</dt>
-      <dd>is a binary operation which creates a relation
-    consisting of all records in either argument relation</dd>
+      <dd>is a binary operation which creates a relation consisting of all records in either argument relation</dd>
       <dt>Intersection</dt>
-      <dd>is a binary operation which creates a
-    relation consisting of all records in both argument relations</dd>
+      <dd>is a binary operation which creates a relation consisting of all records in both argument relations</dd>
       <dt>Difference</dt>
-      <dd>is a binary operation which creates a
-    relation consisting of all records in the first but not the second argument
-    relation</dd>
+      <dd>is a binary operation which creates a relation consisting of all records in the first but not the second argument relation</dd>
       <dt>Join</dt>
-      <dd>is a binary operation which constructs all possible
-    records that result from matching identical attributes of the records of the
-    argument relations</dd>
+      <dd>is a binary operation which constructs all possible records that result from matching identical attributes of the records of the argument relations</dd>
       <dt>Divide</dt>
-      <dd>is a ternary operation which returns all records
-    of the first argument which occur in the second argument associated with
-    <em>each</em> record of the third argument</dd>
+      <dd>is a ternary operation which returns all records of the first argument which occur in the second argument associated with <em>each</em> record of the third argument</dd>
     </dl>
 
-      <p class="calibre1">One significant benefit of this manipulation language
-    (aside from its simplicity) is that it has the property of <em>closure</em> — that
-    all operands and results are of the same kind (relations) — hence the
-    operations can be nested in arbitrary ways (indeed this property is inherent
-    in any single-sorted algebra).</p>
+    <p>
+      One significant benefit of this manipulation language (aside from its simplicity) is that it has the property of <em>closure</em> — that all operands and results are of the same kind (relations) — hence the operations can be nested in arbitrary ways (indeed this property is inherent in any single-sorted algebra).
+    </p>
 
-    <h3 id="section-8.3" class="calibre1">8.3 Integrity</h3>
+    </article>
 
-    <p class="calibre1">Integrity in the relational model is maintained simply
-    by specifying — in a purely declarative way — a set of constraints which
-    must hold at all times.</p>
+    <h3 id="section-8.3">8.3 Integrity</h3>
 
-    <p class="calibre1">Any infrastructure implementing the relational model
-    must ensure that these constraints always hold — specifically attempts to
-    modify the state which would result in violation of the constraints must be
-    either rejected outright or restricted to operate within the bounds of the
-    constraints.</p>
+    <article>
 
-    <p class="calibre1">The most common types of constraint are those
-    identifying <em>candidate</em> or <em>primary</em> keys and <em>foreign</em> keys. Constraints may in
-    fact be arbitrarily complex, involve multiple relations, and be constructed
-    from either the relational calculus or the relational algebra.</p>
+    <p>
+      Integrity in the relational model is maintained simply by specifying — in a purely declarative way — a set of constraints which must hold at all times.
+    </p>
 
-    <p class="calibre1">Finally, many commercially available DBMSs provide
-      <em>imperative</em> mechanisms such as triggers for maintaining integrity — such
-    mechanisms suffer from control-flow concerns
-    (see <a href="section-4.html#section-4.2" class="calibre2">section
-    4.2)</a> and are <em>not</em> considered to be part of the relational model.</p>
+    <p>
+      Any infrastructure implementing the relational model must ensure that these constraints always hold — specifically attempts to modify the state which would result in violation of the constraints must be either rejected outright or restricted to operate within the bounds of the constraints.
+    </p>
 
-    <h3 id="section-8.4" class="calibre1">8.4 Data Independence</h3>
+    <p>
+      The most common types of constraint are those identifying <em>candidate</em> or <em>primary</em> keys and <em>foreign</em> keys.
+      Constraints may in fact be arbitrarily complex, involve multiple relations, and be constructed from either the relational calculus or the relational algebra.
+    </p>
 
-    <p class="calibre1"><em>Data independence</em> is the principle of separating the
-    logical model from the physical storage representation, and was one of the
-    original motivations for the relational model.</p>
+    <p>
+      Finally, many commercially available DBMSs provide <em>imperative</em> mechanisms such as triggers for maintaining integrity — such mechanisms suffer from control-flow concerns (see <a href="section-4.html#section-4.2" class="section">section 4.2)</a> and are <em>not</em> considered to be part of the relational model.
+    </p>
 
-    <p class="calibre1">It is interesting to note that the <em>data independence</em>
-    principle is in fact a very close parallel to the <em>accidental / essential</em>
-    split recommended above (<a href="section-7.html#section-7.3.2"
-    class="calibre2">section 7.3.2</a>). This is one of several reasons that
-    motivate the adoption of the relational model in Functional Relational
-    Programming (see <a href="section-9.html#section-9"
-    class="calibre2">section 9</a> below).</p>
+    </article>
 
-    <h3 id="section-8.5" class="calibre1">8.5 Extensions</h3>
+    <h3 id="section-8.4">8.4 Data Independence</h3>
 
-    <p class="calibre1">The relational algebra — whilst flexible — is a
-    restrictive language in computational terms (it is not Turing-complete) and
-    is normally augmented in various ways when used in practice. Common
-    extensions include:</p>
+    <article>
 
-    <ul>
-      <li><strong>General computation capabilities</strong> for example simple
-    arithmetical operations, possibly along with user-defined computations.</li>
-      <li><strong>Aggregate operators</strong> such as MAX, MIN, COUNT, SUM,
-    etc.</li>
-      <li><strong>Grouping and Summarization capabilities</strong> to allow for
-    easy application of aggregate operations to relations</li>
-      <li><strong>Renaming capabilities</strong> the ability to generate derived
-    relations by changing attribute names</li>
-    </ul>
+    <p>
+      <em>Data independence</em> is the principle of separating the logical model from the physical storage representation, and was one of the original motivations for the relational model.
+    </p>
+
+    <p>
+      It is interesting to note that the <em>data independence</em> principle is in fact a very close parallel to the <em>accidental / essential</em> split recommended above (<a href="section-7.html#section-7.3.2" class="section">section 7.3.2</a>).
+      This is one of several reasons that motivate the adoption of the relational model in Functional Relational Programming (see <a href="section-9.html#section-9" class="section">section 9</a> below).
+    </p>
+
+    </article>
+
+    <h3 id="section-8.5">8.5 Extensions</h3>
+
+    <article>
+
+    <p>
+      The relational algebra — whilst flexible — is a restrictive language in computational terms (it is not Turing-complete) and is normally augmented in various ways when used in practice.
+      Common extensions include:
+    </p>
+
+    <dl>
+      <dt>General computation capabilities</dt>
+      <dd>for example simple arithmetical operations, possibly along with user-defined computations.</dd>
+      <dt>Aggregate operators</dt>
+      <dd>such as <code>MAX</code>, <code>MIN</code>, <code>COUNT</code>, <code>SUM</code>, etc.</dd>
+      <dt>Grouping and Summarization capabilities</dt>
+      <dd>to allow for easy application of aggregate operations to relations</dd>
+      <dt>Renaming capabilities</dt>
+      <dd>the ability to generate derived relations by changing attribute names</dd>
+    </dl>
+
+    </article>
   </body>
 </html>

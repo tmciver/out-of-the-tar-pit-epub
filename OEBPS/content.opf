@@ -1,13 +1,11 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="uuid_id">
   <metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata" xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <meta name="calibre:title_sort" content="Out of the Tar Pit"/>
     <dc:language>en</dc:language>
     <dc:creator opf:file-as="Moseley, Ben &amp; Marks, Peter" opf:role="aut">Ben Moseley</dc:creator>
     <dc:creator opf:file-as="Moseley, Ben &amp; Marks, Peter" opf:role="aut">Peter Marks</dc:creator>
-    <meta name="calibre:timestamp" content="2012-01-27T04:07:21+00:00"/>
     <dc:title>Out of the Tar Pit</dc:title>
-    <dc:date>2012-01-27T04:07:21+00:00</dc:date>
+    <dc:date>2006-02-10T22:04:50+00:00</dc:date>
     <dc:contributor opf:role="bkp">calibre (0.8.37) [http://calibre-ebook.com]</dc:contributor>
     <dc:identifier id="uuid_id" opf:scheme="uuid">7b80cfec-ecfb-471e-bf4a-1e97f82b3a3c</dc:identifier>
     <dc:subject>Complexity</dc:subject>
@@ -35,6 +33,8 @@
     <item href="footnotes.html" id="footnotes" media-type="application/xhtml+xml"/>
     <item href="references.html" id="ref" media-type="application/xhtml+xml"/>
     <item href="stylesheet.css" id="css" media-type="text/css"/>
+    <item href="figure1.png" id="id" media-type="image/png"/>
+    <item href="figure2.png" id="id13" media-type="image/png"/>
   </manifest>
   <spine toc="ncx">
     <itemref idref="titlepage"/>

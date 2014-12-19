@@ -1,148 +1,168 @@
 <?xml version='1.0' encoding='utf-8'?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Out of the Tar Pit: Recommended General Approach</title>
+    <title>Out of the Tar Pit Section 7: Recommended General Approach</title>
     <meta name="author" content="Ben Moseley and Peter Marks"/>
     <meta name="keywords" content="Complexity, SoftwareEngineering, RelationalModel, Functional, FunctionalProgramming"/>
     <meta name="subject" content="Complexity"/>
     <meta content="http://www.w3.org/1999/xhtml; charset=utf-8" http-equiv="Content-Type"/>
     <link href="stylesheet.css" type="text/css" rel="stylesheet"/>
   </head>
-  <body class="calibre">
+  <body>
 
-    <h2 id="section-7" class="calibre1">7 Recommended General Approach</h2>
+    <h2 id="section-7">7 Recommended General Approach</h2>
 
-    <p class="calibre1">Given that our main recommendations revolve around
-    trying to avoid as much accidental complexity as possible, we now need to
-    look at which bits of the complexity must be considered accidental and which
-    essential.</p>
+    <article>
+    <p>
+      Given that our main recommendations revolve around trying to avoid as much accidental complexity as possible, we now need to look at which bits of the complexity must be considered accidental and which essential.
+    </p>
 
-    <p class="calibre1">We shall answer this by considering exactly what
-    complexity could not <em>possibly</em> be avoided even in the ideal world (this is
-    basically how we <em>define</em> essential). We then follow this up with a look at
-    just how realistic this ideal world really is before finally giving some
-    recommendations.</p>
+    <p>
+      We shall answer this by considering exactly what complexity could not <em>possibly</em> be avoided even in the ideal world (this is basically how we <em>define</em> essential).
+      We then follow this up with a look at just how realistic this ideal world really is before finally giving some recommendations.
+    </p>
 
-    <h3 class="calibre1" id="section-7.1">7.1 Ideal World</h3>
+    </article>
 
-    <p class="calibre1">In the ideal world we are not concerned with
-    performance, and our language and infrastructure provide all the general
-    support we desire. It is against this background that we are going to
-    examine <em>state</em> and <em>control</em>. Specifically, we are going to identify state as
-    <em>accidental state</em> if we can omit it in this ideal world, and the same applies
-    to control.</p>
+    <h3 id="section-7.1">7.1 Ideal World</h3>
 
-    <p class="calibre1">Even in the ideal world we need to start somewhere, and
-    it seems reasonable to assume that we need to start with a set of <em>informal
-    requirements</em> from the prospective users.</p>
+    <article>
+    <p>
+      In the ideal world we are not concerned with performance, and our language and infrastructure provide all the general support we desire.
+      It is against this background that we are going to examine <em>state</em> and <em>control</em>.
+      Specifically, we are going to identify state as <em>accidental state</em> if we can omit it in this ideal world, and the same applies to control.
+    </p>
 
-    <p class="calibre1">Our next observation is that because we ultimately need
-    something to <em>happen</em> — i.e. we are going to need to have our system processed
-    mechan-ically (on a computer) — we are going to need <em>formality</em>. We are going
-    to need to derive formal requirements from the informal ones.</p>
+    <p>
+      Even in the ideal world we need to start somewhere, and it seems reasonable to assume that we need to start with a set of <em>informal requirements</em> from the prospective users.
+    </p>
 
-    <p class="calibre1">So, taken together, this means that even in the ideal
-    world we have:</p>
+    <p>
+      Our next observation is that because we ultimately need something to <em>happen</em> — i.e.
+      we are going to need to have our system processed mechanically (on a computer) — we are going to need <em>formality</em>.
+      We are going to need to derive formal requirements from the informal ones.
+    </p>
 
-    <p>Informal requirements → Formal requirements</p>
+    <p>
+      So, taken together, this means that even in the ideal world we have:
+    </p>
 
-    <p class="calibre1">Note that given that we’re aiming for simplicity, it is
-    crucial that the formalisation be done without adding any <em>accidental</em> aspects
-    at all. Specifically this means that in the ideal world, formalisation must
-    be done with <em>no view to execution whatsoever</em>. The <em>sole</em> concern when
-    producing the formal requirements must be to ensure that there is no
-    <em>relevant</em><sup><a href="footnotes.html#footnote-6"
-    class="calibre2">6</a></sup> ambiguity in the informal requirements (i.e. that it
-    has no omissions).</p>
+    <blockquote class="centred">
+      Informal requirements &rarr; Formal requirements
+    </blockquote>
 
-    <p class="calibre1">So, having produced the formalised requirements, what
-    should the next step be? Given that we are considering the ideal world, it
-    is not unreasonable to assume that the next step is simply to <em>execute</em> these
-    formal requirements directly on our underlying general purpose
-    infrastructure<sup><a href="footnotes.html#footnote-7" class="calibre2">7</a></sup>.</p>
+    <p>
+      Note that given that we’re aiming for simplicity, it is crucial that the formalisation be done without adding any <em>accidental</em> aspects at all.
+      Specifically this means that in the ideal world, formalisation must be done with <em>no view to execution whatsoever</em>.
+      The <em>sole</em> concern when producing the formal requirements must be to ensure that there is no <em>relevant</em><sup><a href="footnotes.html#footnote-6" class="footnote">6</a></sup> ambiguity in the informal requirements (i.e.
+      that it has no omissions).
+    </p>
 
-    <p class="calibre1">This state of affairs is <em>absolute</em> simplicity — it does
-    not seem conceivable that we can do any better than this even in an ideal
-    world.</p>
+    <p>
+      So, having produced the formalised requirements, what should the next step be?
+      Given that we are considering the ideal world, it is not unreasonable to assume that the next step is simply to <em>execute</em> these formal requirements directly on our underlying general purpose infrastructure<sup><a href="footnotes.html#footnote-7" class="footnote">7</a></sup>.
+    </p>
 
-    <p class="calibre1">It is interesting to note that effectively what we have
-    just described is in fact the very <em>essence of declarative programming</em> —
-    i.e. that you need only specify <em>what</em> you require, not <em>how</em> it must be
-    achieved.</p>
+    <p>
+      This state of affairs is <em>absolute</em> simplicity — it does not seem conceivable that we can do any better than this even in an ideal world.
+    </p>
 
-    <p class="calibre1">We now consider the implications of this “ideal”
-    approach for the causes of complexity discussed above.</p>
+    <p>
+      It is interesting to note that effectively what we have just described is in fact the very <em>essence of declarative programming</em> —
+    i.e.
+      that you need only specify <em>what</em> you require, not <em>how</em> it must be achieved.
+    </p>
 
-    <h4 id="section-7.1.1" class="calibre1">7.1.1 State in the ideal world</h4>
+    <p>
+      We now consider the implications of this “ideal”
+    approach for the causes of complexity discussed above.
+    </p>
 
-    <p class="calibre1">Our main aim for state in the ideal world is to get rid
-    of it — i.e. we are hoping that most state will turn out to be <em>accidental
-    state</em>.</p>
+    </article>
 
-    <p class="calibre1">We start from the perspective of the users’ informal
-    requirements. These will mention data of various kinds — some of which can
-    give rise to <em>state</em> — and it is these kinds which we now classify.</p>
+    <h4 id="section-7.1.1">7.1.1 State in the ideal world</h4>
 
-    <p class="calibre1">All data will either be provided directly to the system
-    (<em>input</em>) or <em>derived</em>. Additionally, derived data is either <em>immutable</em> (if the
-    data is intended only for display) or <em>mutable</em> (if explicit reference is made
-    within the requirements to the ability of users to update that data).</p>
+    <article>
+    <p>
+      Our main aim for state in the ideal world is to get rid of it — i.e.
+      we are hoping that most state will turn out to be <em>accidental state</em>.
+    </p>
 
-    <p class="calibre1">All data mentioned in the users’ informal requirements
-    is of concern to the users, and is as such <em>essential</em>. The fact that all such
-    data is <em>essential</em> does <em>not</em> however mean that it will all unavoidably
-    correspond to <em>essential state</em>. It may well be possible to avoid storing some
-    such data, instead dealing with it in some other essential aspect of the
-    system (such as the <em>logic</em>) — this is the case with derived data, as we shall
-    see. In cases where this is possible the data corresponds to <em>accidental
-    state</em>.</p>
+    <p>
+      We start from the perspective of the users’ informal requirements.
+      These will mention data of various kinds — some of which can give rise to <em>state</em> — and it is these kinds which we now classify.
+    </p>
 
-    <h5 class="calibre1">Input Data</h5>
+    <p>
+      All data will either be provided directly to the system (<em>input</em>) or <em>derived</em>.
+      Additionally, derived data is either <em>immutable</em> (if the data is intended only for display) or <em>mutable</em> (if explicit reference is made within the requirements to the ability of users to update that data).
+    </p>
 
-    <p class="calibre1">Data which is provided directly (input) will have to
-    have been included in the informal requirements and as such is deemed
-    <em>essential</em>. There are basically two cases:</p>
+    <p>
+      All data mentioned in the users’ informal requirements is of concern to the users, and is as such <em>essential</em>.
+      The fact that all such data is <em>essential</em> does <em>not</em> however mean that it will all unavoidably correspond to <em>essential state</em>.
+      It may well be possible to avoid storing some such data, instead dealing with it in some other essential aspect of the system (such as the <em>logic</em>) — this is the case with derived data, as we shall see.
+      In cases where this is possible the data corresponds to <em>accidental state</em>.
+    </p>
+
+    </article>
+
+    <h5>Input Data</h5>
+
+    <article>
+    <p>
+      Data which is provided directly (input) will have to have been included in the informal requirements and as such is deemed <em>essential</em>.
+      There are basically two cases:</p>
 
     <ul>
-    <li>There is (according to the requirements) a possibility
-    that the system may be required to refer to the data in the future.</li>
+    <li>There is (according to the requirements) a possibility that the system may be required to refer to the data in the future.</li>
 
     <li>There is no such possibility.</li>
     </ul>
 
-    <p class="calibre1">In the first case, even in the ideal world, the system
-    must retain the data and as such it corresponds to <em>essential state</em>.</p>
+    <p>
+      In the first case, even in the ideal world, the system must retain the data and as such it corresponds to <em>essential state</em>.
+    </p>
 
-    <p class="calibre1">In the second case (which will most often happen when
-    the input is designed simply to cause some side-effect) the data need not be
-    maintained at all.</p>
+    <p>
+      In the second case (which will most often happen when the input is designed simply to cause some side-effect) the data need not be maintained at all.
+    </p>
 
-    <h5 class="calibre1">Essential Derived Data — Immutable</h5>
+    </article>
 
-    <p class="calibre1">Data of this kind can always be re-derived (from the
-    input data — i.e. from the <em>essential state</em>) whenever required. As a result
-    we do <em>not</em> need to store it in the ideal world (we just re-derive it when it
-    is required) and it is clearly <em>accidental state</em>.</p>
+    <h5>Essential Derived Data — Immutable</h5>
 
-    <h5 class="calibre1">Essential Derived Data — Mutable</h5>
+    <article>
+    <p>
+      Data of this kind can always be re-derived (from the input data — i.e.
+      from the <em>essential state</em>) whenever required.
+      As a result we do <em>not</em> need to store it in the ideal world (we just re-derive it when it is required) and it is clearly <em>accidental state</em>.
+    </p>
 
-    <p class="calibre1">As with immutable essential derived data, this can be
-    excluded (and the data re-derived on demand) and hence corresponds to
-    <em>accidental state</em>.</p>
+    </article>
 
-    <p class="calibre1">Mutability of derived data makes sense only where the
-    function (logic) used to derive the data has an inverse (otherwise — given
-    its mutability — the data cannot be considered <em>derived</em> on an ongoing
-    basis, and it is effectively <em>input</em>). An inverse often exists where the
-    derived data represents simple restructurings of the input data. In this
-    situation modifications to the data can simply be treated identically to the
-    corresponding modifications to the existing <em>essential state</em>.</p>
+    <h5>Essential Derived Data — Mutable</h5>
 
-    <h5 class="calibre1">Accidental Derived Data</h5>
+    <article>
+    <p>
+      As with immutable essential derived data, this can be excluded (and the data re-derived on demand) and hence corresponds to <em>accidental state</em>.
+    </p>
 
-    <p class="calibre1">State which is <em>derived</em> but <em>not</em> in the users’
-    requirements is also <em>accidental state</em>. Consider the following imperative
-    pseudo-code:</p>
+    <p>
+      Mutability of derived data makes sense only where the function (logic) used to derive the data has an inverse (otherwise — given its mutability — the data cannot be considered <em>derived</em> on an ongoing basis, and it is effectively <em>input</em>).
+      An inverse often exists where the derived data represents simple restructurings of the input data.
+      In this situation modifications to the data can simply be treated identically to the corresponding modifications to the existing <em>essential state</em>.
+    </p>
+
+    </article>
+
+    <h5>Accidental Derived Data</h5>
+
+    <article>
+    <p>
+      State which is <em>derived</em> but <em>not</em> in the users’
+    requirements is also <em>accidental state</em>.
+      Consider the following imperative pseudo-code:</p>
 
       <pre>
 procedure int doCalculation(int y)
@@ -154,9 +174,41 @@ procedure int doCalculation(int y)
   return 3 * (4 + subsidaryCalcCache.y)
 </pre>
 
-    <p class="calibre1">The above use of state in the <code>doCalculation</code> procedure
-    seems to be unnecessary (in the ideal world), and hence of the <em>accidental
-    variety</em>. We</p>
+    <p>
+      The above use of state in the <code>doCalculation</code> procedure seems to be unnecessary (in the ideal world), and hence of the <em>accidental variety</em>.
+      We cannot actually be sure without knowing whether and how the <code>subsidaryCalcCache</code> is used elsewhere in the program, but for this example we shall assume that there are no other uses aside from initialization.
+      The above procedure is thus equivalent to:</p>
+
+    <pre>
+procedure int doCalculation(int y)
+  return 3 * (4 + slowSubsidaryCalculation(y))
+</pre>
+
+    <p>
+      It is almost certain that this use of state would <em>not</em> have been part of the users’ informal requirements.
+      It is also <em>derived</em>.
+      Hence, it is quite clear that we can eliminate it completely from our ideal world, and that hence it <em>is</em> accidental.
+    </p>
+
+    </article>
+
+    <h5>Summary — State in the ideal world</h5>
+
+    <article>
+    <p>
+      For our ideal approach to state, we largely follow the example of functional programming which shows how mutable state can be avoided.
+      We need to remember though that:</p>
+
+    <ol>
+      <li>even in the ideal world we are going to have <em>some</em> essential state — as we have just established</li>
+      <li>pure functional programs can effectively simulate accidental state in the same way that they can simulate essential state (using techniques such as the one discussed above in <a href="section-5.html#section-5.2.3" class="section">section
+    5.2.3</a>) — we obviously want to avoid this in the ideal world.</li>
+    </ol>
+
+    <p>
+      The data type classifications are summarized in <a href="#table-1" class="table">Table 1</a>.
+      Wherever the table shows data as corresponding to <em>accidental state</em> it means that it can be excluded from the ideal world (by re-deriving the data as required).
+    </p>
 
     <table id="table-1">
       <caption>Table 1: Data and State</caption>
@@ -169,7 +221,7 @@ procedure int doCalculation(int y)
       <tr>
 	<td>Essential</td>
 	<td>Input</td>
-	<td></td>
+	<td>-</td>
 	<td>Essential State</td>
       </tr>
       <tr>
@@ -187,353 +239,336 @@ procedure int doCalculation(int y)
       <tr>
 	<td>Accidental</td>
 	<td>Derived</td>
-	<td></td>
+	<td>-</td>
 	<td>Accidental State</td>
       </tr>
     </table>
 
-    <p class="calibre1">cannot actually be sure without knowing whether and how
-    the <code>subsidaryCalcCache</code> is used elsewhere in the program, but for this
-    example we shall assume that there are no other uses aside from
-    initialization. The above procedure is thus equivalent to:</p>
+    <p>
+      The obvious implication of the above is that there are large amounts of <em>accidental state</em> in typical systems.
+      In fact, it is our belief that the vast majority of state (as encountered in typical contemporary systems) simply isn’t needed (in this ideal world).
+      Because of this, and the huge complexity which state can cause, the ideal world removes <em>all</em> non-essential state.
+      There is no other state at all.
+      No caches, no stores of derived calculations of any kind.
+      One effect of this is that <em>all</em> the state in the system is visible to the user of (or person testing) the system (because inputs can reasonably be expected to be visible in ways which internal cached state normally is not).
+    </p>
 
-    <pre>
-procedure int doCalculation(int y)
-  return 3 * (4 + slowSubsidaryCalculation(y))
-</pre>
+    </article>
 
-    <p class="calibre1">It is almost certain that this use of state would <em>not</em>
-    have been part of the users’ informal requirements. It is also
-    <em>derived</em>. Hence, it is quite clear that we can eliminate it completely from
-    our ideal world, and that hence it <em>is</em> accidental.</p>
+    <h4 id="section-7.1.2">7.1.2 Control in the ideal world</h4>
 
-    <h5 class="calibre1">Summary — State in the ideal world</h5>
+    <article>
+    <p>
+      Whereas we have seen that some state <em>is</em> essential, control generally can be completely omitted from the ideal world and as such is considered entirely <em>accidental</em>.
+      It typically won’t be mentioned in the informal requirements and hence should not appear in the formal requirements (because these are derived with <em>no view to execution</em>).
+    </p>
 
-    <p class="calibre1">For our ideal approach to state, we largely follow the
-    example of functional programming which shows how mutable state can be
-    avoided. We need to remember though that:</p>
+    <p>
+      What do we mean by this? Clearly if the program is ever to run, <em>some</em> control will be needed somewhere because things will have to happen in some order — but this should no more be our concern than the fact that the chances are some electricity will be needed somewhere.
+      The important thing is that we (as developers of the system) should not have to worry about the control flow in the system.
+      Specifically the <em>results</em> of the system should be independent of the actual control mechanism which is finally used.
+    </p>
 
-    <ol>
-      <li>even in the ideal world we are going to have <em>some</em>
-    essential state — as we have just established</li>
-      <li>pure functional programs can effectively simulate
-    accidental state in the same way that they can simulate essential state
-    (using techniques such as the one discussed above
-    in <a href="section-5.html#section-5.2.3" class="calibre2">section
-    5.2.3</a>) — we obviously want to avoid this in the ideal world.</li>
-    </ol>
+    <p>
+      These are precisely the lessons which logic programming teaches us, and because of this we would like to take the lead for our ideal approach to control from logic programming which shows that control can be separated completely.
+    </p>
 
-    <p class="calibre1">The data type classifications are summarized
-    in <a href="#table-1" class="calibre2">Table 1</a>. Wherever the table shows data as corresponding to <em>accidental state</em> it
-    means that it can be excluded from the ideal world (by re-deriving the data
-    as required).</p>
+    <p>
+      It is worth noting that because typically the informal requirements will not mention concurrency, that too is normally of an accidental nature.
+      In an ideal world we can assume that finite (stateless)
+    computations take zero time<sup><a href="footnotes.html#footnote-8" class="footnote">8</a></sup> and as such it is immaterial to a user whether they happen in sequence or in parallel.
+    </p>
 
-    <p class="calibre1">The obvious implication of the above is that there are
-    large amounts of <em>accidental state</em> in typical systems. In fact, it is our
-    belief that the vast majority of state (as encountered in typical
-    contemporary systems) simply isn’t needed (in this ideal world). Because of this, and
-    the huge complexity which state can cause, the ideal world removes <em>all</em>
-    non-essential state. There is no other state at all. No caches, no stores of
-    derived calculations of any kind. One effect of this is that <em>all</em> the state
-    in the system is visible to the user of (or person testing) the system
-    (because inputs can reasonably be expected to be visible in ways which
-    internal cached state normally is not).</p>
+    </article>
 
-    <h4 id="section-7.1.2" class="calibre1">7.1.2 Control in the ideal world</h4>
+    <h4 id="section-7.1.3">7.1.3 Summary</h4>
 
-    <p class="calibre1">Whereas we have seen that some state <em>is</em> essential,
-    control generally can be completely omitted from the ideal world and as such
-    is considered entirely <em>accidental</em>. It typically won’t be mentioned in the
-    informal requirements and hence should not appear in the formal requirements
-    (because these are derived with <em>no view to execution</em>).</p>
+    <article>
+    <p>
+      In the ideal world we have been able to avoid large amounts of complexity — both state and control.
+      As a result, it is clear that a lot of complexity is <em>accidental</em>.
+      This gives us hope that it may be possible to significantly reduce the complexity of <em>real</em> large systems.
+      The question is — how close is it possible to get to the ideal world in the real one?</p>
 
-    <p class="calibre1">What do we mean by this? Clearly if the program is ever
-    to run, <em>some</em> control will be needed somewhere because things will have to
-    happen in some order — but this should no more be our concern than the fact
-    that the chances are some electricity will be needed somewhere. The
-    important thing is that we (as developers of the system) should not have to
-    worry about the control flow in the system. Specifically the <em>results</em> of the
-    system should be independent of the actual control mechanism which is
-    finally used.</p>
+    </article>
 
-    <p class="calibre1">These are precisely the lessons which logic programming
-    teaches us, and because of this we would like to take the lead for our ideal
-    approach to control from logic programming which shows that control can be
-    separated completely.</p>
+    <h3 id="section-7.2">7.2 Theoretical and Practical Limitations</h3>
 
-    <p class="calibre1">It is worth noting that because typically the informal
-    requirements will not mention concurrency, that too is normally of an
-    accidental nature. In an ideal world we can assume that finite (stateless)
-    computations take zero time<sup><a href="footnotes.html#footnote-8"
-    class="calibre2">8</a></sup> and as such it is immaterial to a user whether
-    they happen in sequence or in parallel.</p>
+    <article>
+    <p>
+      The real world is not of course ideal.
+      In this section we examine a few of the assumptions made in the <a href="#section-7.1" class="section">section
+    7.1</a> and see where they break down.
+    </p>
 
-    <h4 id="section-7.1.3" class="calibre1">7.1.3 Summary</h4>
+    <p>
+      As already noted, our vision of an ideal world is similar in many ways to the vision of <em>declarative programming</em> that lies behind functional and logic programming.
+    </p>
 
-    <p class="calibre1">In the ideal world we have been able to avoid large
-    amounts of complexity — both state and control. As a result, it is clear that
-    a lot of complexity is <em>accidental</em>. This gives us hope that it may be
-    possible to significantly reduce the complexity of <em>real</em> large systems. The
-    question is — how close is it possible to get to the ideal world in the real
-    one?</p>
+    <p>
+      Unfortunately we have seen that functional and logic programming ultimately had to confront both state and control.
+      We should note that the reasons for having to confront each are slightly different.
+      State is required simply because most systems do have some state as part of their true essence.
+      Control generally <em>is</em> accidental (the users normally are not concerned about it at all) but the ability to restrict and influence it is often required from a practical point of view.
+      Additionally practical (e.g. efficiency) concerns will often dictate the use of some accidental state.
+    </p>
 
-    <h3 id="section-7.2" class="calibre1">7.2 Theoretical and Practical Limitations</h3>
+    <p>
+      These observations give some indication of where we can expect to encounter difficulties.
+    </p>
 
-    <p class="calibre1">The real world is not of course ideal. In this section
-    we examine a few of the assumptions made in
-    the <a href="#section-7.1" class="calibre2">section
-    7.1</a> and see where they break down.</p>
+    </article>
 
-    <p class="calibre1">As already noted, our vision of an ideal world is
-    similar in many ways to the vision of <em>declarative programming</em> that lies
-    behind functional and logic programming.</p>
+    <h4 id="section-7.2.1">7.2.1 Formal Specification Languages</h4>
 
-    <p class="calibre1">Unfortunately we have seen that functional and logic
-    programming ultimately had to confront both state and control. We should
-    note that the reasons for having to confront each are slightly
-    different. State is required simply because most systems do have some state
-    as part of their true essence. Control generally <em>is</em> accidental (the users normally are
-    not concerned about it at all) but the ability to restrict and influence it
-    is often required from a practical point of view. Additionally practical
-    (e.g. efficiency) concerns will often dictate the use of some accidental
-    state.</p>
+    <article>
+    <p>
+      First of all, we want to consider two problems (one of a theoretical kind, the other practical) that arise in connection with the ideal-world <em>formal requirements</em>.
+    </p>
 
-    <p class="calibre1">These observations give some indication of where we can
-    expect to encounter difficulties.</p>
+    <p>
+      In that section we discussed the need for <em>formal requirements</em> derived directly from the <em>informal requirements</em>.
+    We observed that in the ideal world we would like to be able to execute the formal requirements without first having to translate them into some other language.
+    </p>
 
-    <h4 id="section-7.2.1" class="calibre1">7.2.1 Formal Specification Languages</h4>
+    <p>
+      The phrase “formal requirements” is basically synonymous with “formal specification”, so what effectively we’re saying would be ideal are <em>executable specifications</em>.
+      Indeed both the declarative programming paradigms discussed above (functional programming and logic programming)
+    have been proposed as approaches for executable specifications.
+    </p>
 
-    <p class="calibre1">First of all, we want to consider two problems (one of a
-    theoretical kind, the other practical) that arise in connection with the
-    ideal-world <em>formal requirements</em>.</p>
+    <p>
+      Before we consider the problems with executing them, we want to comment that <em>the way in which</em> the ideal world formal specifications were derived — <em>directly</em> from the users’ informal requirements — was critical.
+      Formal specifications can be derived in various other ways (some of which risk the introduction of accidental complexity), and can be of various different kinds.
+    </p>
 
-    <p class="calibre1">In that section we discussed the need for <em>formal
-    requirements</em> derived directly from the <em>informal requirements</em>.
-    We observed that in the ideal world we would like to be able to execute the formal
-    requirements without first having to translate them into some other
-    language.</p>
+    <p>
+      Traditionally formal specification has been categorized into two main camps:</p>
 
-    <p class="calibre1">The phrase “formal requirements” is basically synonymous
-    with “formal specification”, so what effectively we’re saying would be ideal
-    are <em>executable specifications</em>. Indeed both the declarative programming
-    paradigms discussed above (functional programming and logic programming)
-    have been proposed as approaches for executable specifications.</p>
+    <dl>
+      <dt>Property-based</dt>
+      <dd>
+        approaches focus (in a declarative manner) on <em>what</em> is required rather than <em>how</em> the requirements should be achieved.
+        These approaches include the <em>algebraic</em> (<em>equational axiomatic semantics</em>) approaches such as Larch and OBJ.
+      </dd>
 
-    <p class="calibre1">Before we consider the problems with executing them, we
-    want to comment that <em>the way in which</em> the ideal world formal specifications
-    were derived — directly from the users’ informal requirements — was
-    critical. Formal specifications can be derived in various other ways (some
-    of which risk the introduction of accidental complexity), and can be of
-    various different kinds.</p>
+      <dt>Model-based (or State-based)</dt>
+      <dd>
+        approaches construct a potential model for the system (often a stateful model) and specify how that model must behave.
+        These approaches (which include Z and VDM) can hence be used to specify how a stateful, imperative language solution must behave to satisfy the requirements. (We discussed the weaknesses of stateful imperative languages in <a href="section-5.html" class="section">section 5</a>).
+      </dd>
+    </dl>
 
-    <p class="calibre1">Traditionally formal specification has been categorized
-    into two main camps:</p>
-
-    <p class="calibre1"><strong>Property-based</strong> approaches focus (in a declarative
-    manner) on <em>what</em> is required rather than <em>how</em> the requirements should be
-    achieved. These approaches include the <em>algebraic</em> (<em>equational axiomatic
-    semantics</em>) approaches such as Larch and OBJ.</p>
-
-    <p class="calibre1"><strong>Model-based (or State-based)</strong> approaches construct a
-    potential model for the system (often a stateful model) and specify how that
-    model must behave. These approaches (which include Z and VDM) can hence be
-    used to specify how a stateful, imperative language solution must behave to
-    satisfy the requirements. (We discussed the weaknesses of stateful
-    imperative languages in <a href="section-5.html"
-    class="calibre2">section 5</a>).</p>
-
-    <p class="calibre1">The first problem that we want to discuss in this
-    section is the more theoretical one. Arguments (which focus more on the model-based
-    approaches) have been put forward <em>against</em> the concept of
-    executable specifications [<a href="references.html#HJ89"
-    class="calibre2">HJ89</a>]. The main objection is that requiring a
-    specification language to be executable can directly restrict its
-    expressiveness (for example when specifying requirements for a variable <em>x</em> it
-    may be desirable to assert something like <code>
+    <p>
+      The first problem that we want to discuss in this section is the more theoretical one.
+      Arguments (which focus more on the model-based approaches) have been put forward <em>against</em> the concept of executable specifications [<a href="references.html#HJ89" class="reference">HJ89</a>].
+      The main objection is that requiring a specification language to be executable can directly restrict its expressiveness (for example when specifying requirements for a variable <em>x</em> it may be desirable to assert something like <code>
 	¬∃y|f(y, x)
 	</code>
-      which clearly has no direct operational interpretation).</p>
+      which clearly has no direct operational interpretation).
+    </p>
 
-    <p class="calibre1">In response to this objection, we would say firstly that
-    in our experience a requirement for this kind of expressivity does not seem
-    to be common in many problem domains. Secondly it would seem sensible that
-    where such specifications <em>do</em> occur they should be maintained in their
-    natural form but supplemented with a <em>separate</em> operational component. Indeed
-    in this situation it would not seem too unreasonable to consider the
-    required operational component to be accidental in nature (of course the
-    reality is that in cases like this the boundary between what is accidental
-    and essential, what is reasonable to hope for in an “ideal” world, becomes
-    less clear). Some specification languages address this issue by having an
-    executable subset.</p>
+    <p>
+      In response to this objection, we would say firstly that in our experience a requirement for this kind of expressivity does not seem to be common in many problem domains.
+      Secondly it would seem sensible that where such specifications <em>do</em> occur they should be maintained in their natural form but supplemented with a <em>separate</em> operational component.
+      Indeed in this situation it would not seem too unreasonable to consider the required operational component to be accidental in nature (of course the reality is that in cases like this the boundary between what is accidental and essential, what is reasonable to hope for in an “ideal” world, becomes less clear).
+      Some specification languages address this issue by having an executable subset.
+    </p>
 
-    <p class="calibre1">Finally, it is the <em>property-based</em> approaches that seem
-    to have the greatest similarity to what we have in mind when we talk about
-    <em>executable specifications</em> in the ideal world. It certainly <em>is</em> possible to
-    execute algebraic specifications — deriving an operational semantics by
-    choosing a direction for each of the equational
-    axioms.<sup><a href="footnotes.html#footnote-9" class="calibre2">9</a></sup></p>
+    <p>
+      Finally, it is the <em>property-based</em> approaches that seem to have the greatest similarity to what we have in mind when we talk about <em>executable specifications</em> in the ideal world.
+      It certainly <em>is</em> possible to execute algebraic specifications — deriving an operational semantics by choosing a direction for each of the equational axioms.<sup><a href="footnotes.html#footnote-9" class="footnote">9</a></sup></p>
 
-    <p class="calibre1">In summary, the first problem is that consideration of
-    specification languages highlights the (theoretically) fuzzy boundary
-    between what is essential and what is accidental — specifically it
-    challenges the validity of our definition of <em>essential</em> (which we identified
-    closely with requirements from the <em>users</em>) by observing that it is possible
-    to specify things which are <em>not</em> directly executable. For the reasons given above (and
-    in <a href="section-6.html" class="calibre2">section 6</a>) we
-    think that — from the practical point of view — our definition is still
-    viable, import and justified.</p>
+    <p>
+      In summary, the first problem is that consideration of specification languages highlights the (theoretically) fuzzy boundary between what is essential and what is accidental — specifically it challenges the validity of our definition of <em>essential</em> (which we identified closely with requirements from the <em>users</em>) by observing that it is possible to specify things which are <em>not</em> directly executable.
+      For the reasons given above (and in <a href="section-6.html" class="section">section 6</a>) we think that — from the practical point of view — our definition is still viable, import and justified.
+    </p>
 
-    <p class="calibre1">The second problem is of a more practical nature —
-    namely that even when specifications <em>are</em> directly executable, this can be
-    impractical for efficiency reasons. Our response to this is that whilst it
-    is undoubtedly true, we believe that it is very important (for understanding
-    and hence for avoiding complexity) not to lose the distinction we have
-    defined between what is <em>accidental</em> and <em>essential</em>. As a result, this means
-    that we will <em>require</em> some accidental components as we shall see
-    in <a href="#section-7.2.3" class="calibre2">section 7.2.3</a>.</p>
+    <p>
+      The second problem is of a more practical nature —
+    namely that even when specifications <em>are</em> directly executable, this can be impractical for efficiency reasons.
+      Our response to this is that whilst it is undoubtedly true, we believe that it is very important (for understanding and hence for avoiding complexity) not to lose the distinction we have defined between what is <em>accidental</em> and <em>essential</em>.
+      As a result, this means that we will <em>require</em> some accidental components as we shall see in <a href="#section-7.2.3" class="section">section 7.2.3</a>.
+    </p>
 
-    <h4 id="section-7.2.2" class="calibre1">7.2.2 Ease of Expression</h4>
+    </article>
 
-    <p class="calibre1">There is one final practical problem that we want to
-    consider — even though we believe it is fairly rare in most application
-    domains. In <a href="#section-7.1.1" class="calibre2">section 7.1.1</a> we argued that immutable, derived data would correspond to
-    <em>accidental state</em> and could be omitted (because the <em>logic</em> of the system could
-    always be used to derive the data on-demand).</p>
+    <h4 id="section-7.2.2">7.2.2 Ease of Expression</h4>
 
-    <p class="calibre1">Whilst this is true, there are occasionally situations
-    where the ideal world approach (of having no accidental state, and using
-    on-demand derivation) does not give rise to the most natural modelling of
-    the problem.</p>
+    <article>
+    <p>
+      There is one final practical problem that we want to consider — even though we believe it is fairly rare in most application domains.
+      In <a href="#section-7.1.1" class="section">section 7.1.1</a> we argued that immutable, derived data would correspond to <em>accidental state</em> and could be omitted (because the <em>logic</em> of the system could always be used to derive the data on-demand).
+    </p>
 
-    <p class="calibre1">One possible situation of this kind is for derived data
-    which is dependent upon <em>both</em> a whole series of user inputs over time, <em>and</em>
-    its own previous values. In such cases it can be
-    advantageous<sup><a href="footnotes.html#footnote-10" class="calibre2">10</a></sup> to
-    <em>maintain</em> the <em>accidental state</em> even in the ideal world.</p>
+    <p>
+      Whilst this is true, there are occasionally situations where the ideal world approach (of having no accidental state, and using on-demand derivation) does not give rise to the most natural modelling of the problem.
+    </p>
 
-    <p class="calibre1">An example of this would be the derived data
-    representing the position state of a computer-controlled opponent in an
-    interactive game — it is at all times <em>derivable</em> by a function of both all
-    prior user movements and the initial starting
-    positions,<sup><a href="footnotes.html#footnote-11" class="calibre2">11</a></sup> but
-    this is not the way it is most naturally expressed.</p>
+    <p>
+      One possible situation of this kind is for derived data which is dependent upon <em>both</em> a whole series of user inputs over time, <em>and</em> its own previous values.
+      In such cases it can be advantageous<sup><a href="footnotes.html#footnote-10" class="footnote">10</a></sup> to <em>maintain</em> the <em>accidental state</em> even in the ideal world.
+    </p>
 
-    <h4 id="section-7.2.3" class="calibre1">7.2.3 Required Accidental Complexity</h4>
+    <p>
+      An example of this would be the derived data representing the position state of a computer-controlled opponent in an interactive game — it is at all times <em>derivable</em> by a function of both all prior user movements and the initial starting positions,<sup><a href="footnotes.html#footnote-11" class="footnote">11</a></sup> but this is not the way it is most naturally expressed.
+    </p>
 
-    <p class="calibre1">We have seen two possible reasons why in practice — even
-    with optimal language and infrastructure — we may <em>require</em> complexity which
-    strictly is <em>accidental</em>. These reasons are:</p>
+    </article>
 
-    <p class="calibre1"><strong>Performance</strong> making use of accidental state and control
-    can be required for efficiency — as we saw in the second problem
-    of <a href="#section-7.2.1" class="calibre2">section 7.2.1</a>.</p>
+    <h4 id="section-7.2.3">7.2.3 Required Accidental Complexity</h4>
 
-    <p class="calibre1"><strong>Ease of Expression</strong> making use of accidental state can be
-    the most natural way to express logic in some cases — as we saw
-    in <a href="#section-7.2.2" class="calibre2">section
-    7.2.2</a>.</p>
+    <article>
+    <p>
+      We have seen two possible reasons why in practice — even with optimal language and infrastructure — we may <em>require</em> complexity which strictly is <em>accidental</em>.
+      These reasons are:
+    </p>
 
-    <p class="calibre1">Of the two, we believe that <em>performance</em> will be the most
-    common.</p>
+    <dl>
+      <dt>Performance</dt>
+      <dd>
+        making use of accidental state and control can be required for efficiency — as we saw in the second problem of <a href="#section-7.2.1" class="section">section 7.2.1</a>.
+      </dd>
 
-    <p class="calibre1">It is of course vital to be aware that as soon as we
-    re-introduce this accidental complexity, we are again becoming exposed to
-    the dangers discussed in sections <a href="section-4.html#section-4.1"
-    class="calibre2">4.1</a> and <a href="section-4.html#section-4.2"
-    class="calibre2">4.2</a>. Specifically we can see that if we add in
-    <em>accidental state</em> which has to be managed explicitly by the logic of the
-    system, then we become at risk of the possibility of the system entering an
-    <em>inconsistent state</em> (or “bad state”) due to errors in that explicit
-    logic. This is a very serious concern, and is one that we address in our
-    recommendations below.</p>
+      <dt>Ease of Expression</dt>
+      <dd>making use of accidental state can be the most natural way to express logic in some cases — as we saw in <a href="#section-7.2.2" class="section">section
+    7.2.2</a>.
+      </dd>
+    </dl>
 
-    <h3 id="section-7.3" class="calibre1">7.3 Recommendations</h3>
+    <p>
+      Of the two, we believe that <em>performance</em> will be the most common.
+    </p>
 
-    <p class="calibre1">We believe that — despite the existence of required
-    accidental complexity — it <em>is</em> possible to retain most of the simplicity of the
-    ideal world (<a href="#section-7.1" class="calibre2">section 7.1</a>)
-    in the real one. We now look at how this might be achievable.</p>
+    <p>
+      It is of course vital to be aware that as soon as we re-introduce this accidental complexity, we are again becoming exposed to the dangers discussed in sections <a href="section-4.html#section-4.1" class="section">4.1</a> and <a href="section-4.html#section-4.2" class="section">4.2</a>.
+      Specifically we can see that if we add in <em>accidental state</em> which has to be managed explicitly by the logic of the system, then we become at risk of the possibility of the system entering an <em>inconsistent state</em> (or “bad state”) due to errors in that explicit logic.
+      This is a very serious concern, and is one that we address in our recommendations below.
+    </p>
 
-    <p class="calibre1">Our recommendations for dealing with complexity (as
-    exemplified by both state and control) can be summed up as:</p>
+    </article>
+
+    <h3 id="section-7.3">7.3 Recommendations</h3>
+
+    <article>
+    <p>
+      We believe that — despite the existence of required accidental complexity — it <em>is</em> possible to retain most of the simplicity of the ideal world (<a href="#section-7.1" class="section">section 7.1</a>) in the real one.
+      We now look at how this might be achievable.
+    </p>
+
+    <p>
+      Our recommendations for dealing with complexity (as exemplified by both state and control) can be summed up as:</p>
 
     <ul>
-    <li>Avoid</li>
-    <li>Separate</li>
+      <li>Avoid</li>
+      <li>Separate</li>
     </ul>
 
-    <p class="calibre1">Specifically the overriding aim must be to <em>avoid</em> state
-    and control where they are not absolutely and truly essential.</p>
+    <p>
+      Specifically the overriding aim must be to <em>avoid</em> state and control where they are not absolutely and truly essential.
+    </p>
 
-    <p class="calibre1">The recommendation of avoidance is however tempered by
-    the acknowl-edgement that there will sometimes be complexity that either is
-    truly essential (<a href="#section-7.1.1" class="calibre2">section 7.1.1</a>) or, whilst not <em>truly</em> essential, is
-    useful from a practical point of view (<a href="#section-7.2.3" class="calibre2">
-    section 7.2.3</a>). Such complexity must be separated out
-    from the rest of the system — and this gives us our second
-    recommendation.</p>
+    <p>
+      The recommendation of avoidance is however tempered by the acknowledegment that there will sometimes be complexity that either is truly essential (<a href="#section-7.1.1" class="section">section 7.1.1</a>) or, whilst not <em>truly</em> essential, is useful from a practical point of view (<a href="#section-7.2.3" class="section"> section 7.2.3</a>).
+      Such complexity must be separated out from the rest of the system — and this gives us our second recommendation.
+    </p>
 
-    <p class="calibre1">There is nothing particularly profound in these
-    recommendations, but they are worth stating because they are emphatically
-    <em>not</em> the way most software is developed today. It is the fact that current
-    established practice does <em>not</em> use these as central overriding principles for
-    software development that leads directly to the complexity that we see
-    everywhere, and as already argued, it is that complexity which leads to the
-    software crisis.<sup><a href="footnotes.html#footnote-12" class="calibre2">12</a></sup></p>
+    <p>
+      There is nothing particularly profound in these recommendations, but they are worth stating because they are emphatically <em>not</em> the way most software is developed today.
+      It is the fact that current established practice does <em>not</em> use these as central overriding principles for software development that leads directly to the complexity that we see everywhere, and as already argued, it is that complexity which leads to the software crisis.<sup><a href="footnotes.html#footnote-12" class="footnote">12</a></sup></p>
 
-    <p class="calibre1">In addition to not being profound, the principles behind
-    these recommendations are not really new. In fact, in a classic 1979 paper
-    Kowalski (co-inventor of Prolog) argued in exactly this
-    direction [<a href="references.html#Kow79"
-    class="calibre2">Kow79</a>]. The title of his paper was the equation:</p>
+    <p>
+      In addition to not being profound, the principles behind these recommendations are not really new.
+      In fact, in a classic 1979 paper Kowalski (co-inventor of Prolog) argued in exactly this direction [<a href="references.html#Kow79" class="reference">Kow79</a>].
+      The title of his paper was the equation:</p>
 
-    <p class="calibre1"><em>“Algorithm = Logic + Control”</em></p>
+    <blockquote class="centred">
+      <em>“Algorithm = Logic + Control”</em>
+    </blockquote>
 
-    <p class="calibre1">. . . and this separation that he advocated is close to
-    the heart of what we’re recommending.</p>
+    <p>
+      &hellip; and this separation that he advocated is close to the heart of what we’re recommending.
+    </p>
 
-    <h4 id="section-7.3.1" class="calibre1">7.3.1 Required Accidental Complexity</h4>
+    </article>
 
-    <p class="calibre1">In <a href="#section-7.2.3" class="calibre2">section 7.2.3</a>
-    we noted two possible reasons for
-    requiring accidental complexity (even in the presence of optimal language
-    and infrastructure). We now consider the most appropriate way of handling
-    each.</p>
+    <h4 id="section-7.3.1">7.3.1 Required Accidental Complexity</h4>
 
-    <h5 class="calibre1">Performance</h5>
+    <article>
+    <p>
+      In <a href="#section-7.2.3" class="section">section 7.2.3</a> we noted two possible reasons for requiring accidental complexity (even in the presence of optimal language and infrastructure).
+      We now consider the most appropriate way of handling each.
+    </p>
 
-    <p class="calibre1">We have seen that there are many serious risks which
-    arise from accidental complexity — particularly when introduced in an
-    undisciplined manner. To mitigate these risks we take two defensive
-    measures.</p>
+    </article>
 
-    <p class="calibre1">The first is with regard to the risks of explicit
-    management of accidental state (which we have argued is actually the
-    <em>majority</em> of state). The recommendation here is that we completely <em>avoid</em>
-    explicit management of the accidental state — instead we should restrict
-    ourselves to simply <em>declaring</em> what accidental state should be used, and
-    leave it to a completely separate infrastructure (on which our system will
-    eventually run) to maintain. This is reasonable because the infrastructure
-    can make use of the (separate) system logic which specifies how accidental
-    data must be derived.</p>
+    <h5>Performance</h5>
 
-    <p class="calibre1">By doing this we eliminate any risk of state
-    inconsistency (bugs in the infrastructure aside of course). Indeed, as we
-    shall see (in <a href="#section-7.3.2" class="calibre2">section 7.3.2</a>), from
-    the point of view of the <em>logic</em> of the system, we
-    can effectively forget that the <em>accidental state</em> even exists. More specific
-    examples of this approach are given in the second half of this paper.</p>
+    <article>
+    <p>
+      We have seen that there are many serious risks which arise from accidental complexity — particularly when introduced in an undisciplined manner.
+      To mitigate these risks we take two defensive measures.
+    </p>
 
-    <p class="calibre1">The other defensive action we take is “Separate”. We
-    examine separation after first looking at the other possible reason for
-    requiring accidental complexity.</p>
+    <p>
+      The first is with regard to the risks of explicit management of accidental state (which we have argued is actually the <em>majority</em> of state).
+      The recommendation here is that we completely <em>avoid</em> explicit management of the accidental state — instead we should restrict ourselves to simply <em>declaring</em> what accidental state should be used, and leave it to a completely separate infrastructure (on which our system will eventually run) to maintain.
+      This is reasonable because the infrastructure can make use of the (separate) system logic which specifies how accidental data must be derived.
+    </p>
 
-    <h5 class="calibre1">Ease of Expression</h5>
+    <p>
+      By doing this we eliminate any risk of state inconsistency (bugs in the infrastructure aside of course).
+      Indeed, as we shall see (in <a href="#section-7.3.2" class="section">section 7.3.2</a>), from the point of view of the <em>logic</em> of the system, we can effectively forget that the <em>accidental state</em> even exists.
+      More specific examples of this approach are given in the second half of this paper.
+    </p>
 
-    <p class="calibre1">This problem (see <a href="#section-7.2.2"
-    class="calibre2">section 7.2.2</a>) fundamentally arises when derived
-    (i.e. <em>accidental</em>) state offers the most natural way to
-    express parts of the logic of the system.</p>
+    <p>
+      The other defensive action we take is “Separate”.
+      We examine separation after first looking at the other possible reason for requiring accidental complexity.
+    </p>
+
+    </article>
+
+    <h5>Ease of Expression</h5>
+
+    <article>
+    <p>
+      This problem (see <a href="#section-7.2.2" class="section">section 7.2.2</a>) fundamentally arises when derived (i.e. <em>accidental</em>) state offers the most natural way to express parts of the logic of the system.
+    </p>
+
+    <p>
+      The difficulty then arises that this requirement (to <em>use</em> the <em>accidental state</em> in a fairly direct manner inside the system logic)
+    clashes with the goal of <em>separation</em> that we have just discussed.
+      This very <em>separation</em> is <em>critical</em> when it comes to avoiding complexity, so we do not want to sacrifice it for this (probably fairly rare) situation.
+    </p>
+
+    <p>
+      Instead what we recommend is that, in cases where it really is the only natural thing to do, we should <em>pretend</em> that the <em>accidental state</em> is really <em>essential state</em> for the purposes of the <em>separation</em> discussed below.
+      One straightforward way to do this is to make use of an external component which observes the derived data in question and creates the illusion of the <em>user</em> typing that same (derived, <em>accidental</em>) data back in as input data (we touch on this issue again in (<a href="section-9.html#section-9.1.4" class="section">section
+    9.1.4</a>).
+    </p>
+
+    </article>
+
+    <h4 id="section-7.3.2">7.3.2 Separation and the relationship between the components</h4>
+    
+    <article>
+    <p>
+      In the above we deliberately glossed over <em>exactly</em> what we meant by our second recommendation: “Separate”.
+      This is because it actually encompasses two things.
+    </p>
+
+    <p>
+      The first thing that we’re doing is to advocate separating out <em>all</em> complexity of any kind from the pure logic of the system (which — having nothing to do with either state or control — we’re not really considering part of the complexity).
+      This could be referred to as the <em>logic / state</em> split (although of course state is just one aspect of complexity — albeit the main one).
+    </p>
+
+    <p>
+      The second is that we’re further dividing the complexity which we do retain into accidental and essential.
+      This could be referred to as the <em>accidental / essential</em> split.
+      These two splits can more clearly be seen by considering the <a href="#table-2" class="table">Table 2</a>.
+      (N.B. We do not consider there to be any essential control).
+    </p>
 
     <table id="table-2">
       <caption>Table 2: Types of complexity within a system</caption>
@@ -557,193 +592,138 @@ procedure int doCalculation(int y)
 	<td>State/Control</td>
 	<td>Separate</td>
       </tr>
-      <tr>
+      <tr class="highlighted">
 	<td>Accidental Useless Complexity</td>
 	<td>State/Control</td>
 	<td>Avoid</td>
       </tr>
     </table>
 
-    <p class="calibre1">The difficulty then arises that this requirement (to <em>use</em>
-    the <em>accidental state</em> in a fairly direct manner inside the system logic)
-    clashes with the goal of <em>separation</em> that we have just discussed. This very
-    <em>separation</em> is <em>critical</em> when it comes to avoiding complexity, so we do not
-    want to sacrifice it for this (probably fairly rare) situation.</p>
+    <p>
+      The essential bits correspond to the requirements in the ideal world of <a href="#section-7.1" class="section">section 7.1</a> — i.e. we are recommending that the formal requirements adopt the <em>logic / state</em> split.
+    </p>
 
-    <p class="calibre1">Instead what we recommend is that, in cases where it
-    really is the only natural thing to do, we should <em>pretend</em> that the
-    <em>accidental state</em> is really <em>essential state</em> for the purposes of the
-    <em>separation</em> discussed below. One straightforward way to do this is to make use of an
-    external component which observes the derived data in question and creates
-    the illusion of the <em>user</em> typing that same (derived, <em>accidental</em>) data back
-    in as input data (we touch on this issue again
-    in (<a href="section-9.html#section-9.1.4" class="calibre2">section
-    9.1.4</a>).</p>
+    <p>
+      The top three rows of the table correspond to components which we expect to exist in most practical systems (some systems may not actually require any essential state, but we include it here for generality).
+      i.e. These are the three things which will need to be specified (in terms of a given underlying language and infrastructure) by the development team.
+    </p>
 
-    <h4 id="section-7.3.2" class="calibre1">7.3.2 Separation and the relationship between the components</h4>
-    
-    <p>In the above we deliberately glossed over <em>exactly</em> what we meant by our
-    second recommendation: “Separate”. This is because it actually encompasses
-    two things.</p>
+    <p>
+      “Separate” is basically advocating clean distinction between all three of these components.
+      It is additionally advocating a split between the state and control components of the “Useful” Accidental Complexity — but this distinction is less important than the others.
+    </p>
 
-    <p class="calibre1">The first thing that we’re doing is to advocate
-    separating out <em>all</em> complexity of any kind from the pure logic of the system
-    (which — having nothing to do with either state or control — we’re not
-    really considering part of the complexity). This could be referred to as the
-    <em>logic / state</em> split (although of course state is just one aspect of
-    complexity — albeit the main one).</p>
-
-    <p class="calibre1">The second is that we’re further dividing the complexity
-    which we do retain into accidental and essential. This could be referred to
-    as the <em>accidental / essential</em> split. These two splits can more clearly be
-    seen by considering the <a href="#table-2" class="calibre2">Table 2</a>. (N.B. We do not consider there to be any
-    essential control).</p>
-
-    <p class="calibre1">The essential bits correspond to the requirements in the
-    ideal world of <a href="#section-7.1" class="calibre2">section 7.1</a> — i.e. we are recommending that the formal
-    requirements adopt the <em>logic / state</em> split.</p>
-
-    <p class="calibre1">The top three rows of the table correspond to components
-    which we expect to exist in most practical systems (some systems
-    may not actually require any essential state, but we include it here for
-    generality). i.e. These are the three things which will need to be specified
-    (in terms of a given underlying language and infrastructure) by the
-    development team.</p>
-
-    <p class="calibre1">“Separate” is basically advocating clean distinction
-    between all three of these components. It is additionally advocating a split
-    between the state and control components of the “Useful” Accidental
-    Complexity — but this distinction is less important than the others.</p>
-
-    <p class="calibre1">One implication of this overall structure is that the
-    system (essential + accidental but useful) should still function <em>completely
-    correctly</em> if the “accidental but useful” bits are removed (leaving only the
-    two <em>essential</em> components) — albeit possibly unacceptably slowly. As Kowalski
-    (who — writing in a Prolog-context — was not really considering any
-    essential state) says:</p>
-
-    <blockquote>
-      <p>“The logic component determines the meaning
-	. . . whereas the control component only affects its efficiency”.</p>
+    <p>
+      One implication of this overall structure is that the system (essential + accidental but useful) should still function <em>completely correctly</em> if the “accidental but useful” bits are removed (leaving only the two <em>essential</em> components) — albeit possibly unacceptably slowly.
+      As Kowalski (who — writing in a Prolog-context — was not really considering any essential state) says:
+      <blockquote>
+        <p>
+          “The logic component determines the meaning &hellip; whereas the control component only affects its efficiency”.
+        </p>
       </blockquote>
+    </p>
 
-    <p class="calibre1">A consequence of <em>separation</em> is that the separately
-    specified components will each be of a <em>very</em> different nature, and as a
-    result it may be ideal to use <em>different languages</em> for each. These languages
-    would each be oriented (i.e. <em>restricted</em>) to their specific goal — there is
-    no sense in having control specification primitives in a language for
-    specifying state. This notion of <em>restricting the power</em> of the individual
-    languages is an important one — the weaker the language, the more simple it is to reason
-    about. This has something in common with the ideas behind “Domain Specific
-    Languages” — one exception being that the domains in question are
-    of a fairly abstract nature and combine to form a general-purpose
-    platform.</p>
+    <p>
+      A consequence of <em>separation</em> is that the separately specified components will each be of a <em>very</em> different nature, and as a result it may be ideal to use <em>different languages</em> for each.
+      These languages would each be oriented (i.e. <em>restricted</em>) to their specific goal — there is no sense in having control specification primitives in a language for specifying state.
+      This notion of <em>restricting the power</em> of the individual languages is an important one — the weaker the language, the more simple it is to reason about.
+      This has something in common with the ideas behind “Domain Specific Languages” — one exception being that the domains in question are of a fairly abstract nature and combine to form a general-purpose platform.
+    </p>
 
-    <p class="calibre1">The vital importance of separation comes simply from the
-    fact that it is separation that allows us to <em>“restrict the power”</em> of each
-    of the components independently. The restricted power of the respective
-    languages with which each component is expressed facilitates reasoning about
-    them individually. The very fact that the three are separated from each
-    other facilitates reasoning about them as a whole (e.g. you do not have to
-    think about accidental state at all when you are working on the essential
-    logic of your system<sup><a href="footnotes.html#footnote-13"
-    class="calibre2">13</a></sup>).</p>
+    <p>
+      The vital importance of separation comes simply from the fact that it is separation that allows us to <em>“restrict the power”</em> of each of the components independently.
+      The restricted power of the respective languages with which each component is expressed facilitates reasoning about them individually.
+      The very fact that the three are separated from each other facilitates reasoning about them as a whole (e.g.
+      you do not have to think about accidental state at all when you are working on the essential logic of your system<sup><a href="footnotes.html#footnote-13" class="footnote">13</a></sup>).
+    </p>
 
-    <p class="calibre1"><a href="#figure-1"
-    class="calibre2">Figure 1</a> shows the same three expected components of a
-    system in a different way (compare with <a href="#table-2"
-    class="calibre2">Table 2</a>). Each box in the diagram corresponds to some
-    aspect of the system which will <em>need to be specified</em> by the development
-    team. Specifically, it will be necessary to specify what the essential
-    state can be, what must always be logically true, and finally
-    what accidental use can be made of state and control (typically for
-    performance reasons).</p>
+    <p><a href="#figure-1" class="figure">Figure 1</a> shows the same three expected components of a system in a different way (compare with <a href="#table-2" class="table">Table 2</a>).
+      Each box in the diagram corresponds to some aspect of the system which will <em>need to be specified</em> by the development team.
+      Specifically, it will be necessary to specify what the essential state can be, what must always be logically true, and finally what accidental use can be made of state and control (typically for performance reasons).
+    </p>
 
-    <div id="figure-1"><!-- TODO: Figure 1 image goes here --><p class="calibre1">Figure 1: Recommended Architecture (arrows show static
-    references)</p></div>
+    <div id="figure-1" class="figure">
+      <img alt="Recommended Architecture (arrows show static references)" src="figure1.png" style="width: 100%;" />
+      <p class="caption">Figure 1: Recommended Architecture (arrows show static references)</p>
+    </div>
 
-    <p class="calibre1">The differing nature of what is specified by each of the
-    components leads naturally to certain relationships between them, to
-    <em>restrictions</em> on the ways in which they can or cannot refer to each
-    other. These restrictions are absolute, and because of this provide a huge
-    aid to understanding the different components of the system
-    independently.</p>
+    <p>
+      The differing nature of what is specified by each of the components leads naturally to certain relationships between them, to <em>restrictions</em> on the ways in which they can or cannot refer to each other.
+      These restrictions are absolute, and because of this provide a huge aid to understanding the different components of the system independently.
+    </p>
 
     <dl>
-      <dt><strong>Essential State</strong></dt>
-      <dd>This can be seen as the foundation of
-    the system. The specification of the required state is completely
-    self-contained — it can <em>make no reference</em> to <em>either</em> of the other parts which
-    must be specified. One implication of this is that changes to the essential
-    state specification itself may require changes in both the other
-    specifications, but changes in either of the other specifications may never
-    require changes to the specification of essential state.</dd>
-      <dt><strong>Essential Logic</strong></dt>
-      <dd>This is in some ways the “heart” of the
-    system — it expresses what is sometimes termed the “business” logic.
-	This logic expresses — in terms of the state — what must be
-    true. It does <em>not</em> say anything about how, when, or why the state might
-    change dynamically — indeed it wouldn’t make <em>sense</em> for the logic to be able
-    to change the state in any way.
-	<br/>
-    Changes to the essential state specification may require
-    changes to the logic specification, and changes to the logic specification
-    may require changes to the specification for accidental state and
-    control. The logic specification will <em>make no reference</em> to <em>any</em> part of the
-    accidental specification. Changes in the accidental specification
-    can hence never require any change to the essential logic.</dd>
+      <dt>
+        <strong>Essential State</strong>
+      </dt>
+      <dd>
+        This can be seen as the foundation of the system.
+        The specification of the required state is completely self-contained — it can <em>make no reference</em> to <em>either</em> of the other parts which must be specified.
+        One implication of this is that changes to the essential state specification itself may require changes in both the other specifications, but changes in either of the other specifications may never require changes to the specification of essential state.
+      </dd>
+      <dt>
+        <strong>Essential Logic</strong>
+      </dt>
+      <dd>
+        This is in some ways the “heart” of the system — it expresses what is sometimes termed the “business” logic.
+      	This logic expresses — in terms of the state — what must be true.
+        It does <em>not</em> say anything about how, when, or why the state might change dynamically — indeed it wouldn’t make <em>sense</em> for the logic to be able to change the state in any way.
+      	<br/>
+        Changes to the essential state specification may require changes to the logic specification, and changes to the logic specification may require changes to the specification for accidental state and control.
+        The logic specification will <em>make no reference</em> to <em>any</em> part of the accidental specification.
+        Changes in the accidental specification can hence never require any change to the essential logic.
+      </dd>
 
-    <dt><strong>Accidental State and Control</strong></dt>
-    <dd>This (by virtue of its
-    accidental nature) is conceptually the least important part of the
-    system. Changes to it can <em>never</em> affect the other specifications (because
-    neither of them make any reference to any part of it), but changes to <em>either</em>
-    of the others may require changes here.</dd>
+      <dt>
+        <strong>Accidental State and Control</strong>
+      </dt>
+      <dd>
+        This (by virtue of its accidental nature) is conceptually the least important part of the system.
+        Changes to it can <em>never</em> affect the other specifications (because neither of them make any reference to any part of it), but changes to <em>either</em> of the others may require changes here.
+      </dd>
     </dl>
 
-    <p class="calibre1">Together the goals of <em>avoid</em> and <em>separate</em> give us reason
-    to hope that we may well be able to retain much of the simplicity of the
-    ideal world in the real one.</p>
+    <p>
+      Together the goals of <em>avoid</em> and <em>separate</em> give us reason to hope that we may well be able to retain much of the simplicity of the ideal world in the real one.
+    </p>
 
-    <h3 id="section-7.4" class="calibre1">7.4 Summary</h3>
+    </article>
 
-    <p class="calibre1">This first part of the paper has done two main
-    things. It has given arguments for the overriding danger of complexity, and
-    it has given some hope that much of the complexity may be avoided or
-    controlled.</p>
+    <h3 id="section-7.4">7.4 Summary</h3>
 
-    <p class="calibre1">The key difference between what we are advocating and
-    existing approaches (as embodied by the various styles of programming
-    language) is a high level <em>separation</em> into three components — each specified
-    in a different language<sup><a href="footnotes.html#footnote-14"
-    class="calibre2">14</a></sup>. It is this <em>separation</em> which allows us to
-    <em>restrict</em> the power of each individual component, and it is this use of
-    <em>restricted</em> languages which is vital in making the overall system easier to
-    comprehend (as we argued in <a href="section-4.html#section-4.4"
-    class="calibre2">section 4.4</a> — <em>power corrupts</em>).</p>
+    <article>
+    <p>
+      This first part of the paper has done two main things.
+      It has given arguments for the overriding danger of complexity, and it has given some hope that much of the complexity may be avoided or controlled.
+    </p>
 
-    <p class="calibre1">Doing this separation when building a system may not be
-    easy, but we believe that for any large system it will be <em>significantly</em> less
-    difficult than dealing with the complexity that arises otherwise.</p>
+    <p>
+      The key difference between what we are advocating and existing approaches (as embodied by the various styles of programming language) is a high level <em>separation</em> into three components — each specified in a different language<sup><a href="footnotes.html#footnote-14" class="footnote">14</a></sup>.
+      It is this <em>separation</em> which allows us to <em>restrict</em> the power of each individual component, and it is this use of <em>restricted</em> languages which is vital in making the overall system easier to comprehend (as we argued in <a href="section-4.html#section-4.4" class="section">section 4.4</a> — <em>power corrupts</em>).
+    </p>
 
-    <p class="calibre1">It is hard to overstate the dangers of complexity. If it
-    is not controlled it spreads. The <em>only</em> way to escape this risk is to place
-    the goals of <em>avoid</em> and <em>separate</em> at the top of the design objectives for a
-    system. It is not sufficient simply to pay heed to these two objectives — it
-    is crucial that they be the <em>overriding</em> consideration. This is because
-    complexity breeds complexity and one or two early “compromises” can spell
-    complexity disaster in the long run.</p>
+    <p>
+      Doing this separation when building a system may not be easy, but we believe that for any large system it will be <em>significantly</em> less difficult than dealing with the complexity that arises otherwise.
+    </p>
 
-    <p class="calibre1">It is worth noting in particular the risks of “designing
-    for performance”. The dangers of “premature optimisation” are as real as
-    ever — there can be no comparison between the difficulty of improving the
-    performance of a slow system designed for simplicity and that of removing
-    complexity from a complex system which was designed to be fast (and quite
-    possibly isn’t even that because of myriad inefficiencies hiding within its
-    complexity).</p>
+    <p>
+      It is hard to overstate the dangers of complexity.
+      If it is not controlled it spreads.
+      The <em>only</em> way to escape this risk is to place the goals of <em>avoid</em> and <em>separate</em> at the top of the design objectives for a system.
+      It is not sufficient simply to pay heed to these two objectives — it is crucial that they be the <em>overriding</em> consideration.
+      This is because complexity breeds complexity and one or two early “compromises” can spell complexity disaster in the long run.
+    </p>
 
-    <p class="calibre1">In the second half of this paper we shall consider a
-    possible approach based on these recommendations.</p>
+    <p>
+      It is worth noting in particular the risks of “designing for performance”.
+      The dangers of “premature optimisation” are as real as ever — there can be no comparison between the difficulty of improving the performance of a slow system designed for simplicity and that of removing complexity from a complex system which was designed to be fast (and quite possibly isn’t even that because of myriad inefficiencies hiding within its complexity).
+    </p>
+
+    <p>
+      In the second half of this paper we shall consider a possible approach based on these recommendations.
+    </p>
+
+    </article>
 
   </body>
 </html>

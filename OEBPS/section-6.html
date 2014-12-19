@@ -1,108 +1,93 @@
 <?xml version='1.0' encoding='utf-8'?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Out of the Tar Pit: Accidents and Essence</title>
+    <title>Out of the Tar Pit Section 6: Accidents and Essence</title>
     <meta name="author" content="Ben Moseley and Peter Marks"/>
     <meta name="keywords" content="Complexity, SoftwareEngineering, RelationalModel, Functional, FunctionalProgramming"/>
     <meta name="subject" content="Complexity"/>
-    <meta content="http://www.w3.org/1999/xhtml; charset=utf-8" http-equiv="Content-Type"/>
     <link href="stylesheet.css" type="text/css" rel="stylesheet"/>
   </head>
-  <body class="calibre">
-    
-    <h2 id="section-6" class="calibre1">6 Accidents and Essence</h2>
-    
-    <p class="calibre1">Brooks defined difficulties of “essence” as those
-    inherent in the nature of software and classified the rest as
-    “accidents”.</p>
+  <body>
+    <h2 id="section-6">6 Accidents and Essence</h2>
+    <article>
 
-    <p class="calibre1">We shall basically use the terms in the same sense — but
-    prefer to start by considering the complexity of the problem itself before
-    software has even entered the picture. Hence we define the following two
-    types of complexity:</p>
+    <p>
+      Brooks defined difficulties of “essence” as those inherent in the nature of software and classified the rest as “accidents”
+    </p>
+
+    <p>
+      We shall basically use the terms in the same sense — but prefer to start by considering the complexity of the problem itself before software has even entered the picture.
+      Hence we define the following two types of complexity:
+    </p>
 
     <dl>
-      <dt>Essential Complexity</dt><dd>is inherent in, and the essence
-    of, the <em>problem</em> (as seen by the <em>users</em>).</dd>
-      <dt>Accidental Complexity</dt><dd>is all the rest — complexity with
-    which the development team would not have to deal in the ideal world
-    (e.g. complexity arising from performance issues and from suboptimal
-    language and infrastructure).</dd>
+      <dt>Essential Complexity</dt>
+      <dd>
+        is inherent in, and the essence of, the <em>problem</em> (as seen by the <em>users</em>).
+      </dd>
+  
+      <dt>Accidental Complexity</dt>
+      <dd>
+        is all the rest — complexity with which the development team would not have to deal in the ideal world (e.g. complexity arising from performance issues and from suboptimal language and infrastructure).
+      </dd>
     </dl>
 
-    <p class="calibre1">Note that the definition of <em>essential</em> is deliberately
-    more strict than common usage. Specifically when we use the term <em>essential</em>
-    we will mean strictly essential <em>to the users’ problem</em> (as opposed to —
-    perhaps — essential <em>to some specific, implemented, system</em>, or even —
-    essential <em>to software in general</em>). For example — according to the terminology we shall use
-    in this paper — bits, bytes, transistors, electricity and computers
-    themselves are <em>not</em> in any way essential (because they have nothing to do
-    with the users’ problem).</p>
+    <p>
+      Note that the definition of <em>essential</em> is deliberately more strict than common usage.
+      Specifically when we use the term <em>essential</em> we will mean strictly essential <em>to the users’ problem</em> (as opposed to — perhaps — essential <em>to some specific, implemented, system</em>, or even — essential <em>to software in general</em>).
+      For example — according to the terminology we shall use in this paper — bits, bytes, transistors, electricity and computers themselves are <em>not</em> in any way essential (because they have nothing to do with the users’ problem).
+    </p>
 
-    <p class="calibre1">Also, the term “accident” is more commonly used with the
-    connotation of “mishap”. Here (as with Brooks) we use it in the more general
-    sense of “something non-essential which is present”.</p>
+    <p>
+      Also, the term “accident” is more commonly used with the connotation of “mishap”.
+      Here (as with Brooks) we use it in the more general sense of “something non-essential which is present”
+    </p>
 
-    <p class="calibre1">In order to justify these two definitions we start by
-    considering the role of a software development team — namely to produce
-    (using some given language and infrastructure) and maintain a software
-    system which serves the purposes of its users. The complexity in which we
-    are interested is the complexity involved in this task, and it is this which
-    we seek to classify as accidental or essential. We hence see essential
-    complexity as “the complexity with which the team will <em>have</em> to be concerned,
-    even in the ideal world”.</p>
+    <p>
+      In order to justify these two definitions we start by considering the role of a software development team — namely to produce (using some given language and infrastructure) and maintain a software system which serves the purposes of its users.
+      The complexity in which we are interested is the complexity involved in this task, and it is this which we seek to classify as accidental or essential.
+      We hence see essential complexity as “the complexity with which the team will <em>have</em> to be concerned, even in the ideal world”.
+    </p>
 
-    <p class="calibre1">Note that the “have to” part of this observation is
-    critical — if there is any <em>possible</em> way that the team could produce a system
-    that the users will consider correct <em>without</em> having to be concerned with a
-    given type of complexity then that complexity is not essential.</p>
+    <p>
+      Note that the “have to” part of this observation is critical — if there is any <em>possible</em> way that the team could produce a system that the users will consider correct <em>without</em> having to be concerned with a given type of complexity then that complexity is not essential.
+    </p>
 
-    <p class="calibre1">Given that in the real world not all <em>possible</em> ways are
-    practical, the implication is that any real development <em>will</em> need to contend
-    with <em>some</em> accidental complexity. The definition does not seek to deny this —
-    merely to identify its secondary nature.</p>
+    <p>
+      Given that in the real world not all <em>possible</em> ways are practical, the implication is that any real development <em>will</em> need to contend with <em>some</em> accidental complexity.
+      The definition does not seek to deny this — merely to identify its secondary nature.
+    </p>
 
-    <p class="calibre1">Ultimately (as we shall see below
-    in <a href="section-7.html" class="calibre2">section 7</a>) our
-    definition is equivalent to saying that what is essential to the team is
-    what the <em>users</em> have to be concerned with. This is because in the ideal world
-    we would be using language and infrastructure which would let us express the
-    users’ problem directly without having to express anything else — and this
-    is how we arrive at the definitions given above.</p>
+    <p>
+      Ultimately (as we shall see below in <a href="section-7.html" class="section">section 7</a>) our definition is equivalent to saying that what is essential to the team is what the <em>users</em> have to be concerned with.
+      This is because in the ideal world we would be using language and infrastructure which would let us express the users’ problem directly without having to express anything else — and this is how we arrive at the definitions given above.
+    </p>
 
-    <p class="calibre1">The argument might be presented that in the <em>ideal</em> world
-    we could just find infrastructure which already solves the users’ problem
-    completely. Whilst it is possible to imagine that someone has done
-    the work already, it is not particularly enlightening — it may be best to
-    consider an implicit restriction that the hypothetical language and
-    infrastructure be general purpose and domain-neutral.</p>
+    <p>
+      The argument might be presented that in the <em>ideal</em> world we could just find infrastructure which already solves the users’ problem completely.
+      Whilst it is possible to imagine that someone has done the work already, it is not particularly enlightening — it may be best to consider an implicit restriction that the hypothetical language and infrastructure be general purpose and domain-neutral.
+    </p>
 
-    <p class="calibre1">One implication of this definition is that if the user
-    doesn’t even <em>know what something is</em> (e.g. a thread pool or a loop counter —
-    to pick two arbitrary examples) then it cannot possibly be essential by our
-    definition (we are assuming of course — alas possibly with some optimism —
-    that the users do in fact know and understand the problem that they want
-    solved).</p>
+    <p>
+      One implication of this definition is that if the user doesn’t even <em>know what something is</em> (e.g. a thread pool or a loop counter — to pick two arbitrary examples) then it cannot possibly be essential by our definition (we are assuming of course — alas possibly with some optimism — that the users do in fact know and understand the problem that they want solved).
+    </p>
 
-    <p class="calibre1">Brooks asserts [<a href="references.html#Bro86"
-    class="calibre2">Bro86</a>] (and others such as Booch
-    agree [<a href="references.html#Boo91" class="calibre2">Boo91</a>])
-    that “The complexity of software is an essential property,
-    not an accidental one”. This would suggest that the majority (at least) of the
-    complexity that we find in contemporary large systems is of the essential
-    type.</p>
+    <p>
+      Brooks asserts [<a href="references.html#Bro86" class="reference">Bro86</a>] (and others such as Booch agree [<a href="references.html#Boo91" class="reference">Boo91</a>]) that “The complexity of software is an essential property, not an accidental one”.
+      This would suggest that the majority (at least) of the complexity that we find in contemporary large systems is of the essential type.
+    </p>
 
-    <p class="calibre1">We disagree. Complexity itself is not an inherent (or
-    essential) property of software (it is perfectly possible to write software
-    which is simple and yet is still software), and further, much complexity
-    that we do see in existing software is not essential (to the problem). When
-    it comes to accidental and essential complexity we firmly believe that the
-    former exists and that the goal of software engineering must be both to
-    eliminate as much of it as possible, and to assist with the latter.</p>
+    <p>
+      We disagree.
+      Complexity itself is not an inherent (or essential) property of software (it is perfectly possible to write software which is simple and yet is still software), and further, much complexity that we do see in existing software is not essential (to the problem).
+      When it comes to accidental and essential complexity we firmly believe that the former exists and that the goal of software engineering must be both to eliminate as much of it as possible, and to assist with the latter.
+    </p>
 
-    <p class="calibre1">Because of this it is vital that we carefully scrutinize
-    <em>accidental complexity</em>. We now attempt to classify occurrences of complexity
-    as either accidental or essential.</p>
+    <p>
+      Because of this it is vital that we carefully scrutinize <em>accidental complexity</em>.
+      We now attempt to classify occurrences of complexity as either accidental or essential.
+    </p>
 
+    </article>
   </body>
 </html>

@@ -8,130 +8,102 @@
     <meta content="http://www.w3.org/1999/xhtml; charset=utf-8" http-equiv="Content-Type"/>
     <link href="stylesheet.css" type="text/css" rel="stylesheet"/>
   </head>
-  <body class="calibre">
+  <body>
     <h2>Footnotes</h2>
     <dl>
       <dt id="footnote-1">1</dt>
-      <dd>By “state” we mean mutable state specifically — i.e. excluding things
-	like (immutable) single-assignment variables which are provided by logic
-	programming languages for example</dd>
+      <dd>
+        By “state” we mean <em>mutable state</em> specifically — i.e. excluding things like (immutable) single-assignment variables which are provided by logic programming languages for example
+      </dd>
+
       <dt id="footnote-2">2</dt>
-      <dd>Indeed early versions of the Oz language (with implicit concurrency at
-	the statement level) were somewhat of this kind
-	[<a href="references.html#vRH04" class="calibre2">vRH04</a>].</dd>
+      <dd>Indeed early versions of the Oz language (with <em>implicit</em> concurrency at the statement level) were somewhat of this kind [<a href="references.html#vRH04" class="reference">vRH04</a>, p809].</dd>
+
       <dt id="footnote-3">3</dt>
-      <dd>Particularly unnecessary data abstraction. We examine an argument that
-	this is actually most data abstraction
-	in <a href="section-9.html#section-9.2.4" class="calibre2">section
-	9.2.4.</a></dd>
+      <dd>Particularly unnecessary <em>data</em> abstraction. We examine an argument that this is actually <em>most</em> data abstraction in <a href="section-9.html#section-9.2.4" class="section">section 9.2.4.</a></dd>
+
       <dt id="footnote-4">4</dt>
-      <dd>This particular problem doesn’t really apply to object-oriented
-	languages (such as CLOS) which are based upon generic functions — but
-	they don’t have the same concept of encapsulation.</dd>
+      <dd>this particular problem doesn’t really apply to object-oriented languages (such as CLOS) which are based upon generic functions — but they don’t have the same concept of encapsulation.</dd>
+
       <dt id="footnote-5">5</dt>
-      <dd>We are using the term here to cover everything apart from the pure
-	core of Prolog -- for example we include what are sometimes referred to
-	as the meta-logical features.</dd>
+      <dd>We are using the term here to cover <em>everything</em> apart from the pure core of Prolog — for example we include what are sometimes referred to as the <em>meta-logical</em> features.</dd>
+
       <dt id="footnote-6">6</dt>
-      <dd>We include the word “relevant” here because in many cases there may be
-	many possible acceptable solutions — and in such cases the requirements
-	can be ambiguous in that regard, however that is not considered to be a
-	“relevant” ambiguity, i.e. it does not correspond to an erroneous
-	omission from the requirements.</dd>
+      <dd>We include the word “relevant” here because in many cases there may be many possible acceptable solutions — and in such cases the requirements can be ambiguous in that regard, however that is not considered to be a
+	“relevant” ambiguity, i.e. it does not correspond to an erroneous <em>omission</em> from the requirements.</dd>
+
       <dt id="footnote-7">7</dt>
-      <dd>In the presence of <em>irrelevant</em> ambiguities this will mean that
-    the infrastructure must choose one of the possibilities, or perhaps even
-    provide all possible solutions.</dd>
+      <dd>In the presence of <em>irrelevant</em> ambiguities this will mean that the infrastructure must choose one of the possibilities, or perhaps even provide all possible solutions.</dd>
+
       <dt id="footnote-8">8</dt>
       <dd>this assumption is generally known as the “synchrony hypothesis.”</dd>
+
       <dt id="footnote-9">9</dt>
-      <dd>Care must be taken that the resulting reduction rules
-    are <em>confluent</em> and <em>terminating</em>.</dd>
+      <dd>Care must be taken that the resulting reduction rules are <em>confluent</em> and <em>terminating</em>.</dd>
+
       <dt id="footnote-10">10</dt>
-      <dd>because it can make the <em>logic</em> easier to express — as
-    we shall see in <a href="section-7.html#section-7.3.2" class="calibre2">
-	  section 7.3.2</a></dd>
+      <dd>because it can make the <em>logic</em> easier to express — as we shall see in <a href="section-7.html#section-7.3.2" class="section">section 7.3.2</a></dd>
+
       <dt id="footnote-11">11</dt>
-      <dd>We are implicitly considering time as an additional input.</dd>
+      <dd>We are implicitly considering <em>time</em> as an additional input.</dd>
+
       <dt id="footnote-12">12</dt>
-      <dd>There <em>is</em> some limited similarity between our goal of “Separate”
-    and the goal of <em>separation of concerns</em> as promoted by proponents of Aspect
-    Oriented Programming — but as we shall see
-    in <a href="section-7.html#section-7.3.2" class="calibre2">section 7.3.2</a>, exactly what is meant by separation is critical.</dd>
+      <dd>There <em>is</em> some limited similarity between our goal of “Separate” and the goal of <em>separation of concerns</em> as promoted by proponents of Aspect Oriented Programming — but as we shall see in <a href="section-7.html#section-7.3.2" class="section">section 7.3.2</a>, exactly what is meant by separation is critical.</dd>
+
       <dt id="footnote-13">13</dt>
-      <dd>indeed it should be perfectly possible for different users of the same
-    essential system to employ different accidental components — each designed
-    for their particular needs</dd>
+      <dd>indeed it should be perfectly possible for different users of the same essential system to employ different accidental components — each designed for their particular needs</dd>
+
       <dt id="footnote-14">14</dt>
-      <dd>or different subsets of the same language, provided it is
-    possible to forcibly restrict each component to the relevant subset.</dd>
+      <dd>or different subsets of the same language, <em>provided</em> it is possible to <em>forcibly restrict</em> each component to the relevant subset.</dd>
+
       <dt id="footnote-15">15</dt>
-      <dd>Unfortunately most contemporary DBMSs are somewhat
-    limited in the degree of flexibility permitted by the physical/logical
-    mapping. This has the unhappy result that physical performance concerns can
-    invade the logical design even though avoiding exactly this was one of
-    Codd’s most important original goals.</dd>
+      <dd>
+        Unfortunately most contemporary DBMSs are somewhat limited in the degree of flexibility permitted by the physical/logical mapping.
+        This has the unhappy result that physical performance concerns can invade the logical design even though <em>avoiding</em> exactly this was one of Codd’s most important original goals.
+      </dd>
+
       <dt id="footnote-16">16</dt>
-      <dd>Not to be confused with functional reactive
-      programming [<a href="references.html#EH97"
-      class="calibre2">EH97</a>] which does in fact have some similarities to
-      this approach, but has no intrinsic focus on relations or the relational
-      model</dd>
+      <dd>Not to be confused with functional <em>reactive</em> programming [<a href="references.html#EH97" class="reference">EH97</a>] which does in fact have some similarities to this approach, but has no intrinsic focus on relations or the relational model</dd>
+
       <dt id="footnote-17">17</dt>
-      <dd>Aside from token experimental implementations of FRP
-      infrastructures created by the authors.</dd>
+      <dd>Aside from token experimental implementations of FRP infrastructures created by the authors.</dd>
+
       <dt id="footnote-18">18</dt>
-      <dd>By <em>user-defined</em> we mean <em>specific to this particular
-      FRP system</em> (as opposed to pre-provided by an underlying
-      infrastructure).</dd>
+      <dd>By <em>user-defined</em> we mean <em>specific to this particular FRP system</em> (as opposed to pre-provided by an underlying infrastructure).</dd>
+
       <dt id="footnote-19">19</dt>
-      <dd>Equally, traditional OOP pays little attention
-      to the accidental / essential split which was also discussed
-      in <a href="section-7.html#section-7.3.2" class="calibre2">section
-      7.3.2.</a></dd>
+      <dd>Equally, traditional OOP pays little attention to the accidental / essential split which was also discussed in <a href="section-7.html#section-7.3.2" class="section">section 7.3.2.</a></dd>
+
       <dt id="footnote-20">20</dt>
-      <dd>see <a href="section-8.html#section-8.1.1" class="calibre2">section
-	  8.1.1</a> for a definition of this term.</dd>
+      <dd>see <a href="section-8.html#section-8.1.1" class="section">section 8.1.1</a> for a definition of this term.</dd>
+
       <dt id="footnote-21">21</dt>
-      <dd>aside from the <em>ease of expression</em> issue discussed
-      in <a href="section-9.html#section-9.1.4" class="calibre2">section
-      9.1.4.</a></dd>
+      <dd>aside from the <em>ease of expression</em> issue discussed in <a href="section-9.html#section-9.1.4" class="section">section 9.1.4.</a></dd>
+
       <dt id="footnote-22">22</dt>
-      <dd>Other systems connected electronically are considered
-      equivalent to users inputting data for these purposes.</dd>
+      <dd>Other systems connected electronically are considered equivalent to users inputting data for these purposes.</dd>
+
       <dt id="footnote-23">23</dt>
-      <dd>In fact one implication of this is that it is in
-      fact necessary for the assignment command to support multiple simultaneous
-      assignment of several distinct relation values to several
-	distinct relvars — this is to avoid temporary
-      inconsistencies which could otherwise occur with integrity constraints
-      that involved multiple relvars.</dd>
+      <dd>In fact one implication of this is that it is in fact necessary for the assignment command to support multiple <em>simultaneous</em> assignment of several distinct relation values to several distinct relvars — this is to avoid temporary inconsistencies which could otherwise occur with integrity constraints that involved multiple relvars.</dd>
+
       <dt id="footnote-24">24</dt>
-      <dd>Some systems — for example the Kleisli system used in
-      bio-informatics [<a href="references.html#Won00"
-      class="calibre2">Won00</a>] — seek to avoid this conversion by providing support for
-      more complex structures such as nested relations. We believe that the
-      simplicity gained from having flat relations through-out the system is
-      worth the effort sometimes involved at the system
-      edges (<a href="section-9.html#section-9.2.4" class="calibre2">section
-      9.2.4</a> describes some of the rationale behind this).</dd>
+      <dd>
+        Some systems — for example the Kleisli system used in bio-informatics [<a href="references.html#Won00" class="reference">Won00</a>] — seek to avoid this conversion by providing support for more complex structures such as nested relations.
+        We believe that the simplicity gained from having flat relations through-out the system is worth the effort sometimes involved at the system edges (<a href="section-9.html#section-9.2.4" class="section">section 9.2.4</a> describes some of the rationale behind this).
+      </dd>
+
       <dt id="footnote-25">25</dt>
-      <dd>A prototype implementation of the essential state and essential logic
-      infrastructure — the most significant parts — was developed in a mere 1500
-      lines of Scheme. In fact this prototype supported not only the relational
-      algebra but also some temporal extensions. The effort involved in this is
-      insignificant when compared to the hundreds of man-years often involved in
-      large systems.</dd>
+      <dd>
+        A prototype implementation of the essential state and essential logic infrastructure — the most significant parts — was developed in a mere 1500 lines of Scheme.
+        In fact this prototype supported not only the relational algebra but also some temporal extensions.
+        The effort involved in this is insignificant when compared to the hundreds of man-years often involved in large systems.
+      </dd>
+
       <dt id="footnote-26">26</dt>
-      <dd>The exception might be in the kind of highly
-      interactive scenario considered in
-      sections <a href="section-7.html#section-7.2.2"
-      class="calibre2">7.2.2</a> and <a href="section-7.html#section-7.3.1"
-      class="calibre2">7.3.1</a></dd>
+      <dd>The exception might be in the kind of highly interactive scenario considered in sections <a href="section-7.html#section-7.2.2" class="section">7.2.2</a> and <a href="section-7.html#section-7.3.1" class="section">7.3.1</a></dd>
+
       <dt id="footnote-27">27</dt>
-      <dd>We’re talking here solely about fixing the system
-      itself — of course FRP can’t guarantee that errors in the logic won’t
-      escape and affect the real world via <em>observers</em>!</dd>
+      <dd>We’re talking here solely about fixing the system itself — of course FRP can’t guarantee that errors in the logic won’t escape and affect the real world via <em>observers</em>!</dd>
     </dl>
   </body>
 </html>

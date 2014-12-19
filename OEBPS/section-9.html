@@ -1,560 +1,502 @@
 <?xml version='1.0' encoding='utf-8'?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Out of the Tar Pit</title>
+    <title>Out of the Tar Pit Section 9: Functional Relational Programming</title>
     <meta name="author" content="Ben Moseley and Peter Marks"/>
     <meta name="keywords" content="Complexity, SoftwareEngineering, RelationalModel, Functional, FunctionalProgramming"/>
     <meta name="subject" content="Complexity"/>
     <meta content="http://www.w3.org/1999/xhtml; charset=utf-8" http-equiv="Content-Type"/>
     <link href="stylesheet.css" type="text/css" rel="stylesheet"/>
   </head>
-  <body class="calibre">
+  <body>
+    <h2 id="section-9">9 Functional Relational Programming</h2>
+    <article>
 
-    <h2 id="section-9" class="calibre1">9 Functional Relational Programming</h2>
+    <p>
+      The approach of functional relational programming (FRP<sup><a href="footnotes.html#footnote-16" class="footnote">16</a></sup>) derives its name from the fact that the <em>essential</em> components of the system (the logic and the essential state) are based upon functional programming and the relational model (see <a href="#figure-2" class="figure">Figure 2</a>).
+    </p>
 
-    <p class="calibre1">The approach of functional relational
-      programming (FRP<sup><a href="footnotes.html#footnote-16"
-      class="calibre2">16</a></sup>) derives its name from the fact that the
-      <em>essential</em> components of the system (the logic and the essential state) are
-      based upon functional programming and the relational model
-      (see <a href="#figure-2" class="calibre2">Figure
-      2</a>).</p>
+    <p>
+      FRP is currently a purely hypothetical<sup><a href="footnotes.html#footnote-17" class="footnote">17</a></sup> approach to system architecture that has not in any way been proven in practice.
+      It is however based firmly on principles from other areas (the relational model, functional and logic programming) which <em>have</em> been widely proven.
+    </p>
 
-    <p class="calibre1">FRP is currently a purely
-      hypothetical<sup><a href="footnotes.html#footnote-17"
-      class="calibre2">17</a></sup> approach to system architecture that has not in
-      any way been proven in practice. It is however based firmly on principles
-      from other areas (the relational model, functional and logic programming)
-      which <em>have</em> been widely proven.</p>
+    <p>
+      In FRP all <em>essential state</em> takes the form of relations, and the <em>essential logic</em> is expressed using relational algebra extended with (pure) user-defined<sup><a href="footnotes.html#footnote-18" class="footnote">18</a></sup> functions.
+    </p>
 
-    <p class="calibre1">In FRP all <em>essential state</em> takes the form of relations,
-      and the <em>essential logic</em> is expressed using relational algebra extended
-      with (pure) user-defined<sup><a href="footnotes.html#footnote-18"
-      class="calibre2">18</a></sup> functions.</p>
+    <p>
+      The primary, overriding goal behind the FRP architecture (and indeed this whole paper) is of course <em>elimination of complexity</em>.
+    </p>
 
-    <p class="calibre1">The primary, overriding goal behind the FRP architecture
-      (and indeed this whole paper) is of course <em>elimination of complexity</em>.</p>
+    <div id="figure-2" class="figure">
+      <img alt="The components of an FRP system (infrastructure not shown, arrows show dynamic data flow)" src="figure2.png" style="width: 100%;" />
+      <p class="caption">Figure 2: The components of an FRP system (infrastructure not shown, arrows show dynamic data flow)</p>
+    </div>
 
-    <div id="figure-2"><!-- TODO: Figure 2 image goes here --><p class="calibre1">Figure 2: The components of an FRP system
-      (infrastructure not shown, arrows show dynamic data flow)</p></div>
+    <h3 id="section-9.1">9.1 Architecture</h3>
 
-    <h3 id="section-9.1" class="calibre1">9.1 Architecture</h3>
+    <article>
 
-    <p class="calibre1">We describe the architecture of an FRP system by first
-      looking at <em>what must be specified</em> for each of the components when
-      constructing a system in this manner. Then we look at what infrastructure
-      needs to be available in order to be able to construct systems in this
-      fashion.</p>
+    <p>
+      We describe the architecture of an FRP system by first looking at <em>what must be specified</em> for each of the components when constructing a system in this manner.
+      Then we look at what infrastructure needs to be available in order to be able to construct systems in this fashion.
+    </p>
 
-    <p class="calibre1">In accordance with the first half of this paper, FRP
-      recommends that the system be constructed from <em>separate</em> specifications for
-      each of the following components:</p>
+    <p>
+      In accordance with the first half of this paper, FRP recommends that the system be constructed from <em>separate</em> specifications for each of the following components:
+    </p>
 
     <dl>
       <dt>Essential State</dt>
-      <dd>A Relational definition of the stateful
-      components of the system</dd>
-      <dt>Essential Logic</dt><dd>Derived-relation definitions, integrity
-      constraints and (pure) functions</dd>
-      <dt>Accidental State and Control</dt><dd>A declarative specification
-      of a set of performance optimizations for the system</dd>
-      <dt>Other</dt><dd>A specification of the required interfaces to the
-      outside world (user and system interfaces)</dd>
+      <dd>A Relational definition of the stateful components of the system</dd>
+
+      <dt>Essential Logic</dt>
+      <dd>Derived-relation definitions, integrity constraints and (pure) functions</dd>
+
+      <dt>Accidental State and Control</dt>
+      <dd>A declarative specification of a set of performance optimizations for the system</dd>
+
+      <dt>Other</dt>
+      <dd>A specification of the required interfaces to the outside world (user and system interfaces)</dd>
     </dl>
 
-    <p class="calibre1">Speaking somewhat loosely, the first two components can
-      be seen as corresponding to “State” and “Behaviour” respectively, whilst
-      the third concentrates on “Performance”. In contrast with the
-      object-oriented approach, FRP emphasises a clear <em>separation</em> of state and
-      behaviour<sup><a href="footnotes.html#footnote-19"
-      class="calibre2">19</a></sup>.</p>
+    <p>
+      Speaking somewhat loosely, the first two components can be seen as corresponding to “State” and “Behaviour” respectively, whilst the third concentrates on “Performance”.
+      In contrast with the object-oriented approach, FRP emphasises a clear <em>separation</em> of state and behaviour<sup><a href="footnotes.html#footnote-19" class="footnote">19</a></sup>.
+    </p>
 
-    <h4 id="section-9.1.1" class="calibre1">9.1.1 Essential State (“State”)</h4>
+    </article>
 
-    <p class="calibre1">This component consists solely of a specification of the
-      essential state for the system in terms of base
-      relvars<sup><a href="footnotes.html#footnote-20"
-      class="calibre2">20</a></sup> (in FRP <em>all</em> state is stored solely
-      in terms of relations — there are no exceptions to this). Specifically it
-      is the <em>names</em> and <em>types</em> of the base relvars that are
-      specified here, not their actual contents. The contents of the relvars
-      (i.e. the relations themselves) will of course be crucial when the system
-      is used, but here we are discussing only the <em>static</em> structure of
-      the system. </p>
+    <h4 id="section-9.1.1">9.1.1 Essential State (“State”)</h4>
 
-    <p class="calibre1">In accordance
-    with <a href="section-7.html#section-7.1.1" class="calibre2">section
-    7.1.1</a>, FRP strongly encourages that data be treated as essential state
-      <em>only</em><sup><a href="footnotes.html#footnote-21" class="calibre2">21</a></sup> when it has
-    been <em>input directly by a user</em><sup><a href="footnotes.html#footnote-20"
-    class="calibre2">22</a></sup>.</p>
+    <article>
 
-    <h4 id="section-9.1.2" class="calibre1">9.1.2 Essential Logic (“Behaviour”)</h4>
+    <p>
+      This component consists solely of a specification of the essential state for the system in terms of base relvars<sup><a href="footnotes.html#footnote-20" class="footnote">20</a></sup> (in FRP <em>all</em> state is stored solely in terms of relations — there are no exceptions to this).
+      Specifically it is the <em>names</em> and <em>types</em> of the base relvars that are specified here, not their actual contents.
+      The contents of the relvars (i.e. the relations themselves) will of course be crucial when the system is used, but here we are discussing only the <em>static</em> structure of the system.
+    </p>
 
-    <p class="calibre1">The essential logic comprises both functional and
-      algebraic (relational) parts. The main (in the sense that it provides the overall
-      structure for the component) part is the relational one, and consists of
-      derived-relvar names and definitions. These definitions consist of
-      applications of the relational algebra operators to other relvars (both
-      derived relvars and the base relvars which make up the essential
-      state).</p>
+    <p>
+      In accordance with <a href="section-7.html#section-7.1.1" class="section">section 7.1.1</a>, FRP strongly encourages that data be treated as essential state <em>only</em><sup><a href="footnotes.html#footnote-21" class="footnote">21</a></sup> when it has been <em>input directly by a user</em><sup><a href="footnotes.html#footnote-20" class="footnote">22</a></sup>.
+    </p>
 
-    <p class="calibre1">In addition to the relational algebra, the definitions
-      can make use of an arbitrary set of pure user-defined functions which make
-      up the functional part of the essential logic.</p>
+    </article>
 
-    <p class="calibre1">Finally (in accordance with the standard relational
-      model) the logic specifies a set of <em>integrity constraints</em> — boolean
-      expressions which must hold at all times. (These can include everything
-      from simple foreign key constraints to complicated multiple-relvar
-      requirements making use of user-defined functions). Any attempt to modify
-      the essential state (see <a href="#section-9.1.4"
-      class="calibre2">section 9.1.4</a>) will always be subject to these
-      integrity constraints.</p>
+    <h4 id="section-9.1.2">9.1.2 Essential Logic (“Behaviour”)</h4>
 
-    <p class="calibre1">Much of the standard theory of relational database
-      design can obviously be used as a guide for the relational parts of these
-      two <em>essential</em> components. For example, normalization of the relvars will allow
-      consistent updates (see <a href="#section-9.1.4" class="calibre2">section
-      9.1.4</a>) to the state to be more easily expressed. Note that — assuming
-      no integrity constraints have been accidentally omitted — normalization
-      does <em>not</em> in any way help to preserve the integrity of our relvars — that
-      is after all what the constraints do, and if the constraints are not
-      violated (and the infrastructure must always ensure this) then the relvars
-      have integrity by definition. What <em>is</em> true is that more normalized designs do impose
-      <em>implicit</em> restrictions, and this can reduce the number of (explicit)
-      integrity constraints that must be specified.</p>
+    <article>
 
-    <p class="calibre1">Having raised the issue of design, it is vital to note
-      that absolutely <em>NO</em> consideration is paid to performance issues of any kind
-      here. Concepts such as “denormalization for performance” make absolutely
-      no sense in this context because they contain the implicit assumption that
-      the physical storage used will closely mirror the relational structure
-      which is being specified here. This is absolutely not the case (it is only the
-      <em>accidental state and control</em> component — see below — which is concerned
-      with efficiency of storage structures).</p>
+    <p>
+      The essential logic comprises both functional and algebraic (relational) parts.
+      The main (in the sense that it provides the overall structure for the component) part is the relational one, and consists of derived-relvar names and definitions.
+      These definitions consist of applications of the relational algebra operators to other relvars (both derived relvars and the base relvars which make up the essential state).
+    </p>
 
-    <h4 id="section-9.1.3" class="calibre1">9.1.3 Accidental State and Control (“Performance”)</h4>
+    <p>
+      In addition to the relational algebra, the definitions can make use of an arbitrary set of pure user-defined functions which make up the functional part of the essential logic.
+    </p>
 
-    <p class="calibre1">This component fundamentally consists of a series of
-      isolated (in the sense that they cannot refer to each other in any way)
-      performance “hints”. These hints — which should be declarative in nature —
-      are intended to provide guidance to the infrastructure responsible for
-      running the FRP system.</p>
+    <p>
+      Finally (in accordance with the standard relational model) the logic specifies a set of <em>integrity constraints</em> — boolean expressions which must hold at all times. (These can include everything from simple foreign key constraints to complicated multiple-relvar requirements making use of user-defined functions).
+      Any attempt to modify the essential state (see <a href="#section-9.1.4" class="section">section 9.1.4</a>) will always be subject to these integrity constraints.
+    </p>
 
-    <p class="calibre1">On the <em>state</em> side, this component is concerned with both
-      <em>accidental state</em> itself and <em>accidental aspects of</em> state. Firstly, it
-      provides a means to specify <em>what state</em> (of the accidental variety) should
-      exist. Secondly it provides (if desired) a means to specify <em>what physical
-      storage mechanisms</em> should be used for storing state (of both kinds) —
-      i.e. the accidental aspects of storage. This second aspect is the
-      <em>flexible mapping</em> providing
-      physical / logical <em>data independence</em> as required by the relational
-      model (<a href="section-8.html#section-8" class="calibre2">section
-      8</a>).</p>
+    <p>
+      Much of the standard theory of relational database design can obviously be used as a guide for the relational parts of these two <em>essential</em> components.
+      For example, normalization of the relvars will allow consistent updates (see <a href="#section-9.1.4" class="section">section 9.1.4</a>) to the state to be more easily expressed.
+      Note that — assuming no integrity constraints have been accidentally omitted — normalization does <em>not</em> in any way help to preserve the integrity of our relvars — that is after all what the constraints do, and if the constraints are not violated (and the infrastructure must always ensure this) then the relvars have integrity by definition.
+      What <em>is</em> true is that more normalized designs do impose <em>implicit</em> restrictions, and this can reduce the number of (explicit) integrity constraints that must be specified.
+    </p>
 
-    <p class="calibre1">An example of the first kind of state-related hint might
-      be a simple directive that a particular derived-relvar should actually be
-      stored (rather than continually recalculated), so that it is always
-      quickly available.</p>
+    <p>
+      Having raised the issue of design, it is vital to note that absolutely <em>NO</em> consideration is paid to performance issues of any kind here.
+      Concepts such as “denormalization for performance” make absolutely no sense in this context because they contain the implicit assumption that the physical storage used will closely mirror the relational structure which is being specified here.
+      This is absolutely not the case (it is only the <em>accidental state and control</em> component — see below — which is concerned with efficiency of storage structures).
+    </p>
 
-    <p class="calibre1">An example of the second kind of state-related hint
-      might be that an infrequently used subset of the attributes of a
-      particular relvar (either derived or base) should be stored separately for
-      performance reasons. The use of indices or other custom storage strategies
-      would also be examples of this second kind of state-related hint. The
-      exact types of hint available here will depend entirely on what is
-      provided by the underlying infrastructure.</p>
+    </article>
 
-    <p class="calibre1">On the <em>control</em> side, recommendations for parallel
-      evaluation of derived-relvars might be given. Also, declarative hints could be
-      given about whether the derived relvars should be computed eagerly (as
-      soon as the essential state changes), lazily (when the infrastructure is
-      forced to provide them), or some combination of different policies for
-      different relvars.</p>
+    <h4 id="section-9.1.3">9.1.3 Accidental State and Control (“Performance”)</h4>
 
-    <p class="calibre1">All hints are incapable of referring to each other, but
-      do refer to the relevant (essential, base and derived) relvars by
-      name.</p>
+    <article>
 
-    <h4 id="section-9.1.4" class="calibre1">9.1.4 Other (Interfacing)</h4>
+    <p>
+      This component fundamentally consists of a series of isolated (in the sense that they cannot refer to each other in any way) performance “hints”.
+      These hints — which should be declarative in nature — are intended to provide guidance to the infrastructure responsible for running the FRP system.
+    </p>
 
-    <p class="calibre1">The primary consideration not addressed by the above is
-      that of <em>interfacing with the outside world</em>.</p>
+    <p>
+      On the <em>state</em> side, this component is concerned with both <em>accidental state</em> itself and <em>accidental aspects of</em> state.
+      Firstly, it provides a means to specify <em>what state</em> (of the accidental variety) should exist.
+      Secondly it provides (if desired) a means to specify <em>what physical storage mechanisms</em> should be used for storing state (of both kinds) — i.e. the <em>accidental</em> aspects of storage.
+      This second aspect is the <em>flexible mapping</em> providing physical / logical <em>data independence</em> as required by the relational model (<a href="section-8.html#section-8" class="section">section 8</a>).
+    </p>
 
-    <p class="calibre1">Specifically, all input must be converted into
-      relational assignments (which replace the old relvar values in the
-      <em>essential state</em> with new ones), and all output (and side-effects) must be
-      driven from changes to the values of relvars (primarily derived
-      relvars).</p>
+    <p>
+      An example of the first kind of state-related hint might be a simple directive that a particular derived-relvar should actually be stored (rather than continually recalculated), so that it is always quickly available.
+    </p>
 
-    <p class="calibre1">The exact nature of this task is likely to be highly
-      application-dependent, but we can say that there will probably be a
-      requirement for a series of <em>feeder</em> (or <em>input</em>) and
-      <em>observer</em> (or <em>output</em>)
-      components. These may well be defined, at least partially, in a
-      traditional, imperative way if custom interfacing is required. There will
-      be cases when it is necessary for a given interfacing component to act in
-      both capacities (if for example a message must be observed and sent to
-      another system, then a response received, recorded and fed back in).</p>
+    <p>
+      An example of the second kind of state-related hint might be that an infrequently used subset of the attributes of a particular relvar (either derived or base) should be stored separately for performance reasons.
+      The use of indices or other custom storage strategies would also be examples of this second kind of state-related hint.
+      The exact types of hint available here will depend entirely on what is provided by the underlying infrastructure.
+    </p>
 
-    <p class="calibre1">The expectation is that all of these components will be
-      of a <em>minimal</em> nature — performing only the necessary translations to and
-      from relations.</p>
+    <p>
+      On the <em>control</em> side, recommendations for parallel evaluation of derived-relvars might be given.
+      Also, declarative hints could be given about whether the derived relvars should be computed eagerly (as soon as the essential state changes), lazily (when the infrastructure is forced to provide them), or some combination of different policies for different relvars.
+    </p>
 
-    <h5 class="calibre1">Feeders</h5>
+    <p>
+      All hints are incapable of referring to each other, but do refer to the relevant (essential, base and derived) relvars by name.
+    </p>
 
-    <p class="calibre1"><em>Feeders</em> are components which convert input into
-      relational assignments — i.e. cause changes to the <em>essential state</em>. In order to
-      be able to cause these state changes, <em>feeders</em> will need to specify them in
-      some form of <em>state manipulation language</em> provided by the
-      infrastructure. At a minimum, this language can consist of just a
-      relational assignment command which assigns to a relvar a whole new
-      relation value in its entirety:</p>
+    </article>
+
+    <h4 id="section-9.1.4">9.1.4 Other (Interfacing)</h4>
+
+    <article>
+
+    <p>
+      The primary consideration not addressed by the above is that of <em>interfacing with the outside world</em>.
+    </p>
+
+    <p>
+      Specifically, all input must be converted into relational assignments (which replace the old relvar values in the <em>essential state</em> with new ones), and all output (and side-effects) must be driven from changes to the values of relvars (primarily derived relvars).
+    </p>
+
+    <p>
+      The exact nature of this task is likely to be highly application-dependent, but we can say that there will probably be a requirement for a series of <em>feeder</em> (or <em>input</em>) and <em>observer</em> (or <em>output</em>) components.
+      These may well be defined, at least partially, in a traditional, imperative way if custom interfacing is required.
+      There will be cases when it is necessary for a given interfacing component to act in both capacities (if for example a message must be observed and sent to another system, then a response received, recorded and fed back in).
+    </p>
+
+    <p>
+      The expectation is that all of these components will be of a <em>minimal</em> nature — performing only the necessary translations to and from relations.
+    </p>
+
+    </article>
+
+    <h5>Feeders</h5>
+
+    <article>
+
+    <p>
+      <em>Feeders</em> are components which convert input into relational assignments — i.e. cause changes to the <em>essential state</em>.
+      In order to be able to cause these state changes, <em>feeders</em> will need to specify them in some form of <em>state manipulation language</em> provided by the infrastructure.
+      At a minimum, this language can consist of just a relational assignment command which assigns to a relvar a whole new relation value in its entirety:
+    </p>
 
     <pre>relvar := newRelationValue</pre>
 
-    <p class="calibre1">The infrastructure which eventually runs the FRP system
-      will ensure that the command respects the integrity
-      constraints<sup><a href="footnotes.html#footnote-23" class="calibre2">23</a></sup> —
-      either by rejecting non-conformant commands, or possibly in some cases by
-      modifying them to ensure conformance.</p>
+    <p>
+      The infrastructure which eventually runs the FRP system will ensure that the command respects the integrity constraints<sup><a href="footnotes.html#footnote-23" class="footnote">23</a></sup> — either by rejecting non-conformant commands, or possibly in some cases by <em>modifying</em> them to ensure conformance.
+    </p>
 
-    <h5 class="calibre1">Observers</h5>
+    </article>
 
-    <p class="calibre1"><em>Observers</em> are components which generate output in
-      response to changes which they observe in the values of the (derived)
-      relvars. At a minimum, <em>observers</em> will only need to specify the <em>name</em> of the
-      relvar which they wish to observe. The infrastructure which runs the
-      system will ensure that the observer is invoked (with the new relation
-      value) whenever it changes. In this way <em>observers</em> act both as what are
-      sometimes called <em>live-queries</em> and also as <em>triggers</em>.</p>
+    <h5>Observers</h5>
 
-    <p class="calibre1">Despite this the intention is <em>not</em> for <em>observers</em> to be
-      used as a substitute for true integrity constraints. Specifically, hybrid
-      <em>feeders / observers</em> should <em>not</em> act as triggers which directly update the
-      <em>essential state</em> (this would by definition be creating <em>derived</em> and hence
-      <em>accidental state</em>). The only (occasional) exceptions to this should be of
-      the <em>ease of expression</em> kind discussed in
-      sections <a href="section-7.html#section-7.2.2"
-      class="calibre2">7.2.2</a> and <a href="section-7.html#section-7.3.1"
-      class="calibre2">7.3.1</a>.</p>
+    <article>
 
-    <h5 class="calibre1">Summary</h5>
+    <p><em>Observers</em> are components which generate output in response to changes which they observe in the values of the (derived) relvars.
+      At a minimum, <em>observers</em> will only need to specify the <em>name</em> of the relvar which they wish to observe.
+      The infrastructure which runs the system will ensure that the observer is invoked (with the new relation value) whenever it changes.
+      In this way <em>observers</em> act both as what are sometimes called <em>live-queries</em> and also as <em>triggers</em>.
+    </p>
 
-    <p class="calibre1">The most complicated scenario when interfacing the core
-      relational system with the outside world is likely to come when the
-      interfacing requires highly structured input or output (this is most
-      likely to occur when interfacing with other systems rather than with
-      people).</p>
+    <p>
+      Despite this the intention is <em>not</em> for <em>observers</em> to be used as a substitute for true integrity constraints.
+      Specifically, hybrid <em>feeders / observers</em> should <em>not</em> act as triggers which directly update the <em>essential state</em> (this would by definition be creating <em>derived</em> and hence <em>accidental state</em>).
+      The only (occasional) exceptions to this should be of the <em>ease of expression</em> kind discussed in sections <a href="section-7.html#section-7.2.2" class="section">7.2.2</a> and <a href="section-7.html#section-7.3.1" class="section">7.3.1</a>.
+    </p>
 
-    <p class="calibre1">In this situation, the <em>feeders</em> or <em>observers</em> are forced
-      to convert between structured data and flat
-      relations<sup><a href="footnotes.html#footnote-24"
-      class="calibre2">24</a></sup>.</p>
+    </article>
 
-    <h4 class="calibre1">9.1.5 Infrastructure</h4>
+    <h5>Summary</h5>
 
-    <p class="calibre1">In several places above we have referred to the
-      “infrastructure which runs the FRP system”. The FRP <em>system</em> is the
-      specification — comprising of the four components above, the
-      <em>infrastructure</em> is what is needed to execute this specification (by
-      interpretation, compilation or some mixture).</p>
+    <article>
 
-    <p class="calibre1">The different components of an FRP system lead to
-      different requirements on the infrastructure which is going to support
-      them.</p>
+    <p>
+      The most complicated scenario when interfacing the core relational system with the outside world is likely to come when the interfacing requires highly structured input or output (this is most likely to occur when interfacing with other systems rather than with people).
+    </p>
 
-    <h5 class="calibre1">Infrastructure for Essential State</h5>
+    <p>
+      In this situation, the <em>feeders</em> or <em>observers</em> are forced to convert between structured data and flat relations<sup><a href="footnotes.html#footnote-24" class="footnote">24</a></sup>.
+    </p>
+
+    </article>
+
+    <h4>9.1.5 Infrastructure</h4>
+
+    <article>
+
+    <p>
+      In several places above we have referred to the “infrastructure which runs the FRP system”.
+      The FRP <em>system</em> is the specification — comprising of the four components above, the <em>infrastructure</em> is what is needed to execute this specification (by interpretation, compilation or some mixture).
+    </p>
+
+    <p>
+      The different components of an FRP system lead to different requirements on the infrastructure which is going to support them.
+    </p>
+
+    </article>
+
+    <h5>Infrastructure for Essential State</h5>
+
+    <article>
 
     <ol>
-      <li>some means of storing and retrieving data in the form
-      of relations assigned to named relvars</li>
-      <li>a state manipulation language which allows the stored
-      relvars to be updated (within the bounds of the integrity constraints)</li>
-      <li>optionally (depending on the exact range of FRP systems which the
-      infrastructure is intended to support) secondary (e.g. disk-based) storage
-      in addition to the primary (in memory) storage</li>
-      <li>a base set of generally
-      useful types (typically integer, boolean, string, date etc)</li>
+      <li>some means of storing and retrieving data in the form of relations assigned to named relvars</li>
+      <li>a state manipulation language which allows the stored relvars to be updated (within the bounds of the integrity constraints)</li>
+      <li>optionally (depending on the exact range of FRP systems which the infrastructure is intended to support) secondary (e.g. disk-based) storage in addition to the primary (in memory) storage</li>
+      <li>a base set of generally useful types (typically integer, boolean, string, date etc)</li>
     </ol>
 
-    <h5 class="calibre1">Infrastructure for Essential Logic</h5>
+    </article>
+
+    <h5>Infrastructure for Essential Logic</h5>
+
+    <article>
 
     <ol>
       <li>a means to evaluate relational expressions</li>
-      <li>a base set of generally useful functions (for things
-      such as basic arithmetic etc)</li>
-      <li>a language to allow specification (and evaluation) of
-      the user-defined functions in the FRP system. (It does not have to be a
-      functional language, but the infrastructure must only allow it to be used
-      in a functional way)</li>
-      <li>optionally a means of type inference (this will also
-      require a mechanism for declaring the types of the user-defined functions
-      in the FRP system)</li>
+      <li>a base set of generally useful functions (for things such as basic arithmetic etc)</li>
+      <li>a language to allow specification (and evaluation) of the user-defined functions in the FRP system. (It does not have to be a functional language, but the infrastructure must only allow it to be used in a functional way)</li>
+      <li>optionally a means of type inference (this will also require a mechanism for declaring the types of the user-defined functions in the FRP system)</li>
       <li>a means to express and enforce integrity constraints</li>
     </ol>
 
+    </article>
+
     <h5>Infrastructure for Accidental State and Control</h5>
 
+    <article>
+
     <ol>
-      <li>a means to specify which <em>derived</em> relvars should
-      actually be stored, along with the ability to store such relvars <em>and
-      ensure that the stored values are accurately up-to-date at all times</em></li>
-      <li>a <em>flexible</em> means to specify physical storage
-      mechanisms to be used by a relvar. This is a vital part of the
-      infrastructure — without it the infrastructure must store relvars in a way
-      which closely mirrors their logical (essential) definitions, and that inevitably
-      leads to accidental (performance) concerns corrupting the essential parts
-      of the system. Specifically, procedures such as <em>normalization</em> or
-      “<em>de-normalization</em>” at the logical (essential) level should have no
-      intrinsic performance implications because of the presence of this
-      mechanism.</li>
+      <li>a means to specify which <em>derived</em> relvars should actually be stored, along with the ability to store such relvars <em>and ensure that the stored values are accurately up-to-date at all times</em></li>
+      <li>
+        a <em>flexible</em> means to specify physical storage mechanisms to be used by a relvar.
+        This is a vital part of the infrastructure — without it the infrastructure must store relvars in a way which closely mirrors their logical (essential) definitions, and that inevitably leads to accidental (performance) concerns corrupting the essential parts of the system.
+        Specifically, procedures such as <em>normalization</em> or “<em>de-normalization</em>” at the logical (essential) level should have no intrinsic performance implications because of the presence of this mechanism.
+      </li>
     </ol>
 
-    <h5 class="calibre1">Infrastructure for Feeders and Observers</h5>
+    </article>
 
-    <p class="calibre1">The minimum requirement on the infrastructure
-      (specifically on the state manipulation language) from <em>feeders</em> is for it
-      to be able to process relational assignment commands (containing complete
-      new relation values) and reject them if necessary. Practical extensions
-      that could be useful include the ability to accept commands which specify
-      new relvar values in terms of their previous values — typically in the
-      form of INSERT / UPDATE / DELETE commands.</p>
+    <h5>Infrastructure for Feeders and Observers</h5>
 
-    <p class="calibre1">The minimum requirement on the infrastructure from
-      <em>observers</em> is for it to be able to supply the new value of a relvar
-      whenever it changes. Practical extensions that could be useful are the
-      ability to provide deltas, throttling and coalescing capabilities (if the
-      <em>observers</em> are viewed as <em>live query</em>-handlers, then these extensions
-      represent potential <em>query meta-data</em>).</p>
+    <article>
 
-    <p class="calibre1">Another possible extension is the ability to observe
-      general relational expressions rather than just relvars from the essential
-      logic (this is not a significant extension as it is basically equivalent
-      to a short-term addition to the essential logic’s set of derived relvars —
-      the only difference being that the expression in question would be
-      anonymous).</p>
+    <p>
+      The minimum requirement on the infrastructure (specifically on the state manipulation language) from <em>feeders</em> is for it to be able to process relational assignment commands (containing complete new relation values) and reject them if necessary.
+      Practical extensions that could be useful include the ability to accept commands which specify new relvar values in terms of their previous values — typically in the form of INSERT / UPDATE / DELETE commands.
+    </p>
 
-    <p class="calibre1">Finally, the ability to access arbitrary <em>historical</em>
-      relvar values would obviously be a useful extension in some
-      scenarios.</p>
+    <p>
+      The minimum requirement on the infrastructure from <em>observers</em> is for it to be able to supply the new value of a relvar whenever it changes.
+      Practical extensions that could be useful are the ability to provide deltas, throttling and coalescing capabilities (if the <em>observers</em> are viewed as <em>live query</em>-handlers, then these extensions represent potential <em>query meta-data</em>).
+    </p>
 
-    <h5 class="calibre1">Summary</h5>
+    <p>
+      Another possible extension is the ability to observe general relational expressions rather than just relvars from the essential logic (this is not a significant extension as it is basically equivalent to a short-term addition to the essential logic’s set of derived relvars — the only difference being that the expression in question would be anonymous).
+    </p>
 
-    <p class="calibre1">If a system is to be based upon the FRP architecture it
-      will be necessary either to obtain an FRP infrastructure from a third
-      party, or to develop one with existing tools and techniques.</p>
+    <p>
+      Finally, the ability to access arbitrary <em>historical</em> relvar values would obviously be a useful extension in some scenarios.
+    </p>
 
-    <p class="calibre1">Currently of course no real FRP infrastructures exist
-      and so at present the choice is clear. However, even in the presence of
-      third party infrastructures there may in fact be compelling reasons for
-      large systems to adopt the custom route. Firstly, the effort involved in
-      doing so need not be huge<sup><a href="footnotes.html#footnote-25"
-      class="calibre2">25</a></sup>, and secondly the custom approach leads to the ability to
-      tailor the <em>hints</em> available (for use in the <em>accidental state and control</em>
-      component) to the exact requirements of the application domain.</p>
+    </article>
 
-    <p class="calibre1">Finally, it is of course perfectly possible to develop
-      an FRP infrastructure in <em>any</em> general purpose language — be it
-      object-oriented, functional or logic.</p>
+    <h5>Summary</h5>
 
-    <h3 id="section-9.2" class="calibre1">9.2 Benefits of this approach</h3>
+    <article>
 
-    <p class="calibre1">FRP follows the guidelines of <em>avoid</em> and <em>separate</em> as
-      recommended in <a href="section-7.html"
-      class="calibre2">section 7</a> and hence gains all the benefits which
-	derive from that. We now examine how FRP helps to avoid complexity from
-	the common causes.</p>
+    <p>
+      If a system is to be based upon the FRP architecture it will be necessary either to obtain an FRP infrastructure from a third party, or to develop one with existing tools and techniques.
+    </p>
 
-    <h4 id="section-9.2.1" class="calibre1">9.2.1 Benefits for State</h4>
+    <p>
+      Currently of course no real FRP infrastructures exist and so at present the choice is clear.
+      However, even in the presence of third party infrastructures there may in fact be compelling reasons for large systems to adopt the custom route.
+      Firstly, the effort involved in doing so need not be huge<sup><a href="footnotes.html#footnote-25" class="footnote">25</a></sup>, and secondly the custom approach leads to the ability to tailor the <em>hints</em> available (for use in the <em>accidental state and control</em> component) to the exact requirements of the application domain.
+    </p>
 
-    <p class="calibre1">The architecture is explicitly designed to <em>avoid</em> useless
-      accidental state, and to <em>avoid</em> even the <em>possibility</em> of an FRP system ever
-      getting into a “bad state”.</p>
+    <p>
+      Finally, it is of course perfectly possible to develop an FRP infrastructure in <em>any</em> general purpose language — be it object-oriented, functional or logic.
+    </p>
 
-    <p class="calibre1">Specifically derived state is not normally stored (is
-      not treated as essential state). In normal
-      circumstances<sup><a href="footnotes.html#footnote-26"
-      class="calibre2">26</a></sup> hybrid feeders/observers <em>never</em> feed back in the
-      exact same data which they observed — they only ever feed in some
-      externally generated input or response. <em>So long as this principle is
-      observed</em> errors in the logic of the system can never cause it to get into
-      a “bad state” — the only thing required to fix such
-      errors<sup><a href="footnotes.html#footnote-27" class="calibre2">27</a></sup> is to
-      correct the logic, there is no need to perform an exhaustive search
-      through and correction of the essential state. This also means that
-      (aside from errors in the <em>infrastructure</em>) the system can <em>never</em> require
-      “restarting” / “rebooting” etc.</p>
+    </article>
 
-    <p class="calibre1">When it comes to <em>separation</em>, the architecture clearly
-      exhibits both the <em>logic / state</em> split and the <em>accidental / essential</em> split
-      recommended in <a href="section-7.html" class="calibre2">section 7</a>. An example of what this means is that <em>you
-	do not have to <em>think about</em>any accidental state when concentrating on
-	the logic of your system</em>. In fact, you do not really have to think about the
-      <em>essential state</em> as being state either — from the point of view of the
-      logic, the <em>essential state</em> is seen as <em>constant</em>.</p>
+    <h3 id="section-9.2">9.2 Benefits of this approach</h3>
 
-    <p class="calibre1">Furthermore, the <em>functional</em> component (of the logic) has
-      <em>no</em> access to any state at all (even the essential state) — it is totally
-      referentially transparent, can only access what is supplied in the function
-      arguments, and hence offers <em>hugely</em> better prospects for testing (as
-      mentioned earlier in <a href="section-4.html#section-4.1.1"
-      class="calibre2">section 4.1.1</a>).</p>
+    <article>
 
-    <p class="calibre1">Additionally, there are major advantages gained from
-      adopting a relational representation of data — specifically, there is no
-      introduction of subjective bias into the data, no concern with data access
-      paths. This is in contrast with approaches such as OOP or XML (as we saw
-      in <a href="section-8.html#section-8.1.2" class="calibre2">section
-      8.1.2</a>).</p>
+    <p>
+      FRP follows the guidelines of <em>avoid</em> and <em>separate</em> as recommended in <a href="section-7.html" class="section">section 7</a> and hence gains all the benefits which derive from that.
+      We now examine how FRP helps to avoid complexity from the common causes.
+    </p>
 
-    <p class="calibre1">Finally, integrity constraints provide big benefits for
-      maintaining consistency of state in a <em>declarative</em> manner:</p>
+    </article>
 
-    <blockquote>
-      <p class="calibre1">The fact that we can impose the integrity constraints of
-	our system in a purely declarative manner (without requiring triggers or
-	worse, methods / procedures) is one of the key benefits of the FRP
-	approach. It means that the addition of new constraints increases the
-	complexity of the system only <em>linearly</em> because the constraints do not —
-	indeed cannot — interact in any way at all. (Constraints can make use of
-	user-defined functions — but they have no way of referring to other
-	constraints). This is in stark contrast with more imperative approaches
-	such as object oriented programming where interaction between methods
-	causes the complexity to grow at a far greater rate.</p>
+    <h4 id="section-9.2.1">9.2.1 Benefits for State</h4>
+
+    <article>
+
+    <p>
+      The architecture is explicitly designed to <em>avoid</em> useless accidental state, and to <em>avoid</em> even the <em>possibility</em> of an FRP system ever getting into a “bad state”.
+    </p>
+
+    <p>
+      Specifically derived state is not normally stored (is not treated as essential state).
+      In normal circumstances<sup><a href="footnotes.html#footnote-26" class="footnote">26</a></sup> hybrid feeders/observers <em>never</em> feed back in the exact same data which they observed — they only ever feed in some externally generated input or response. <em>So long as this principle is observed</em>, errors in the logic of the system can never cause it to get into a “bad state” — the only thing required to fix such errors<sup><a href="footnotes.html#footnote-27" class="footnote">27</a></sup> is to correct the logic, there is no need to perform an exhaustive search through and correction of the essential state.
+      This also means that (aside from errors in the <em>infrastructure</em>) the system can <em>never</em> require “restarting” / “rebooting” etc.
+    </p>
+
+    <p>
+      When it comes to <em>separation</em>, the architecture clearly exhibits both the <em>logic / state</em> split and the <em>accidental / essential</em> split recommended in <a href="section-7.html" class="section">section 7</a>.
+      An example of what this means is that <em>you do not have to</em> think about <em>any accidental state when concentrating on the logic of your system</em>.
+      In fact, you do not really have to think about the <em>essential state</em> as being state either — from the point of view of the logic, the <em>essential state</em> is seen as <em>constant</em>.
+    </p>
+
+    <p>
+      Furthermore, the <em>functional</em> component (of the logic) has <em>no</em> access to any state at all (even the essential state) — it is totally referentially transparent, can only access what is supplied in the function arguments, and hence offers <em>hugely</em> better prospects for testing (as mentioned earlier in <a href="section-4.html#section-4.1.1" class="section">section 4.1.1</a>).
+    </p>
+
+    <p>
+      Additionally, there are major advantages gained from adopting a relational representation of data — specifically, there is no introduction of subjective bias into the data, no concern with data access paths.
+      This is in contrast with approaches such as OOP or XML (as we saw in <a href="section-8.html#section-8.1.2" class="section">section 8.1.2</a>).
+    </p>
+
+    <p>
+      Finally, integrity constraints provide big benefits for maintaining consistency of state in a <em>declarative</em> manner:
+      <blockquote>
+        <p>
+          <em>The fact that we can impose the integrity constraints of our system in a</em> purely declarative <em>manner (without requiring triggers or worse, methods / procedures) is one of the key benefits of the FRP approach.
+          It means that the addition of new constraints increases the complexity of the system only </em>linearly<em> because the constraints do not — indeed cannot — interact in any way at all. (Constraints can make use of user-defined functions — but they have no way of referring to other constraints).
+          This is in stark contrast with more imperative approaches such as object-oriented programming where interaction between methods causes the complexity to grow at a far greater rate.</em>
+        </p>
       </blockquote>
+    </p>
 
-    <p class="calibre1">Furthermore, the declarative nature of the integrity
-      constraints opens the door to the possibility of a suitably sophisticated
-      infrastructure making use of them for performance reasons (to give a
-      trivial example, there is no need to compute the relational intersection
-      of two relvars at all if it can be established that their integrity
-      constraints are mutually exclusive — because then the result is guaranteed
-      to be empty). This type of optimisation is just not possible if the
-      integrity is maintained in an imperative way.</p>
+    <p>
+      Furthermore, the declarative nature of the integrity constraints opens the door to the possibility of a suitably sophisticated infrastructure making use of them for performance reasons (to give a trivial example, there is no need to compute the relational <code>intersection</code> of two relvars at all if it can be established that their integrity constraints are mutually exclusive — because then the result is guaranteed to be empty).
+      This type of optimisation is just not possible if the integrity is maintained in an imperative way.
+    </p>
 
-    <h4 id="section-9.2.2" class="calibre1">9.2.2 Benefits for Control</h4>
+    </article>
 
-    <p class="calibre1">Control is <em>avoided</em> completely in the relational
-      component which constitutes the top level of the essential logic. In FRP
-      this logic consists simply of a set of equations (equating derived relvars
-      with the relations calculated by their expressions) which have no
-      intrinsic ordering or control flow at all.</p>
+    <h4 id="section-9.2.2">9.2.2 Benefits for Control</h4>
 
-    <p class="calibre1">FRP also avoids any <em>explicit</em> parallelism in the
-      essential components but provides for the possibility of separated
-      <em>accidental</em> control should that be required.</p>
+    <article>
 
-    <p class="calibre1">An <em>infrastructure</em> which supports FRP may well make use
-      of <em>implicit</em> parallelism to improve its performance — but this shouldn’t be
-      the concern of anyone other than the implementor of the
-      <em>infrastructure</em> — certainly it is not the concern of someone developing an
-      FRP <em>system</em>.</p>
+    <p>
+      Control is <em>avoided</em> completely in the relational component which constitutes the top level of the essential logic.
+      In FRP this logic consists simply of a set of equations (equating derived relvars with the relations calculated by their expressions) which have no intrinsic ordering or control flow at all.
+    </p>
 
-    <p class="calibre1">A final advantage (which isn’t particularly related to
-      control) is that the uniform nature of the representation of data as
-      relations makes it much easier to create distributed implementations of an
-      FRP infrastructure should that be required (e.g. there are no pointers or
-      other access paths to maintain).</p>
+    <p>
+      FRP also avoids any <em>explicit</em> parallelism in the essential components but provides for the possibility of separated <em>accidental</em> control should that be required.
+    </p>
 
-    <h4 id="section-9.2.3" class="calibre1">9.2.3 Benefits for Code Volume</h4>
+    <p>
+      An <em>infrastructure</em> which supports FRP may well make use of <em>implicit</em> parallelism to improve its performance — but this shouldn’t be the concern of anyone other than the implementor of the <em>infrastructure</em> — certainly it is not the concern of someone developing an FRP <em>system</em>.
+    </p>
 
-    <p class="calibre1">FRP addresses this in two ways. The first is that a
-      sharp focus on true essentials and <em>avoiding</em> useless accidental complexity
-      inevitably leads to less code.</p>
+    <p>
+      A final advantage (which isn’t particularly related to control) is that the uniform nature of the representation of data as relations makes it much easier to create distributed implementations of an FRP infrastructure should that be required (e.g. there are no pointers or other access paths to maintain).
+    </p>
 
-    <p class="calibre1">The second way is that the FRP approach reduces the harm
-      that large volumes of code cause through its use of <em>separation</em>
-      (see <a href="section-4.html#section-4.3" class="calibre2">section
-      4.3</a>).</p>
+    </article>
 
-    <p class="calibre1"></p>
+    <h4 id="section-9.2.3">9.2.3 Benefits for Code Volume</h4>
 
-    <h4 id="section-9.2.4" class="calibre1">9.2.4 Benefits for Data Abstraction</h4>
+    <article>
 
-    <p class="calibre1">Data Abstraction is something which we have only
-      mentioned in passing (in <a href="section-4.html#section-4.4"
-      class="calibre2">section 4.4</a>) so far. By <em>data abstraction</em> we
-      basically mean the creation of compound data types and the use of the
-      corresponding compound values (whose internal contents are
-      <em>hidden</em>).</p>
+    <p>
+      FRP addresses this in two ways.
+      The first is that a sharp focus on true essentials and <em>avoiding</em> useless accidental complexity inevitably leads to less code.
+    </p>
 
-    <p class="calibre1">We believe that in many cases, un-needed data
-      abstraction actually represents another common (and serious) cause of
-      complexity. This is for two reasons:</p>
+    <p>
+      The second way is that the FRP approach reduces the harm that large volumes of code cause through its use of <em>separation</em> (see <a href="section-4.html#section-4.3" class="section">section 4.3</a>).
+    </p>
+
+    <p></p>
+
+    </article>
+
+    <h4 id="section-9.2.4">9.2.4 Benefits for Data Abstraction</h4>
+
+    <article>
+
+    <p>
+      Data Abstraction is something which we have only mentioned in passing (in <a href="section-4.html#section-4.4" class="section">section 4.4</a>) so far.
+      By <em>data abstraction</em> we basically mean the creation of compound data types and the use of the corresponding compound values (whose internal contents are <em>hidden</em>).
+    </p>
+
+    <p>
+      We believe that in many cases, un-needed data abstraction actually represents another common (and serious) cause of complexity.
+      This is for two reasons:
+    </p>
 
     <dl>
       <dt>Subjectivity</dt>
-      <dd>Firstly the grouping of data items together into larger compound data
-	abstractions is an inherently <em>subjective</em> business (Ungar and
-	Smith discuss this problem in the context of Self in
-	[<a href="references.html#SU96" class="calibre2">SU96</a>]).  Groupings
-	which make sense for one purpose will inevitably differ from those most
-	natural for other uses, yet the presence of pre-existing data abstractions
-	all too easily leads to <em>inappropriate</em> reuse.</dd>
+      <dd>Firstly the grouping of data items together into larger compound data abstractions is an inherently <em>subjective</em> business (Ungar and Smith discuss this problem in the context of Self in [<a href="references.html#SU96" class="reference">SU96</a>]).  Groupings which make sense for one purpose will inevitably differ from those most natural for other uses, yet the presence of pre-existing data abstractions all too easily leads to <em>inappropriate</em> reuse.</dd>
+
       <dt>Data Hiding</dt>
-      <dd>Secondly, large and heavily structured data abstractions can seriously
-	erode the benefits of referential transparency
-	(<a href="section-5.html#section-5.2.1" class="calibre2">section
-	  5.2.1</a>) in exactly the manner of the extreme example discussed
-	in <a href="section-5.html#section-5.2.3" class="calibre2">section
-	  5.2.3.</a> This problem occurs both because data abstractions will often
-	cause un-needed, irrelevant data to be supplied to a function, and because
-	the data which <em>does</em> get used (and hence influences the result of
-	a function) is <em>hidden</em> at the function call site. This hidden and
-	excessive data leads to problems for testing as well as informal reasoning
-	in ways very similar to state (see <a href="section-4.html#section-4.1"
-					      class="calibre2">section 4.1</a>).</dd>
+      <dd>
+        Secondly, large and heavily structured data abstractions can seriously erode the benefits of referential transparency (<a href="section-5.html#section-5.2.1" class="section">section 5.2.1</a>) in exactly the manner of the extreme example discussed in <a href="section-5.html#section-5.2.3" class="section">section 5.2.3</a>.
+        This problem occurs both because data abstractions will often cause un-needed, irrelevant data to be supplied to a function, and because the data which <em>does</em> get used (and hence influences the result of a function) is <em>hidden</em> at the function call site.
+        This hidden and excessive data leads to problems for testing as well as informal reasoning in ways very similar to state (see <a href="section-4.html#section-4.1" class="section">section 4.1</a>).
+      </dd>
     </dl>
 
-    <p class="calibre1">One of the primary strengths of the relational model
-      (inherited by FRP) is that it involves only minimal commitment to any
-      subjective groupings (basically just the structure chosen for the base
-      relations), and this commitment has only minimal impact on the rest of the
-      system. Derived relvars offer a straightforward way for different
-      (application-specific) groupings to be used <em>alongside</em> the base
-      groupings. The benefits in terms of subjectivity are closely related to
-      the benefits of access path
-      independence (<a href="section-8.html#section-8.1.2"
-      class="calibre2">section 8.1.2</a>).</p>
+    <p>
+      One of the primary strengths of the relational model (inherited by FRP) is that it involves only minimal commitment to any subjective groupings (basically just the structure chosen for the base relations), and this commitment has only minimal impact on the rest of the system.
+      Derived relvars offer a straightforward way for different (application-specific) groupings to be used <em>alongside</em> the base groupings.
+      The benefits in terms of subjectivity are closely related to the benefits of access path independence (<a href="section-8.html#section-8.1.2" class="section">section 8.1.2</a>).
+    </p>
 
-    <p class="calibre1">FRP also offers benefits in the area of data hiding,
-      simply by discouraging it. Specifically, FRP offers no support for nested
-      relations or for creating product types (as we shall see
-      in <a href="#section-9.3" class="calibre2">section
-      9.3</a>).</p>
+    <p>
+      FRP also offers benefits in the area of data hiding, simply by discouraging it.
+      Specifically, FRP offers no support for nested relations or for creating product types (as we shall see in <a href="#section-9.3" class="section">section 9.3</a>).
+    </p>
 
-    <h4 class="calibre1">9.2.5 Other Benefits</h4>
+    </article>
 
-    <p class="calibre1">The previous sections considered the benefits offered by
-      FRP for minimizing complexity. Other potential benefits include
-      performance (as mentioned briefly
-      under <a href="#section-9.2.1" class="calibre2">section
-      9.2.1</a>) and the possibility that development teams themselves could be
-      organised around the different components — for example one team could
-      focus on the accidental aspects of the system, one on the essential
-      aspects, one on the interfacing, and another on providing the
-      infrastructure.</p>
+    <h4>9.2.5 Other Benefits</h4>
 
-    <h3 id="section-9.3" class="calibre1">9.3 Types</h3>
+    <article>
 
-    <p class="calibre1">A final comment is that — in addition to a fairly
-      typical set of standard types — FRP provides a limited ability to define
-      new user types for use in the <em>essential state</em> and <em>essential logic</em>
-      components.</p>
+    <p>
+      The previous sections considered the benefits offered by FRP for minimizing complexity.
+      Other potential benefits include performance (as mentioned briefly under <a href="#section-9.2.1" class="section">section 9.2.1</a>) and the possibility that development teams themselves could be organised around the different components — for example one team could focus on the accidental aspects of the system, one on the essential aspects, one on the interfacing, and another on providing the infrastructure.
+    </p>
 
-    <p class="calibre1">Specifically it permits the creation of disjoint union
-      types (sometimes known as “enumeration” types) but does <em>not</em> permit the
-      creation of new product types (types with multiple subsidiary
-      components). This is because (as mentioned above) we have a strong desire
-      to <em>avoid</em> any unnecessary data abstraction.</p>
+    </article>
 
-    <p class="calibre1">Finally, it probably makes sense for infrastructures to
-      provide <em>type inference</em> for the <em>essential logic</em>. Interesting work in this
-      area has been carried out in the Machiavelli
-      system [<a href="references.html#OB88"
-      class="calibre2">OB88</a>].</p>
+    <h3 id="section-9.3">9.3 Types</h3>
+
+    <article>
+
+    <p>
+      A final comment is that — in addition to a fairly typical set of standard types — FRP provides a limited ability to define new user types for use in the <em>essential state</em> and <em>essential logic</em> components.
+    </p>
+
+    <p>
+      Specifically it permits the creation of disjoint union types (sometimes known as “enumeration” types) but does <em>not</em> permit the creation of new product types (types with multiple subsidiary components).
+      This is because (as mentioned above) we have a strong desire to <em>avoid</em> any unnecessary data abstraction.
+    </p>
+
+    <p>
+      Finally, it probably makes sense for infrastructures to provide <em>type inference</em> for the <em>essential logic</em>.
+      Interesting work in this area has been carried out in the Machiavelli system [<a href="references.html#OB88" class="reference">OB88</a>].
+    </p>
+
+    </article>
 
   </body>
 </html>

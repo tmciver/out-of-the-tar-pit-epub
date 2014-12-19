@@ -1,63 +1,76 @@
 @namespace h "http://www.w3.org/1999/xhtml";
-.calibre {
-    display: block;
-    font-size: 1em;
-    line-height: 1.2;
-    margin-bottom: 0;
-    margin-left: 5pt;
-    margin-right: 5pt;
-    margin-top: 0;
-    padding-left: 0;
-    padding-right: 0
-    }
-.calibre1 {
-    display: block;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 1em
-    }
-.calibre2 {
+a.figure, a.footnote, a.section, a.reference, a.table {
     color: blue;
     cursor: pointer;
     text-decoration: underline
     }
-.calibre3 {
-    color: inherit;
-    cursor: inherit;
-    text-decoration: inherit
-    }
-.calibre4 {
-    display: block;
-    font-size: 1.5em;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0.67em
-    }
-.calibre5 {
-    display: block;
-    list-style-type: disc;
+h1 {
+    text-align: center;
+    margin-top: 2em;
     margin-bottom: 1em;
-    margin-right: 0;
-    margin-top: 1em
-    }
-.calibre6 {
-    display: list-item
-    }
-.calibre7 {
-    display: block;
-    list-style-type: circle;
-    margin-bottom: 0;
-    margin-right: 0;
-    margin-top: 0
-    }
-.calibre8 {
-    display: block;
-    list-style-type: square;
-    margin-bottom: 0;
-    margin-right: 0;
-    margin-top: 0
-    }
+}
+h3, h4, h5 {
+    margin-bottom: 0.5em;
+}
+h5 {
+    font-size: 1em;
+}
+p {
+    margin: 0.3em 0;
+}
+blockquote {
+    margin: 0.6em 3em;
+}
+blockquote.centred {
+    margin: 1em 0;
+    text-align: center;
+}
+dt {
+    font-weight: bold;
+}
+
+article > p:not(:first-child) {
+    text-indent: 1em;
+}
+article.abstract > p {
+     margin: 0 15%;
+     text-indent: 1em;
+}
+div.figure {
+    text-align: center;
+    margin: 1em 0;
+}
+div.figure > .caption {
+    margin: 0.5em 0;
+}
+
+table {
+    text-align: center;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+td {
+    border-style: solid;
+    border-width: 0 1px;
+    padding: 0 0.5em;
+}
+th {
+    border: 1px solid black;
+    border-bottom-width: 3px;
+    padding: 0.2em 0.5em;
+}
+tr.highlighted {
+    background-color: #DDD;
+}
+ol > li {
+    margin: 0.6em 0;
+}
+.title-authors {
+    text-align: center;
+}
+.title-date {
+    text-align: center;
+    margin: 0.8em 0;
+    font-size: 0.8em;
+}

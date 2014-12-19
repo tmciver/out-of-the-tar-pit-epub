@@ -1,88 +1,80 @@
 <?xml version='1.0' encoding='utf-8'?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Out of the Tar Pit: Section 3</title>
+    <title>Out of the Tar Pit Section 3: Approaches to Understanding</title>
     <meta name="author" content="Ben Moseley and Peter Marks"/>
     <meta name="keywords" content="Complexity, SoftwareEngineering, RelationalModel, Functional, FunctionalProgramming"/>
     <meta name="subject" content="Complexity"/>
     <meta content="http://www.w3.org/1999/xhtml; charset=utf-8" http-equiv="Content-Type"/>
     <link href="stylesheet.css" type="text/css" rel="stylesheet"/>
   </head>
-  <body class="calibre">
-    <h2 id="section-3" class="calibre1">3 Approaches to Understanding</h2>
+  <body>
+    <h2 id="section-3">3 Approaches to Understanding</h2>
+    <article>
+    <p>
+      We argued above that the danger of complexity came from its impact on our attempts to <em>understand</em> a system.
+      Because of this, it is helpful to consider the mechanisms that are commonly used to try to understand systems.
+      We can then later consider the impact that potential causes of complexity have on these approaches.
+      There are two widely-used approaches to understanding systems (or components of systems):
+    </p>
     
-    <p class="calibre1">We argued above that the danger of complexity came from
-    its impact on our attempts to understand a system. Because of this, it is
-    helpful to consider the mechanisms that are commonly used to try to
-    understand systems. We can then later consider the impact that potential
-    causes of complexity have on these approaches. There are two widely-used
-    approaches to understanding systems (or components of systems):</p>
-    
-    <p class="calibre1">Testing This is attempting to understand a system from
-    the outside — as a “black box”. Conclusions about the system are drawn on
-    the basis of observations about how it behaves in certain specific
-    situations.</p>
-    
-    <p class="calibre1">Testing may be performed either by human or by
-    machine. The former is more common for whole-system testing, the latter more
-    common for individual component testing.</p>
-    
-    <p class="calibre1">Informal Reasoning This is attempting to understand the
-    system by examining it from the inside. The hope is that by using the extra
-    information available, a more accurate understanding can be gained.</p>
-    
-    <p class="calibre1">Of the two informal reasoning is the most important by
-    far. This is because — as we shall see below — there are inherent limits to
-    what can be achieved by testing, and because informal reasoning (by virtue
-    of being an inherent part of the development process) is always used. The
-    other justification is that improvements in informal reasoning will lead to
-    less errors being created whilst all that improvements in testing can do is
-    to lead to more errors being detected. As Dijkstra said in his Turing award
-    speech [<a href="references.html#Dij72" class="calibre2">Dij72</a>,
-    EWD340]:</p>
+    <dl>
+      <dt>Testing</dt>
+      <dd>
+        This is attempting to understand a system from the outside — as a “black box”.
+        Conclusions about the system are drawn on the basis of observations about how it behaves in certain specific situations.
+        Testing may be performed either by human or by machine.
+        The former is more common for whole-system testing, the latter more common for individual component testing.
+      </dd>
 
-    <p class="calibre1">“Those who want really reliable software will discover
-    that they must find means of avoiding the majority of bugs to start
-    with.”</p>
+      <dt>Informal Reasoning</dt>
+      <dd>
+        This is attempting to understand the system by examining it from the inside.
+        The hope is that by using the extra information available, a more accurate understanding can be gained.
+      </dd>
+    </dl>
+    
+    <p>
+      Of the two informal reasoning is the most important by far.
+      This is because — as we shall see below — there are inherent limits to what can be achieved by testing, and because informal reasoning (by virtue of being an inherent part of the development process) is <em>always</em> used.
+      The other justification is that improvements in informal reasoning will lead to <em>less errors being created</em> whilst all that improvements in testing can do is to lead to <em>more errors being detected</em>.
+      As Dijkstra said in his Turing award speech [<a href="references.html#Dij72" class="reference">Dij72</a>, EWD340]:
+      <blockquote>
+        “Those who want really reliable software will discover that they must find means of avoiding the majority of bugs to start with.”
+      </blockquote>
+    </p>
 
-    <p class="calibre1">and as O’Keefe (who also stressed the importance of
-    “understanding your problem” and that “Elegance is not optional”) said
-    [<a href="references.html#OK90" class="calibre2">O’K90</a>]:</p>
-    
-    <p class="calibre1">“Our response to mistakes should be to look for ways
-    that we can avoid making them, not to blame the nature of things.”</p>
+    <p>
+      and as O’Keefe (who also stressed the importance of “<em>understanding your problem</em>” and that “<em>Elegance is not optional</em>”) said [<a href="references.html#OK90" class="reference">O’K90</a>]:
+      <blockquote>
+        “Our response to mistakes should be to look for ways that we can avoid making them, not to blame the nature of things.”
+      </blockquote>
+    </p>
 
-    <p class="calibre1">The key problem with testing is that a test (of any
-    kind) that uses one particular set of inputs tells you nothing at all about
-    the behaviour of the system or component when it is given a different set of
-    inputs. The huge number of different possible inputs usually rules out the
-    possibility of testing them all, hence the unavoidable concern with testing
-    will always be — have you performed the right tests?. The only certain
-    answer you will ever get to this question is an answer in the negative —
-    when the system breaks.  Again, as Dijkstra observed
-    [<a href="references.html#Dij71" class="calibre2">Dij71</a>,
-    EWD303]:</p>
+    <p>
+      The key problem with testing is that a test (of any kind) that uses one particular set of inputs tells you <em>nothing at all</em> about the behaviour of the system or component when it is given a different set of inputs.
+      The huge number of different possible inputs usually rules out the possibility of testing them all, hence the unavoidable concern with testing will always be — <em>have you performed the </em>right<em> tests</em>?.
+      The only certain answer you will ever get to this question is an answer in the negative — when the system breaks.  Again, as Dijkstra observed [<a href="references.html#Dij71" class="reference">Dij71</a>, EWD303]:
+      <blockquote>
+        “testing is hopelessly inadequate.&hellip;(it) can be used very effectively to show the presence of bugs but never to show their absence.”
+      </blockquote>
+    </p>
     
-    <p class="calibre1">“testing is hopelessly inadequate....(it) can be used
-    very effectively to show the presence of bugs but never to show their
-    absence.”</p>
+    <p>
+      We agree with Dijkstra. <em>Rely</em> on testing at your peril.
+    </p>
     
-    <p class="calibre1">We agree with Dijkstra. <em>Rely</em> on testing at your
-    peril.</p>
+    <p>
+      This is <em>not</em> to say that testing has no use.
+      The bottom line is that all ways of attempting to understand a system have their limitations (and this includes both <em>informal reasoning</em> — which is limited in scope, imprecise and hence prone to error — as well as <em>formal reasoning</em> — which is dependent upon the accuracy of a specification).
+      Because of these limitations it may often be prudent to employ both testing <em>and</em> reasoning together.
+    </p>
     
-    <p class="calibre1">This is <em>not</em> to say that testing has no use. The
-    bottom line is that all ways of attempting to understand a system have their
-    limitations (and this includes both <em>informal reasoning</em> — which is
-    limited in scope, imprecise and hence prone to error — as well as <em>formal
-    reasoning</em> — which is dependent upon the accuracy of a
-    specification). Because of these limitations it may often be prudent to
-    employ both testing and reasoning together.</p>
-    
-    <p class="calibre1">It is precisely because of the limitations of all these
-    approaches that <em>simplicity</em> is vital. When considered next to
-    testing and reasoning, simplicity is more important than either. Given a
-    stark choice between investment in testing and investment in simplicity, the
-    latter may often be the better choice because it will facilitate <em>all</em>
-    future attempts to understand the system — attempts of any kind.</p>
+    <p>
+      It is precisely <em>because</em> of the limitations of all these approaches that <em>simplicity</em> is vital.
+      When considered next to testing and reasoning, simplicity is more important than either.
+      Given a stark choice between investment in testing and investment in simplicity, the latter may often be the better choice because it will facilitate <em>all</em> future attempts to understand the system — attempts of any kind.
+    </p>
+    </article>
   </body>
 </html>
