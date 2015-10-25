@@ -23,8 +23,8 @@ EPUB_FILES = 	mimetype \
 		OEBPS/figure2.png
 EPUB_ARCHIVE = out-of-the-tar-pit.epub
 
-#test : $(EPUB_ARCHIVE)
-#	java -jar lib/epubcheck-3.0.1.jar $(EPUB_ARCHIVE)
+# test : $(EPUB_ARCHIVE)
+# 	java -jar lib/epubcheck-4.0.1/epubcheck.jar $(EPUB_ARCHIVE)
 
 $(EPUB_ARCHIVE) : $(EPUB_FILES)
 	zip -X $@ $^

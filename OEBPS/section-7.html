@@ -12,7 +12,6 @@
 
     <h2 id="section-7">7 Recommended General Approach</h2>
 
-    <article>
     <p>
       Given that our main recommendations revolve around trying to avoid as much accidental complexity as possible, we now need to look at which bits of the complexity must be considered accidental and which essential.
     </p>
@@ -22,11 +21,9 @@
       We then follow this up with a look at just how realistic this ideal world really is before finally giving some recommendations.
     </p>
 
-    </article>
 
     <h3 id="section-7.1">7.1 Ideal World</h3>
 
-    <article>
     <p>
       In the ideal world we are not concerned with performance, and our language and infrastructure provide all the general support we desire.
       It is against this background that we are going to examine <em>state</em> and <em>control</em>.
@@ -48,7 +45,7 @@
     </p>
 
     <blockquote class="centred">
-      Informal requirements → Formal requirements
+      <p>Informal requirements → Formal requirements</p>
     </blockquote>
 
     <p>
@@ -78,11 +75,9 @@
     approach for the causes of complexity discussed above.
     </p>
 
-    </article>
 
     <h4 id="section-7.1.1">7.1.1 State in the ideal world</h4>
 
-    <article>
     <p>
       Our main aim for state in the ideal world is to get rid of it — i.e.
       we are hoping that most state will turn out to be <em>accidental state</em>.
@@ -105,11 +100,9 @@
       In cases where this is possible the data corresponds to <em>accidental state</em>.
     </p>
 
-    </article>
 
     <h5>Input Data</h5>
 
-    <article>
     <p>
       Data which is provided directly (input) will have to have been included in the informal requirements and as such is deemed <em>essential</em>.
       There are basically two cases:</p>
@@ -128,22 +121,18 @@
       In the second case (which will most often happen when the input is designed simply to cause some side-effect) the data need not be maintained at all.
     </p>
 
-    </article>
 
     <h5>Essential Derived Data — Immutable</h5>
 
-    <article>
     <p>
       Data of this kind can always be re-derived (from the input data — i.e.
       from the <em>essential state</em>) whenever required.
       As a result we do <em>not</em> need to store it in the ideal world (we just re-derive it when it is required) and it is clearly <em>accidental state</em>.
     </p>
 
-    </article>
 
     <h5>Essential Derived Data — Mutable</h5>
 
-    <article>
     <p>
       As with immutable essential derived data, this can be excluded (and the data re-derived on demand) and hence corresponds to <em>accidental state</em>.
     </p>
@@ -154,11 +143,9 @@
       In this situation modifications to the data can simply be treated identically to the corresponding modifications to the existing <em>essential state</em>.
     </p>
 
-    </article>
 
     <h5>Accidental Derived Data</h5>
 
-    <article>
     <p>
       State which is <em>derived</em> but <em>not</em> in the users’
     requirements is also <em>accidental state</em>.
@@ -190,11 +177,9 @@ procedure int doCalculation(int y)
       Hence, it is quite clear that we can eliminate it completely from our ideal world, and that hence it <em>is</em> accidental.
     </p>
 
-    </article>
 
     <h5>Summary — State in the ideal world</h5>
 
-    <article>
     <p>
       For our ideal approach to state, we largely follow the example of functional programming which shows how mutable state can be avoided.
       We need to remember though that:</p>
@@ -253,11 +238,9 @@ procedure int doCalculation(int y)
       One effect of this is that <em>all</em> the state in the system is visible to the user of (or person testing) the system (because inputs can reasonably be expected to be visible in ways which internal cached state normally is not).
     </p>
 
-    </article>
 
     <h4 id="section-7.1.2">7.1.2 Control in the ideal world</h4>
 
-    <article>
     <p>
       Whereas we have seen that some state <em>is</em> essential, control generally can be completely omitted from the ideal world and as such is considered entirely <em>accidental</em>.
       It typically won’t be mentioned in the informal requirements and hence should not appear in the formal requirements (because these are derived with <em>no view to execution</em>).
@@ -279,22 +262,18 @@ procedure int doCalculation(int y)
     computations take zero time<sup><a href="footnotes.html#footnote-8" class="footnote">8</a></sup> and as such it is immaterial to a user whether they happen in sequence or in parallel.
     </p>
 
-    </article>
 
     <h4 id="section-7.1.3">7.1.3 Summary</h4>
 
-    <article>
     <p>
       In the ideal world we have been able to avoid large amounts of complexity — both state and control.
       As a result, it is clear that a lot of complexity is <em>accidental</em>.
       This gives us hope that it may be possible to significantly reduce the complexity of <em>real</em> large systems.
       The question is — how close is it possible to get to the ideal world in the real one?</p>
 
-    </article>
 
     <h3 id="section-7.2">7.2 Theoretical and Practical Limitations</h3>
 
-    <article>
     <p>
       The real world is not of course ideal.
       In this section we examine a few of the assumptions made in the <a href="#section-7.1" class="section">section
@@ -317,11 +296,9 @@ procedure int doCalculation(int y)
       These observations give some indication of where we can expect to encounter difficulties.
     </p>
 
-    </article>
 
     <h4 id="section-7.2.1">7.2.1 Formal Specification Languages</h4>
 
-    <article>
     <p>
       First of all, we want to consider two problems (one of a theoretical kind, the other practical) that arise in connection with the ideal-world <em>formal requirements</em>.
     </p>
@@ -391,11 +368,9 @@ procedure int doCalculation(int y)
       As a result, this means that we will <em>require</em> some accidental components as we shall see in <a href="#section-7.2.3" class="section">section 7.2.3</a>.
     </p>
 
-    </article>
 
     <h4 id="section-7.2.2">7.2.2 Ease of Expression</h4>
 
-    <article>
     <p>
       There is one final practical problem that we want to consider — even though we believe it is fairly rare in most application domains.
       In <a href="#section-7.1.1" class="section">section 7.1.1</a> we argued that immutable, derived data would correspond to <em>accidental state</em> and could be omitted (because the <em>logic</em> of the system could always be used to derive the data on-demand).
@@ -414,11 +389,9 @@ procedure int doCalculation(int y)
       An example of this would be the derived data representing the position state of a computer-controlled opponent in an interactive game — it is at all times <em>derivable</em> by a function of both all prior user movements and the initial starting positions,<sup><a href="footnotes.html#footnote-11" class="footnote">11</a></sup> but this is not the way it is most naturally expressed.
     </p>
 
-    </article>
 
     <h4 id="section-7.2.3">7.2.3 Required Accidental Complexity</h4>
 
-    <article>
     <p>
       We have seen two possible reasons why in practice — even with optimal language and infrastructure — we may <em>require</em> complexity which strictly is <em>accidental</em>.
       These reasons are:
@@ -446,11 +419,9 @@ procedure int doCalculation(int y)
       This is a very serious concern, and is one that we address in our recommendations below.
     </p>
 
-    </article>
 
     <h3 id="section-7.3">7.3 Recommendations</h3>
 
-    <article>
     <p>
       We believe that — despite the existence of required accidental complexity — it <em>is</em> possible to retain most of the simplicity of the ideal world (<a href="#section-7.1" class="section">section 7.1</a>) in the real one.
       We now look at how this might be achievable.
@@ -483,28 +454,24 @@ procedure int doCalculation(int y)
       The title of his paper was the equation:</p>
 
     <blockquote class="centred">
-      <em>“Algorithm = Logic + Control”</em>
+      <p><em>“Algorithm = Logic + Control”</em></p>
     </blockquote>
 
     <p>
       … and this separation that he advocated is close to the heart of what we’re recommending.
     </p>
 
-    </article>
 
     <h4 id="section-7.3.1">7.3.1 Required Accidental Complexity</h4>
 
-    <article>
     <p>
       In <a href="#section-7.2.3" class="section">section 7.2.3</a> we noted two possible reasons for requiring accidental complexity (even in the presence of optimal language and infrastructure).
       We now consider the most appropriate way of handling each.
     </p>
 
-    </article>
 
     <h5>Performance</h5>
 
-    <article>
     <p>
       We have seen that there are many serious risks which arise from accidental complexity — particularly when introduced in an undisciplined manner.
       To mitigate these risks we take two defensive measures.
@@ -527,11 +494,9 @@ procedure int doCalculation(int y)
       We examine separation after first looking at the other possible reason for requiring accidental complexity.
     </p>
 
-    </article>
 
     <h5>Ease of Expression</h5>
 
-    <article>
     <p>
       This problem (see <a href="#section-7.2.2" class="section">section 7.2.2</a>) fundamentally arises when derived (i.e. <em>accidental</em>) state offers the most natural way to express parts of the logic of the system.
     </p>
@@ -548,11 +513,9 @@ procedure int doCalculation(int y)
     9.1.4</a>).
     </p>
 
-    </article>
 
     <h4 id="section-7.3.2">7.3.2 Separation and the relationship between the components</h4>
     
-    <article>
     <p>
       In the above we deliberately glossed over <em>exactly</em> what we meant by our second recommendation: “Separate”.
       This is because it actually encompasses two things.
@@ -613,15 +576,12 @@ procedure int doCalculation(int y)
       It is additionally advocating a split between the state and control components of the “Useful” Accidental Complexity — but this distinction is less important than the others.
     </p>
 
-    <p>
-      One implication of this overall structure is that the system (essential + accidental but useful) should still function <em>completely correctly</em> if the “accidental but useful” bits are removed (leaving only the two <em>essential</em> components) — albeit possibly unacceptably slowly.
-      As Kowalski (who — writing in a Prolog-context — was not really considering any essential state) says:
-      <blockquote>
-        <p>
-          “The logic component determines the meaning … whereas the control component only affects its efficiency”.
-        </p>
-      </blockquote>
-    </p>
+    <p>One implication of this overall structure is that the system (essential + accidental but useful) should still function <em>completely correctly</em> if the “accidental but useful” bits are removed (leaving only the two <em>essential</em> components) — albeit possibly unacceptably slowly.
+      As Kowalski (who — writing in a Prolog-context — was not really considering any essential state) says:</p>
+
+    <blockquote>
+      <p>“The logic component determines the meaning … whereas the control component only affects its efficiency”. </p>
+    </blockquote>
 
     <p>
       A consequence of <em>separation</em> is that the separately specified components will each be of a <em>very</em> different nature, and as a result it may be ideal to use <em>different languages</em> for each.
@@ -687,11 +647,9 @@ procedure int doCalculation(int y)
       Together the goals of <em>avoid</em> and <em>separate</em> give us reason to hope that we may well be able to retain much of the simplicity of the ideal world in the real one.
     </p>
 
-    </article>
 
     <h3 id="section-7.4">7.4 Summary</h3>
 
-    <article>
     <p>
       This first part of the paper has done two main things.
       It has given arguments for the overriding danger of complexity, and it has given some hope that much of the complexity may be avoided or controlled.
@@ -723,7 +681,6 @@ procedure int doCalculation(int y)
       In the second half of this paper we shall consider a possible approach based on these recommendations.
     </p>
 
-    </article>
 
   </body>
 </html>

@@ -12,7 +12,6 @@
 
     <h2 id="section-8">8 The Relational Model</h2>
 
-    <article>
     <p>
       The relational model [<a href="references.html#Cod70" class="reference">Cod70</a>] has — despite its origins — nothing <em>intrinsically</em> to do with databases.
       Rather it is an elegant approach to <em>structuring</em> data, a means for <em>manipulating</em> such data, and a mechanism for maintaining <em>integrity</em> and consistency of state.
@@ -48,13 +47,11 @@
       As a final comment, it is widely recognised that SQL (of any version) — despite its widespread use — is <em>not</em> an accurate reflection of the relational model [<a href="references.html#Cod90" class="reference">Cod90</a>, p371, Serious flaws in SQL], [<a href="references.html#Dat04" class="reference">Dat04</a>, p xxiv] so the reader is warned against equating the two.
     </p>
 
-    </article>
 
     <h3 id="section-8.1">8.1 Structure</h3>
 
     <h4 id="section-8.1.1">8.1.1 Relations</h4>
 
-    <article>
 
     <p>
       As mentioned above, relations provide the sole means for structuring data in the relational model.
@@ -84,11 +81,9 @@
       Date calls these variables <em>relation variables</em> or <em>relvars</em>, leading to the terms <em>base relvar</em> and <em>derived relvar</em>, and we shall use this terminology later. (Note however that our definition of relation is slightly different from his in that — following standard static typing practice — we do not consider the type to be part of the value).
     </p>
 
-    </article>
 
     <h4 id="section-8.1.2">8.1.2 Structuring benefits of Relations — Access path independence</h4>
 
-    <article>
 
     <p>
       The idea of structuring data using relations is appealing because no <em>subjective</em>, up-front decisions need to be made about the <em>access paths</em> that will later be used to query and process the data.
@@ -147,11 +142,9 @@
       A final advantage of using relations for the structure — in contrast with approaches such as Chen’s ER-modelling [<a href="references.html#Che76" class="reference">Che76</a>] — is that no distinction is made between <em>entities</em> and <em>relationships</em>. (Using such a distinction can be problematic because whether something is an <em>entity</em> or a <em>relationship</em> can be a very subjective question).
     </p>
 
-    </article>
 
     <h3 id="section-8.2">8.2 Manipulation</h3>
 
-    <article>
 
     <p>
       Codd introduced two different mechanisms for expressing the manipulation aspects of the relational model — the relational calculus and the relational algebra.
@@ -184,11 +177,9 @@
       One significant benefit of this manipulation language (aside from its simplicity) is that it has the property of <em>closure</em> — that all operands and results are of the same kind (relations) — hence the operations can be nested in arbitrary ways (indeed this property is inherent in any single-sorted algebra).
     </p>
 
-    </article>
 
     <h3 id="section-8.3">8.3 Integrity</h3>
 
-    <article>
 
     <p>
       Integrity in the relational model is maintained simply by specifying — in a purely declarative way — a set of constraints which must hold at all times.
@@ -207,11 +198,9 @@
       Finally, many commercially available DBMSs provide <em>imperative</em> mechanisms such as triggers for maintaining integrity — such mechanisms suffer from control-flow concerns (see <a href="section-4.html#section-4.2" class="section">section 4.2)</a> and are <em>not</em> considered to be part of the relational model.
     </p>
 
-    </article>
 
     <h3 id="section-8.4">8.4 Data Independence</h3>
 
-    <article>
 
     <p>
       <em>Data independence</em> is the principle of separating the logical model from the physical storage representation, and was one of the original motivations for the relational model.
@@ -222,11 +211,9 @@
       This is one of several reasons that motivate the adoption of the relational model in Functional Relational Programming (see <a href="section-9.html#section-9" class="section">section 9</a> below).
     </p>
 
-    </article>
 
     <h3 id="section-8.5">8.5 Extensions</h3>
 
-    <article>
 
     <p>
       The relational algebra — whilst flexible — is a restrictive language in computational terms (it is not Turing-complete) and is normally augmented in various ways when used in practice.
@@ -244,6 +231,5 @@
       <dd>the ability to generate derived relations by changing attribute names</dd>
     </dl>
 
-    </article>
   </body>
 </html>

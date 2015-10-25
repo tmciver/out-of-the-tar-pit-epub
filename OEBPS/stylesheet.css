@@ -28,11 +28,7 @@ blockquote.centred {
 dt {
     font-weight: bold;
 }
-
-article > p:not(:first-child) {
-    text-indent: 1em;
-}
-article.abstract > p {
+p.abstract {
      margin: 0 15%;
      text-indent: 1em;
 }

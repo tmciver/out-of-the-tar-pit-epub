@@ -10,7 +10,6 @@
   </head>
   <body>
     <h2 id="section-3">3 Approaches to Understanding</h2>
-    <article>
     <p>
       We argued above that the danger of complexity came from its impact on our attempts to <em>understand</em> a system.
       Because of this, it is helpful to consider the mechanisms that are commonly used to try to understand systems.
@@ -39,26 +38,26 @@
       This is because — as we shall see below — there are inherent limits to what can be achieved by testing, and because informal reasoning (by virtue of being an inherent part of the development process) is <em>always</em> used.
       The other justification is that improvements in informal reasoning will lead to <em>less errors being created</em> whilst all that improvements in testing can do is to lead to <em>more errors being detected</em>.
       As Dijkstra said in his Turing award speech [<a href="references.html#Dij72" class="reference">Dij72</a>, EWD340]:
-      <blockquote>
-        “Those who want really reliable software will discover that they must find means of avoiding the majority of bugs to start with.”
-      </blockquote>
     </p>
+    <blockquote>
+      <p>“Those who want really reliable software will discover that they must find means of avoiding the majority of bugs to start with.”</p>
+    </blockquote>
 
     <p>
       and as O’Keefe (who also stressed the importance of “<em>understanding your problem</em>” and that “<em>Elegance is not optional</em>”) said [<a href="references.html#OK90" class="reference">O’K90</a>]:
-      <blockquote>
-        “Our response to mistakes should be to look for ways that we can avoid making them, not to blame the nature of things.”
-      </blockquote>
     </p>
+    <blockquote>
+      <p>“Our response to mistakes should be to look for ways that we can avoid making them, not to blame the nature of things.”</p>
+    </blockquote>
 
     <p>
       The key problem with testing is that a test (of any kind) that uses one particular set of inputs tells you <em>nothing at all</em> about the behaviour of the system or component when it is given a different set of inputs.
       The huge number of different possible inputs usually rules out the possibility of testing them all, hence the unavoidable concern with testing will always be — <em>have you performed the </em>right<em> tests</em>?.
       The only certain answer you will ever get to this question is an answer in the negative — when the system breaks.  Again, as Dijkstra observed [<a href="references.html#Dij71" class="reference">Dij71</a>, EWD303]:
-      <blockquote>
-        “testing is hopelessly inadequate.…(it) can be used very effectively to show the presence of bugs but never to show their absence.”
-      </blockquote>
     </p>
+    <blockquote>
+      <p>“testing is hopelessly inadequate.…(it) can be used very effectively to show the presence of bugs but never to show their absence.”</p>
+    </blockquote>
     
     <p>
       We agree with Dijkstra. <em>Rely</em> on testing at your peril.
@@ -75,6 +74,5 @@
       When considered next to testing and reasoning, simplicity is more important than either.
       Given a stark choice between investment in testing and investment in simplicity, the latter may often be the better choice because it will facilitate <em>all</em> future attempts to understand the system — attempts of any kind.
     </p>
-    </article>
   </body>
 </html>

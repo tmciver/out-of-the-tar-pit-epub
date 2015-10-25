@@ -12,7 +12,6 @@
 
     <h2 id="section-10">10 Example of an FRP system</h2>
 
-    <article>
 
     <p>
       We now examine a simple example FRP system.
@@ -36,11 +35,9 @@
       The example will use syntax from a hypothetical FRP infrastructure (which supports not only the relational algebra but also some of the common extensions from <a href="section-8.html#section-8.5" class="section">section 8.5</a>) — typewriter font is used for this.
     </p>
 
-    </article>
 
     <h3 id="section-10.1">10.1 User-defined Types</h3>
 
-    <article>
 
     <p>
       The example system makes use of a small number of custom types (see <a href="section-9.html#section-9.3" class="section">section 9.3</a>), some of which are just aliases for types provided by the infrastructure:
@@ -57,11 +54,9 @@ def enum areaCode : CITY | SUBURBAN | RURAL
 def enum speedBand : VERY_FAST | FAST | MEDIUM | SLOW | VERY_SLOW
     </pre>
 
-    </article>
 
     <h3 id="section-10.2">10.2 Essential State</h3>
 
-    <article>
 
     <p>
       The essential state (see <a href="section-9.html#section-9.1.1" class="section">section 9.1.1</a>) consists of the definitions of the <em>types</em> of the base relvars (the types of the attributes are shown in <em>italics</em>).
@@ -125,21 +120,17 @@ def relvar Commission :: {priceBand:<em>priceBand</em>
       The commission fees are assigned on the basis of sale <em>prices</em> divided into different <em>priceBand</em>s, Property <em>addresses</em> categorized into <em>areaCodes</em> and ratings of the <em>saleSpeed</em>. (The decision has been made to represent commission rates as a base relation — rather than as a function — so that the commission fees can be queried and easily adjusted).
     </p>
 
-    </article>
 
     <h3 id="section-10.3">10.3 Essential Logic</h3>
 
-    <article>
 
     <p>
       This is the heart of the system (see <a href="section-9.html#section-9.1.2" class="section">section 9.1.2</a>) and corresponds to the “business logic”.
     </p>
 
-    </article>
 
     <h4>10.3.1 Functions</h4>
 
-    <article>
 
     <p>
       We do not give the actual function definitions here, we just describe their operation informally.
@@ -155,11 +146,9 @@ def relvar Commission :: {priceBand:<em>priceBand</em>
       <dd>Converts a pair of dates into a <em>speedBand</em> (reflecting the speed of sale after taking into account the time of year)</dd>
     </dl>
 
-    </article>
 
     <h4>10.3.2 Derived Relations</h4>
 
-    <article>
 
     <p>
       There are thirteen derived relations in the system.
@@ -172,11 +161,9 @@ def relvar Commission :: {priceBand:<em>priceBand</em>
       In reality these types would be derived (or checked) by an infrastructure-provided type inference mechanism.
     </p>
 
-    </article>
 
     <h5>Internal</h5>
 
-    <article>
 
     <p>
       The ten <em>internal</em> derived relations exist mainly to help with the later definition of the three <em>external</em> ones.
@@ -311,11 +298,9 @@ project(join(SalesInfo, Commission),
       This gives the amount of <em>commission</em> due to each <em>agent</em> on each Property (represented by <em>address</em>).
     </p>
 
-    </article>
 
     <h5>External</h5>
 
-    <article>
 
     <p>
       Having now defined all the <em>internal</em> derived relations, we are now in a position to define the <em>external</em> derived relations — these are the ones which will be of most direct interest to the users of the system.
@@ -360,11 +345,9 @@ project(summarize(SalesCommissions,
       Finally, the total commission due to each agent is calculated by simply summing up the <em>commission</em> attribute of the SalesCommissions relation on a per <em>agent</em> basis to give the <em>totalCommission</em> attribute.
     </p>
 
-    </article>
 
     <h4>10.3.3 Integrity</h4>
 
-    <article>
 
     <p>
       Integrity constraints are given in the form of relational algebra or relational calculus expressions.
@@ -454,11 +437,9 @@ count(restrict(summarize(Offer,
       Once the system is deployed, the FRP infrastructure will reject any state modification attempts which would violate any of these integrity constraints.
     </p>
 
-    </article>
 
     <h3 id="section-10.4">10.4 Accidental State and Control</h3>
 
-    <article>
 
     <p>
       The <em>accidental state and control</em> component of an FRP system consists solely of a set of declarations which represent performance hints for the infrastructure (see <a href="section-9.html#section-9.1.3" class="section">section 9.1.3</a>).
@@ -489,11 +470,9 @@ count(restrict(summarize(Offer,
       Larger systems would probably also include <em>accidental control</em> specifications for performance reasons.
     </p>
 
-    </article>
 
     <h3 id="section-10.5">10.5 Other</h3>
 
-    <article>
 
     <p>
       The <em>feeders</em> and <em>observers</em> for this system would be fairly simple — <em>feeding</em> user input into Decisions, Offers etc., and directly <em>observing</em> and displaying the various derived relations as output (e.g. OpenOffers, PropertyForWebSite and CommisionDue).
@@ -506,7 +485,6 @@ count(restrict(summarize(Offer,
     <p>
       One extension which might require a custom <em>observer</em> would be a requirement to connect CommissionDue into an external payroll system.
     </p>
-    </article>
 
   </body>
 </html>
