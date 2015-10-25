@@ -36,10 +36,10 @@
           “From the complexity comes the difficulty of enumerating, much less understanding, all the possible states of the program, and from that comes the unreliability”
         </p>
       </blockquote>
-      &mdash; we agree with this, but believe that it is the presence of many possible states which gives rise to the complexity in the first place, and:
+      — we agree with this, but believe that it is the presence of many possible states which gives rise to the complexity in the first place, and:
       <blockquote>
         <p>
-          “computers&hellip; have very large numbers of states.
+          “computers… have very large numbers of states.
           This makes conceiving, describing, and testing them hard.
           Software systems have orders-of-magnitude more states than computers do.”
         </p>
@@ -51,27 +51,27 @@
     <article>
     <p>
       The severity of the impact of <em>state</em> on testing noted by Brooks is hard to over-emphasise.
-      State affects all types of testing &mdash; from system-level testing (where the tester will be at the mercy of the same problems as the hapless user just mentioned) through to component-level or unit testing.
+      State affects all types of testing — from system-level testing (where the tester will be at the mercy of the same problems as the hapless user just mentioned) through to component-level or unit testing.
       The key problem is that a test (of any kind) on a system or component that is in one particular <em>state</em> tells you <em>nothing at all</em> about the behaviour of that system or component when it happens to be in another <em>state</em>.
     </p>
     <p>
-      The common approach to testing a stateful system (either at the component or system levels) is to start it up such that it is in some kind of “clean” or “initial” (albeit mostly <em>hidden</em>) state, perform the desired tests using the test inputs and then rely upon the (often in the case of bugs ill-founded) assumption that the system would perform the same way &mdash; <em>regardless of its hidden internal state</em> &mdash; every time the test is run with those inputs.
+      The common approach to testing a stateful system (either at the component or system levels) is to start it up such that it is in some kind of “clean” or “initial” (albeit mostly <em>hidden</em>) state, perform the desired tests using the test inputs and then rely upon the (often in the case of bugs ill-founded) assumption that the system would perform the same way — <em>regardless of its hidden internal state</em> — every time the test is run with those inputs.
     </p>
     <p>
       In essence, this approach is simply sweeping the problem of state under the carpet.
       The reasons that this is done are firstly because it is often possible to get away with this approach and more crucially because there isn’t really any alternative when you’re testing a stateful system with a complicated internal hidden state.
     </p>
     <p>
-      The difficulty of course is that it’s not <em>always</em> possible to “get away with it” &mdash; if some sequence of events (inputs) can cause the system to “get into a bad <em>state</em>” (specifically an internal hidden state which was <em>different</em> from the one in which the test was performed) then things can and do go wrong.
+      The difficulty of course is that it’s not <em>always</em> possible to “get away with it” — if some sequence of events (inputs) can cause the system to “get into a bad <em>state</em>” (specifically an internal hidden state which was <em>different</em> from the one in which the test was performed) then things can and do go wrong.
       This is what is happening to the hypothetical support-desk caller discussed at the beginning of this section.
       The proposed remedies are all attempts to force the system back into a “good internal state”.
     </p>
     <p>
-      This problem (that a test in one <em>state</em> tells you <em>nothing at all</em> about the system in a different state) is a direct parallel to one of the fundamental problems with testing discussed above &mdash; namely that testing for one <em>set of inputs</em> tells you <em>nothing at all</em> about the  behaviour with a different <em>set of inputs</em>.
-      In fact the problem caused by state is typically worse &mdash; particularly when testing large chunks of a system &mdash; simply because even though the number of possible <em>inputs</em> may be very large, the number of possible <em>states</em> the system can be in is often even larger.
+      This problem (that a test in one <em>state</em> tells you <em>nothing at all</em> about the system in a different state) is a direct parallel to one of the fundamental problems with testing discussed above — namely that testing for one <em>set of inputs</em> tells you <em>nothing at all</em> about the  behaviour with a different <em>set of inputs</em>.
+      In fact the problem caused by state is typically worse — particularly when testing large chunks of a system — simply because even though the number of possible <em>inputs</em> may be very large, the number of possible <em>states</em> the system can be in is often even larger.
     </p>
     <p>
-      These two similar problems &mdash; one intrinsic to testing, the other coming from <em>state</em> &mdash; combine together <em>horribly</em>.
+      These two similar problems — one intrinsic to testing, the other coming from <em>state</em> — combine together <em>horribly</em>.
       Each introduces a huge amount of uncertainty, and we are left with very little about which we <em>can</em> be certain if the system/component under scrutiny is of a stateful nature.
     </p>
     </article>
@@ -82,18 +82,18 @@
       In addition to causing problems for understanding a system from the outside, state also hinders the developer who must attempt to <em>reason</em> (most commonly on an informal basis) about the expected behaviour of the system “from the inside”.
     </p>
     <p>
-      The mental processes which are used to do this informal reasoning often revolve around a case-by-case mental simulation of behaviour: “if this variable is in this state, then this will happen &mdash; which is correct &mdash; otherwise that will happen &mdash; which is also correct”.
-      As the number of states &mdash; and hence the number of possible scenarios that must be considered &mdash; grows, the effectiveness of this mental approach buckles almost as quickly as testing (it does achieve some advantage through abstraction over sets of similar values which can be seen to be treated identically).
+      The mental processes which are used to do this informal reasoning often revolve around a case-by-case mental simulation of behaviour: “if this variable is in this state, then this will happen — which is correct — otherwise that will happen — which is also correct”.
+      As the number of states — and hence the number of possible scenarios that must be considered — grows, the effectiveness of this mental approach buckles almost as quickly as testing (it does achieve some advantage through abstraction over sets of similar values which can be seen to be treated identically).
     </p>
     <p>
-      One of the issues (that affects both testing and reasoning) is the exponential rate at which the number of possible states grows &mdash; for every single <em>bit</em> of state that we add we <em>double</em> the total number of possible states.
-      Another issue &mdash; which is a particular problem for informal reasoning &mdash; is <em>contamination</em>.
+      One of the issues (that affects both testing and reasoning) is the exponential rate at which the number of possible states grows — for every single <em>bit</em> of state that we add we <em>double</em> the total number of possible states.
+      Another issue — which is a particular problem for informal reasoning — is <em>contamination</em>.
     </p>
     <p>
       Consider a system to be made up of procedures, some of which are stateful and others which aren’t.
       We have already discussed the difficulties of understanding the bits which are stateful, but what we would hope is that the procedures which aren’t themselves stateful would be more easy to comprehend.
       Alas, this is largely not the case.
-      If the procedure in question (which is itself stateless) makes use of any other procedure which <em>is</em> stateful &mdash; <em>even indirectly</em> &mdash; then all bets are off, our procedure becomes <em>contaminated</em> and we can only understand it in the context of state.
+      If the procedure in question (which is itself stateless) makes use of any other procedure which <em>is</em> stateful — <em>even indirectly</em> — then all bets are off, our procedure becomes <em>contaminated</em> and we can only understand it in the context of state.
       If we try to do anything else we will again run the risk of all the classic state-derived problems discussed above.
       As has been said, the problem with state is that “<em>when you let the nose of the camel into the tent, the rest of him tends to follow</em>”.
     </p>
@@ -109,17 +109,17 @@
     </p>
     <p>
       The problem with control is that very often we do not want to have to be concerned with this.
-      Obviously &mdash; given that we want to construct a real system in which things will actually <em>happen</em> &mdash; at some point order is going to be relevant to someone, but there are significant risks in concerning ourselves with this issue unnecessarily.
+      Obviously — given that we want to construct a real system in which things will actually <em>happen</em> — at some point order is going to be relevant to someone, but there are significant risks in concerning ourselves with this issue unnecessarily.
     </p>
     <p>
-      Most traditional programming languages <em>do</em> force a concern with ordering &mdash; most often the ordering in which things will <em>happen</em> is controlled by the order in which the statements of the programming language are written in the textual form of the program.
+      Most traditional programming languages <em>do</em> force a concern with ordering — most often the ordering in which things will <em>happen</em> is controlled by the order in which the statements of the programming language are written in the textual form of the program.
       This order is then modified by explicit branching instructions (possibly with conditions attached), and subroutines are normally provided which will be invoked in an implicit stack.
     </p>
     <p>
       Of course a variety of evaluation orders is possible, but there is little variation in this regard amongst widespread languages.
     </p>
     <p>
-      The difficulty is that when control is an implicit part of the language (as it almost always is), then every single piece of program must be understood in that context &mdash; even when (as is often the case) the programmer may wish to say nothing about this.
+      The difficulty is that when control is an implicit part of the language (as it almost always is), then every single piece of program must be understood in that context — even when (as is often the case) the programmer may wish to say nothing about this.
       When a programmer is forced (through use of a language with implicit control flow) to specify the control, he or she is being forced to specify an aspect of <em>how</em> the system should work rather than simply <em>what</em> is desired.
       Effectively they are being forced to <em>over-specify</em> the problem.
       Consider the simple pseudo-code below:
@@ -128,18 +128,18 @@
     <p>
       In this case it is clear that the programmer has no concern at all with the order in which (i.e. <em>how</em>) these things eventually happen.
       The programmer is only interested in specifying a <em>relationship</em> between certain values, but has been forced to say more than this by choosing an arbitrary control flow.
-      Often in cases such as this a compiler may go to lengths to establish that such a requirement (ordering) &mdash; which the programmer has been forced to make because of the semantics of the language &mdash; can be safely ignored.
+      Often in cases such as this a compiler may go to lengths to establish that such a requirement (ordering) — which the programmer has been forced to make because of the semantics of the language — can be safely ignored.
     </p>
     <p>
-      In simple cases like the above the issue is often given little consideration, but it is important to realise that two completely unnecessary things are happening &mdash; first an artificial ordering is being imposed, and then further work is done to remove it.
+      In simple cases like the above the issue is often given little consideration, but it is important to realise that two completely unnecessary things are happening — first an artificial ordering is being imposed, and then further work is done to remove it.
     </p>
     <p>
       This seemingly innocuous occurrence can actually significantly complicate the process of informal reasoning.
-      This is because the person reading the code above must effectively duplicate the work of the hypothetical compiler &mdash; they must (by virtue of the definition of the language semantics) start with the assumption that the ordering specified <em>is</em> significant, and then by further inspection determine that it is not (in cases less trivial than the one above determining this can become very difficult).
+      This is because the person reading the code above must effectively duplicate the work of the hypothetical compiler — they must (by virtue of the definition of the language semantics) start with the assumption that the ordering specified <em>is</em> significant, and then by further inspection determine that it is not (in cases less trivial than the one above determining this can become very difficult).
       The problem here is that mistakes in this determination can lead to the introduction of very subtle and hard-to-find bugs.
     </p>
     <p>
-      It is important to note that the problem is not in the <em>text</em> of the program above &mdash; after all that does have to be written down in some order &mdash; it is solely in the <em>semantics</em> of the hypothetical imperative language we have assumed.
+      It is important to note that the problem is not in the <em>text</em> of the program above — after all that does have to be written down in some order — it is solely in the <em>semantics</em> of the hypothetical imperative language we have assumed.
       It <em>is</em> possible to consider the exact same program text as being a valid program in a language whose semantics did not define a run-time sequencing based upon textual ordering within the program<sup><a href="footnotes.html#footnote-2">2</a></sup>.
     </p>
     <p>
@@ -151,8 +151,8 @@
       The impacts that this has for informal reasoning are well known, and the difficulty comes from adding further to the <em>number of scenarios</em> that must mentally be considered as the program is read. (In this respect the problem is similar to that of state which also adds to the number of scenarios for mental consideration as noted above).
     </p>
     <p>
-      Concurrency also affects testing, for in this case, we can no longer even be assured of result consistency when repeating tests on a system &mdash; even if we somehow ensure a consistent starting state.
-      Running a test in the presence of concurrency with a known initial state and set of inputs tells you <em>nothing at all</em> about what will happen the next time you run that very same test with the very same inputs and the very same starting state&hellip;and things can’t really get any worse than that.
+      Concurrency also affects testing, for in this case, we can no longer even be assured of result consistency when repeating tests on a system — even if we somehow ensure a consistent starting state.
+      Running a test in the presence of concurrency with a known initial state and set of inputs tells you <em>nothing at all</em> about what will happen the next time you run that very same test with the very same inputs and the very same starting state…and things can’t really get any worse than that.
     </p>
     </article>
 
@@ -162,16 +162,16 @@
       The final cause of complexity that we want to examine in any detail is sheer code volume.
     </p>
     <p>
-      This cause is basically in many ways a secondary effect &mdash; much code is simply concerned with managing <em>state</em> or specifying <em>control</em>.
+      This cause is basically in many ways a secondary effect — much code is simply concerned with managing <em>state</em> or specifying <em>control</em>.
       Because of this we shall often not mention code volume explicitly.
-      It is however worth brief independent attention for at least two reasons &mdash; firstly because it is the easiest form of complexity to <em>measure</em>, and secondly because it interacts badly with the other causes of complexity and this is important to consider.
+      It is however worth brief independent attention for at least two reasons — firstly because it is the easiest form of complexity to <em>measure</em>, and secondly because it interacts badly with the other causes of complexity and this is important to consider.
     </p>
     <p>
       Brooks noted [<a href="references.html#Bro86" class="reference">Bro86</a>]
       <blockquote>
         “Many of the classic problems of developing software products derive from this essential complexity and its nonlinear increase with size”
       </blockquote>
-      We basically agree that <em>in most current systems</em> this is true (we disagree with the word “essential” as already noted) &mdash; i.e. in most systems complexity definitely <em>does</em> exhibit nonlinear increase with size (of the code).
+      We basically agree that <em>in most current systems</em> this is true (we disagree with the word “essential” as already noted) — i.e. in most systems complexity definitely <em>does</em> exhibit nonlinear increase with size (of the code).
       This non-linearity in turn means that it’s vital to reduce the amount of code to an absolute minimum.
     </p>
     <p>
@@ -179,17 +179,17 @@
       <blockquote>
         “It has been suggested that there is some kind of law of nature telling us that the amount of intellectual effort needed grows with the square of program length.
         But, thank goodness, no one has been able to prove this law.
-        And this is because it need not be true. &hellip; I tend to the assumption &mdash; up till now not disproved by experience &mdash; that by suitable application of our powers of abstraction, the intellectual effort needed to conceive or to understand a program need not grow more than proportional to program length.”
+        And this is because it need not be true. … I tend to the assumption — up till now not disproved by experience — that by suitable application of our powers of abstraction, the intellectual effort needed to conceive or to understand a program need not grow more than proportional to program length.”
       </blockquote>
-      We agree with this &mdash; it is the reason for our “in most current systems” caveat above.
-      We believe that &mdash; with the effective management of the two major complexity causes which we have discussed, state and control &mdash; it becomes <em>far</em> less clear that complexity increases with code volume in a non-linear way.
+      We agree with this — it is the reason for our “in most current systems” caveat above.
+      We believe that — with the effective management of the two major complexity causes which we have discussed, state and control — it becomes <em>far</em> less clear that complexity increases with code volume in a non-linear way.
     </p>
     </article>
 
     <h3 id="section-4.4">4.4 Other causes of complexity</h3>
     <article>
     <p>
-      Finally there are other causes, for example: duplicated code, code which is never actually used (“dead code”), <b>unnecessary abstraction</b><sup><a href="footnotes.html#footnote-3" class="footnote">3</a></sup>, missed abstraction, poor modularity, poor documentation&hellip;
+      Finally there are other causes, for example: duplicated code, code which is never actually used (“dead code”), <b>unnecessary abstraction</b><sup><a href="footnotes.html#footnote-3" class="footnote">3</a></sup>, missed abstraction, poor modularity, poor documentation…
     </p>
     <p>
       All of these other causes come down to the following three (inter-related) principles:
@@ -200,14 +200,14 @@
       </dt>
       <dd>
         There are a whole set of <em>secondary</em> causes of complexity.
-        This covers all complexity introduced <em>as a result</em> of not being able to clearly understand a system. <em>Duplication</em> is a prime example of this &mdash; if (due to state, control or code volume) it is not clear that functionality already exists, or it is too <em>complex</em> to understand whether what exists does exactly what is required, there will be a strong tendency to duplicate.
+        This covers all complexity introduced <em>as a result</em> of not being able to clearly understand a system. <em>Duplication</em> is a prime example of this — if (due to state, control or code volume) it is not clear that functionality already exists, or it is too <em>complex</em> to understand whether what exists does exactly what is required, there will be a strong tendency to duplicate.
         This is particularly true in the presence of time pressures.
       </dd>
       <dt>
         Simplicity is <em>Hard</em>
       </dt>
       <dd>
-        This was noted above &mdash; significant <em>effort</em> can be required to achieve simplicity.
+        This was noted above — significant <em>effort</em> can be required to achieve simplicity.
         The first solution is often not the most simple, particularly if there is existing complexity, or time pressure.
         Simplicity can only be attained if it is recognised, sought and prized.
       </dd>
@@ -216,14 +216,14 @@
       </dt>
       <dd>
         What we mean by this is that, in the absence of language-enforced guarantees (i.e. restrictions on the <em>power</em> of the language) mistakes (and abuses) <em>will</em> happen.
-        This is the reason that garbage collection is good &mdash; the <em>power</em> of manual memory management is removed.
-        Exactly the same principle applies to <em>state</em> &mdash; another kind of <em>power</em>.
+        This is the reason that garbage collection is good — the <em>power</em> of manual memory management is removed.
+        Exactly the same principle applies to <em>state</em> — another kind of <em>power</em>.
         In this case it means that we need to be very wary of any language that even <em>permits</em> state, regardless of how much it discourages its use (obvious examples are ML and Scheme).
         The bottom line is that the more <em>powerful</em> a language (i.e. the more that is <em>possible</em> within the language), the harder it is to <em>understand</em> systems constructed in it.
       </dd>
     </dl>
     <p>
-      Some of these causes are of a human-nature, others due to environmental issues, but all can &mdash; we believe &mdash; be greatly alleviated by focusing on effective management of the complexity causes discussed in sections <a href="#section-4.1">4.1&ndash;4.3.</a>
+      Some of these causes are of a human-nature, others due to environmental issues, but all can — we believe — be greatly alleviated by focusing on effective management of the complexity causes discussed in sections <a href="#section-4.1">4.1–4.3.</a>
     </p>
     </article>
 
